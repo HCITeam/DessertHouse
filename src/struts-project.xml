@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="struts2" namespace="/" extends="struts-default">
+		<action name="employeeAdd" class="testController">
+			<result name="success" type="redirect">/404.jsp</result>
+			<result name="error" type="redirect">/404.html</result>
+		</action>
+		<action name="Login" class="login">
+			<result name="success" type="redirect">/jsp/memberBook.jsp</result>
+			<result name="error" type="redirect">/index.jsp</result>
+		</action>
+		<action name="Signup" class="signup">
+			<result name="success" type="redirect">/jsp/memberBook.jsp</result>
+			<result name="error" type="redirect">/index.jsp?type=1</result>
+		</action>
+		<action name="EmploeeLogin" class="emploeeLogin">
+			<result name="adminstrator" type="redirect">/jsp/storeManage.jsp</result>
+			<result name="director" type="redirect">/jsp/planManage.jsp</result>
+			<result name="head_server" type="redirect">/jsp/headServer.jsp</result>
+			<result name="server" type="redirect">/jsp/sale.jsp</result>
+			<result name="error" type="redirect">/jsp/employeeLogin.jsp</result>
+		</action>
+		<action name="StoreInventory" class="storeInventory">
+			<result name="success" type="redirect">/jsp/memberBook.jsp</result>
+			<result name="error" type="redirect">/index.jsp</result>
+		</action>
+		<action name="ShowMemberInfo" class="showMemberInfo">
+			<result name="success" type="redirect">/jsp/memberInfo.jsp</result>
+			<result name="error" type="redirect">/index.jsp</result>
+		</action>
+		<action name="ShowCardInfo" class="showCardInfo">
+			<result name="success" type="redirect">/jsp/cardInfo.jsp</result>
+			<result name="error" type="redirect">/index.jsp</result>
+		</action>
+		<action name="ShowInventory" class="showInventory">
+			<result name="success" type="redirect">/jsp/memberBook.jsp</result>
+		</action>
+		<action name="MemberRecord" class="memberRecord">
+			<result name="success" type="redirect">/jsp/memberRecord.jsp</result>
+		</action>
+		<action name="ManageEmployee" class="manageEmployee">
+			<result name="success" type="redirect">/jsp/employeeManage.jsp</result>
+		</action>
+		<action name="ManageStore" class="manageStore">
+			<result name="success" type="redirect">/jsp/storeManage.jsp</result>
+		</action>
+		<action name="AllInfo" class="allInfo">
+			<result name="success" type="redirect">/jsp/memberAllInfo.jsp</result>
+		</action>
+		<action name="Sale" class="sale">
+			<result name="success" type="redirect">/jsp/sale.jsp</result>
+		</action>
+		<action name="StoreRecord" class="storeRecord">
+			<result name="success" type="redirect">/jsp/saleRecord.jsp</result>
+		</action>
+		<action name="Statistics" class="statistics">
+			<result name="success" type="redirect">/jsp/statistics.jsp</result>
+		</action>
+		<action name="Logout" class="logout">
+			<result name="success" type="redirect">/index.jsp</result>
+		</action>
+		<action name="ManagePlan" class="managePlan">
+			<result name="success" type="redirect">/jsp/planManage.jsp</result>
+		</action>
+	</package>
+</struts>

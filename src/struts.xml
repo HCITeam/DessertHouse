@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.serve.static.browserCache" value="false" />
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<constant name="struts.devMode" value="false"></constant>
+	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
+	<constant name="com.opensymphony.xwork2.ObjectFactory" value="spring" />
+	<constant name="struts.locale" value="zh_CN" />
+	<constant name="struts.multipart.maxSize" value="10000000000000" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	
+	<include file="struts-json-project.xml"></include>
+	<include file="struts-project.xml"></include>
+</struts>

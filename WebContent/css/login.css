@@ -1,0 +1,200 @@
+@font-face {
+	font-family: QingShu;
+	src:url("../fonts/MFQingShu_Noncommercial-Regular_0.otf");
+}
+
+body{
+	display: block;
+	font-family: QingShu;
+	background-color: #f29c9f;
+}
+
+/*.content {
+	/*width: 17%;
+	height: 40%;*/
+	width: 350px;
+	/*height: 400px;*/
+	border-radius: 15px;
+	-webkit-border-radius:24px;
+	-moz-border-radius:24px;
+	background-color: #f29c9f;
+	margin: auto 0; 
+}*/
+
+.wrapper{
+	width: 80%;
+	margin: 0 auto;
+}
+
+.center-block {
+	width: 20%;
+	margin-top: 150px;
+	padding: 1%;
+	/*height: 20%;*/
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	border-radius: 24px;
+	-webkit-border-radius:24px;
+	-moz-border-radius:24px;
+	/*line-height: 100%;
+	overflow: hidden;*/
+	background-color: #f4bdbf;
+
+}
+.login-btn {
+	margin-left: auto;
+	margin-right: auto;
+} 
+
+.form-control {
+	display: block;
+	border: none;
+	height: 37px;
+	margin:0 auto;
+	margin-top: 20px;
+	font-size: 21px;
+	background-color: #f6d9da;
+}
+.form-control:hover {
+	background-color: #f8f2f2;
+}
+
+.form-control:focus {
+	background-color: #f8f2f2;
+}
+
+.form-control::-webkit-input-placeholder {
+	color: #343434;
+	
+}
+.form-control:-moz-placeholder {
+	color: #343434;
+}
+.form-control::-moz-placeholder {
+	color: #343434;
+}
+.form-control:-ms-input-placeholder {
+	color: #343434;
+}
+
+#welcome {
+	margin: 0 auto;
+	text-align: center;
+	color: #343434;
+	font-size: 37.5px;
+}
+
+#a-register{
+	display: block;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #343434;
+	font-size: 18px;
+	text-align: right;
+}
+
+.btn-default {
+	display: block;
+	width: 100%;
+	height: 42px;
+	border: none;;
+	font-size: 25px;
+	margin-top: 20px;
+	margin-bottom: 15px;
+	background-color: #ef7c89;
+	color: #343434;
+	/*font-style: */
+}
+
+.btn-default:hover {
+	background-color: #f6d9da;
+	color: #343434;
+}
+
+
+.btn-default:active {
+	background-color: #ef7c89;
+	color: #343434;
+	box-shadow: none;
+	outline: none;
+}
+
+.btn-default:visited {
+	background-color: #ef7c89;
+	color: #343434;
+	box-shadow: none;
+	outline: none;
+}
+
+.login-btn{
+	margin-top: 0px;
+}
+
+.img-logo {
+	position: absolute;
+	width: 50px;
+	height: 65px;
+	left: 130px;
+	top: 50px;
+}
+
+#img-dessert {
+	position: absolute;
+	width: 125px;
+	height: 175px;
+	right: 0px;
+	bottom: 0px;
+}
+
+#worker-login {
+    position: absolute;
+	right: 30px;
+	top: 50px;
+	font-size: 25px;
+	color: #343434;
+}
+
+#img-goto {
+	width: 25px;
+	height: 25px;
+}
+
+#worker-login:hover {
+	
+}
+
+.welcome {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+}
+
+.top-part {
+	position: relative;
+	background-color: #f29c9f;
+	height: 65%;
+}
+
+.welcome img{
+	display: inline-block;
+}
+
+.welcome-macarons {
+	width: 450px;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translate(-50%,-5%);
+}
+.bottom-part {
+	position: relative;
+	background-color:  #fcf4f4;
+	height: 35%;
+	font-size: 70px;
+	color: #f29c9f;
+	text-align: center;
+}

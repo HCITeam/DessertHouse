@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+    
+    <struts>
+    		<package name="index" namespace="/api" extends="json-default">
+    			<action name="AddCart" class="addCart" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="ChangeCart" class="changeCart" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="GetCart" class="getCart" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="Reservate" class="reservate" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="ChangeInfo" class="changeInfo" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="ToCash" class="toCash" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="ChangeBankcard" class="changeBankcard" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="CardRecharge" class="cardRecharge" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="CashRecharge" class="cashRecharge" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="UpdatePlan" class="updatePlan" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="DeletePlan" class="deletePlan" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="AddPlan" class="addPlan" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="UpdateStore" class="updateStore" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="DeleteStore" class="deleteStore" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="AddStore" class="addStore" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="UpdateEmployee" class="updateEmployee" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="DeleteEmployee" class="deleteEmployee" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="AddEmployee" class="addEmployee" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="PassPlan" class="passPlan" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="AddCommodity" class="addCommodity" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="CheckMember" class="checkMember" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="PayByCard" class="payByCard" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="PayByCash" class="payByCash" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<action name="CancelMember" class="cancelMember" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    		</package>		
+    </struts>

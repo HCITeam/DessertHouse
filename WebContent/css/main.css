@@ -1,0 +1,492 @@
+body {
+	height: 100%;
+	position: relative;
+	background-color:#f29c9f;
+	font-family: 'MF YueYuan (Noncommercial)';
+}
+
+html {
+	height: 100%;
+}
+
+a:link,a span {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:visited {
+	outline: none;
+	color:inherit;
+}
+
+b {
+    display: inline-block;
+    width: 26px;
+    height: 2px;
+    background: #000;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: middle;
+    -webkit-transform: rotate(45deg);
+}
+
+b:after {
+    content: '.';
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: #000;
+    -webkit-transform: rotate(-90deg);
+}
+
+option {
+	background-color :none;
+}
+
+.btn {
+	box-sizing:border-box;
+	padding: 8px 20px 8px 20px;
+	border: 2px solid #ff8488;
+	border-radius: 6px;
+	font-size: 20px;
+	color: #ff8488;
+}
+
+.btn:link {
+	color: #ff8488;
+}
+
+.btn:hover {
+	transition:all 0.2s;
+	background-color: #ff8488;
+	color: #fcf4f4;
+}
+
+input {
+	font-family: inherit;
+	background-color: inherit;
+
+}
+
+input[type="text"],input[type="date"],input[type="password"],select {
+	width: 250px;
+	height: 40px;
+	padding: 0px 10px 0px 10px;
+	border: 2px solid #ff8488;
+	border-radius: 6px;
+	font-size: 21px;
+	font-family: inherit;
+}
+
+input[type="text"]:focus,input[type="date"]:focus,input[type="password"]:focus,select:focus  {
+	outline: none;
+	box-shadow: 0px 0px 2px 2px #ff8488;
+}
+
+input[type="radio"] {
+	width: 20px;
+	height: 20px;
+	margin-left: 10px;
+	margin-right: 25px;
+}
+
+.clear {
+	clear:both;
+}
+
+.modal-wrapper {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top:0;
+	left: 0;
+	z-index: 1000;
+	background-color: rgba(0,0,0,0.3);
+}
+
+.dialog {
+	position: fixed;
+	width: 460px;
+	height: 300px;
+	top:50%;
+	left: 50%;
+	transform:translate(-50%,-50%);
+	background-color: #fcf4f4;
+}
+
+.left-bar{
+	height: 100%;
+	width: 150px;
+	position: fixed;
+}
+
+.logo {
+	margin: 40px auto;
+	margin-bottom: 100px;
+	width: 80px;
+}
+
+.logo img{
+	width: 100%;
+}
+
+.nav-btn {
+	display: block;
+	height: 40px;
+	font-size:25px;
+	line-height: 40px;
+	text-align: center;
+	color:#000;
+}
+
+.nav-btn:nth-child(odd) {
+	background-color:#ffd7be;
+}
+
+#nav-btn-active {
+	background-color: #fcf4f4;
+}
+
+.nav-btn:hover {
+	transition:background-color 0.3s;
+	background-color: #fcf4f4;
+}
+
+
+
+.large-manage-btn {
+	height: 25px;
+	width: 120px;
+	position: absolute;
+	margin: auto;
+	bottom: 40px;
+	left: 15px;
+} 
+.large-manage-btn:hover {
+	transition:all 0.4s;
+	left: 20px;
+	width: 105px;
+}
+
+.large-manage-btn span {
+	display: inline-block;
+	font-size: 20px;
+	vertical-align: middle;
+}
+
+.large-manage-btn img {
+	height: 25px;
+	float: right;
+	vertical-align: middle;
+}
+
+.manage-btn {
+	height: 20px;
+	width: 80px;
+	position: absolute;
+	margin: auto;
+	bottom: 40px;
+	left: 30px;
+}
+
+.manage-btn:hover {
+	transition:all 0.4s;
+	left: 33px;
+	width: 75px;
+}
+
+.manage-btn span {
+	display: inline-block;
+	font-size: 20px;
+	vertical-align: middle;
+}
+
+.manage-btn img {
+	height: 25px;
+	float: right;
+	vertical-align: middle;
+}
+
+.right-site {
+	height: 100%;
+	padding-left: 150px;
+}
+
+.content {
+	height: 100%;
+	/*background-color: #fff;*/
+	background-color: #fcf4f4;
+	position: relative;
+	z-index: 2;
+}
+
+.tab-btn-group {
+	height: 50px;
+	margin-top: 20px;
+}
+
+.tab-btn {
+	display: inline-block;
+	width: 125px;
+	height: 60px;
+	margin-right: -6px;
+	position: relative;
+	z-index: 0;
+	font-size: 20px;
+	text-align: center;
+	line-height: 50px;
+	background-color: #ff8488;
+}
+
+.tab-btn-active {
+	z-index: 1;
+	background-color:  #fcf4f4;
+	box-shadow: 0px -1px 1px 2px rgba(0, 0, 0, 0.2);;
+}
+
+.tab-btn:hover {
+	transition:background-color 0.3s;
+	background-color:  #fcf4f4;
+}
+
+.tool-btn {
+	margin-top:20px;
+	margin-right: 30px;
+	float: right;
+}
+
+.book-table {
+	width: 740px;
+	margin: 40px auto;
+	font-size: 21px;
+	overflow: auto;
+}
+
+.book-table th,.book-table td{
+	padding: 12px;
+	border-left: 0px;
+	border-right: 0px;
+}
+.book-table .short-input-td {
+	width:100px;
+}
+
+.book-table .long-input-td {
+	width:180px;
+}
+.book-table input {
+	border:none;
+}
+.sale-table {
+	width: 260px;
+	margin: 40px;
+	font-size: 	20px;
+}
+
+.sale-table th,.sale-table td{
+	padding: 10px;
+	border-left: 0px;
+	border-right: 0px;
+}
+
+.wrapper-left,.wrapper-right {
+	float: left;
+}
+
+.cart-dialog {
+	width: 500px;
+	height: 400px;
+	padding: 20px;
+	overflow: auto;
+}
+
+#large-cart-dialog {
+	width: 800px;
+}
+
+.close-btn {
+    position: absolute;
+    right: 35px;
+    top: 35px;
+}
+
+.cart-dialog .dialog-title {
+	font-size: 25px;
+	color: #ff8488;
+}
+
+.cart-table {
+	min-height: 425px;
+}
+
+.cart-dialog .book-table .sale-table {
+	width: 100%;
+}
+
+.round-btn {
+	display: inline-block;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
+	font-size: 30px;
+	line-height: 26px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+input[type="text"].num-input {
+	display: inline-block;
+	width: 45px;
+	height: 40px;
+	margin: 0 0px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.cart-dialog .confirm-btn {
+	float: right;
+}
+
+.info-form {
+	font-family: inherit;
+	font-size: 25px;
+	margin-top: 40px;
+	margin-left: 100px;
+}
+
+.info-form li {
+	margin-bottom: 20px;
+}
+
+.info-form span{
+	display: inline-block;
+	width: 150px;
+	margin-right: 20px;
+	text-align: right;
+}
+
+.info-form .span-right {
+	text-align:left;
+}
+
+.info-form input {
+	display: inline-block;
+}
+
+.info-form .modify-btn{
+	display: inline-block;
+	margin-left: 170px;
+	margin-top:30px;
+	cursor: pointer;
+}
+.confirm-btn {
+	width:105px;
+}
+/* .info-form .confirm-btn{
+	display: inline-block;
+	margin-left: 50px;
+	margin-top:20px;
+	cursor: pointer;
+	float£ºnone;
+} */
+
+.tool-bar .date-input{
+	width: 140px;
+	height: 50px;
+	margin-top: 20px;
+	margin-right: 20px;
+	float: right;
+}
+
+.toolkit {
+    position: absolute;
+	right: 30px;
+	top: 8px;
+	font-size: 21px;
+	color: #000;
+}
+
+#img-goto {
+	width: 25px;
+	height: 25px;
+}
+
+.toolkit:hover {
+	
+}
+
+.info-form select{
+	width:120px;
+	
+}
+
+.tool-bar select{
+	width: 95px;
+	height: 50px;
+	margin-top: 20px;
+	margin-right: 20px;
+	float: right;
+}
+
+#bankcard {
+	width:300px;
+}
+
+#edit-s-id,#add-s-id {
+	width:100px;
+}
+
+#edit-type,#add-type {
+	width:180px;
+}
+
+li .long-input-td {
+	width:180px;
+}
+
+li .short-input-td,div .short-input-td {
+	width:100px;
+}
+
+.plan-form li {
+	text-align:center;
+}
+
+.plan-form input, .plan-form select{
+	display:inline-block;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.plan-form .btn{
+	float:none;
+	margin-top:10px;
+}
+
+.sale-little-table {
+	width: 200px;
+    margin-top: 35px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 16px;
+    margin-left: 50px;
+    margin-right: 0px;
+}
+
+#pname-card {
+	width:135px;
+}
+
+/* #book-table-cart {
+	width: 540px;
+	margin: 35px auto;
+	font-size: 19px;
+	overflow: auto;
+}
+
+#book-table-cart th,#book-table-cart td{
+	padding: 8px;
+	border-left: 0px;
+	border-right: 0px;
+} */
