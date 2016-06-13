@@ -19,6 +19,9 @@
 	List<InventoryRVO> firstList = (List<InventoryRVO>) sc.getAttribute("date_first");
 	List<InventoryRVO> secondList = (List<InventoryRVO>) sc.getAttribute("date_second");
 	List<InventoryRVO> thirdList = (List<InventoryRVO>) sc.getAttribute("date_third");
+	String date1 = (String)sc.getAttribute("date_one");
+	String date2 = (String)sc.getAttribute("date_two");
+	String date3 = (String)sc.getAttribute("date_three");
 %>
 <script>
 	var visited = "<%=visited_store%>";
@@ -62,17 +65,17 @@
 		<div class="tab-btn-group">
 			<a class="tab-btn tab-btn-active" href="javascript:void(0)"
 				id="tab-firstday"><%
- 					String[] date = firstList.get(0).getS_date().split("-");
+ 					String[] date = date1.split("-");
  					String show_date = date[1] + "-" + date[2];
  					out.print(show_date);
  				%></a> 
 				<a class="tab-btn" href="javascript:void(0)" id="tab-secondday"><%
-					date = secondList.get(0).getS_date().split("-");
+					date = date2.split("-");
 					show_date = date[1] + "-" + date[2];
 					out.print(show_date);
 				%></a> 
 				<a class="tab-btn" href="javascript:void(0)" id="tab-thirdday"><%
-					date = thirdList.get(0).getS_date().split("-");
+					date = date3.split("-");
 					show_date = date[1] + "-" + date[2];
 					out.print(show_date);
 					//System.out.println(show_date);

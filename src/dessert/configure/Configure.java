@@ -67,6 +67,9 @@ public class Configure {
 	public static final String  MONTH				=	"month";
 	public static final String  SALE_RECORD			=	"sale_record";
 	public static final String  STATISTICS			=	"statistics";
+	public static final String  DATE_ONE			=	"date_one";
+	public static final String  DATE_TWO			=	"date_two";
+	public static final String  DATE_THREE			=	"date_three";
 	//
 	
 	public static final int  	FAIL				=	0;
