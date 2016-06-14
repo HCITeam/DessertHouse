@@ -15,11 +15,11 @@ import org.springframework.web.multipart.MultipartFile;
  */
 public final class FormValidator {
 	private final Map<String, Object> map;
-	private final ArrayList<Integer> errors;
+	private final ArrayList<String> errors;
 	
 	public FormValidator(){
 		this.map = new HashMap<String, Object>();
-		this.errors = new ArrayList<Integer>();
+		this.errors = new ArrayList<String>();
 	}
 	//===================================put========================================
 	/**
@@ -136,7 +136,7 @@ public final class FormValidator {
 	/**
 	 * 主动添加一个错误
 	 */
-	public void addError(int error) {
+	public void addError(String error) {
 		this.errors.add(error);
 	}
 	
@@ -144,15 +144,15 @@ public final class FormValidator {
 	 * 获取当前所有错误
 	 * @return
 	 */
-	public int[] getErrors() {
-		int[] result = new int[this.errors.size()];
+	public String[] getErrors() {
+		String[] result = new String[this.errors.size()];
 		for(int i=0; i<result.length; i++){
 			result[i] = this.errors.get(i);
 		}
 		return result;
 	}
 	
-	public int getLastError(){
+	public String getLastError(){
 		return this.errors.get(this.errors.size()-1);
 	}
 	//===================================is========================================
@@ -161,7 +161,7 @@ public final class FormValidator {
 	 * @param key 表单键
 	 * @return 
 	 */
-	public void isRequired(String key, int code){
+	public void isRequired(String key, String code){
 		String value = _valueOf(key);
 		if(value==null || value.trim().equals("")){
 			this.errors.add(code);
@@ -173,7 +173,7 @@ public final class FormValidator {
 	 * @param key
 	 * @param code
 	 */
-	public void isRequiredWithEmpty(String key, int code){
+	public void isRequiredWithEmpty(String key, String code){
 		String value = _valueOf(key);
 		if(value==null){
 			this.errors.add(code);
@@ -186,7 +186,7 @@ public final class FormValidator {
 	 * @param value
 	 * @param i
 	 */
-	public void isEquals(String key, String value, int i) {
+	public void isEquals(String key, String value, String i) {
 		String val = _valueOf(key);
 		if(val==value || val!=null && val.equals(value)){
 			return;
@@ -199,13 +199,13 @@ public final class FormValidator {
 	 * @param key 表单键
 	 * @param pattern 正则表达式
 	 */
-	public void isMatch(String key, String pattern, int code) {
+	public void isMatch(String key, String pattern, String code) {
 		String value = _valueOf(key);
 		if(value==null || !value.matches(pattern)){
 			this.errors.add(code);
 		}
 	}
-	public void isMatchIfExist(String key, String pattern, int code) {
+	public void isMatchIfExist(String key, String pattern, String code) {
 		String value = _valueOf(key);
 		if(value!=null && !value.matches(pattern)){
 			this.errors.add(code);
@@ -218,7 +218,7 @@ public final class FormValidator {
 	 * @param matcher
 	 * @param code
 	 */
-	public void isMatch(String key, FormMatcher matcher, int code){
+	public void isMatch(String key, FormMatcher matcher, String code){
 		String value = _valueOf(key);
 		try{
 			if(value!=null && matcher.isMatch(value)){
@@ -232,7 +232,7 @@ public final class FormValidator {
 	 * 验证符合bool格式
 	 * @param key 表单键
 	 */
-	public void isBool(String key, int code) {
+	public void isBool(String key, String code) {
 		String value = _valueOf(key);
 		if(value==null || (!value.toLowerCase().equals("true") && !value.toLowerCase().equals("false"))){
 			this.errors.add(code);
@@ -244,7 +244,7 @@ public final class FormValidator {
 	 * @param key
 	 * @param code
 	 */
-	public void isInt(String key, int code) {
+	public void isInt(String key, String code) {
 		if(!testInt(key)){
 			this.errors.add(code);
 		}
@@ -277,7 +277,7 @@ public final class FormValidator {
 	 * @param key
 	 * @param code
 	 */
-	public void isLong(String key, int code){
+	public void isLong(String key, String code){
 		try{
 			String value = _valueOf(key);
 			Long.parseLong(value, 10);
@@ -291,7 +291,7 @@ public final class FormValidator {
 	 * @param key
 	 * @param code
 	 */
-	public void isId(String key, int code){
+	public void isId(String key, String code){
 		this.isLong(key, code);
 		this.isL(key, 0, code);
 	}
@@ -302,7 +302,7 @@ public final class FormValidator {
 	 * @param types
 	 * @param code
 	 */
-	public void isIn(String key, int[] types, int code){
+	public void isIn(String key, int[] types, String code){
 		try{
 			String value = _valueOf(key);
 			int i = Integer.parseInt(value);
@@ -316,7 +316,7 @@ public final class FormValidator {
 	}
 	
 
-	public void isIn(String key, String[] strings, int code) {
+	public void isIn(String key, String[] strings, String code) {
 		String value = _valueOf(key);
 		for(String type: strings){
 			if(type.equals(value)){
@@ -334,7 +334,7 @@ public final class FormValidator {
 	 * @param min
 	 * @param code
 	 */
-	public void isL(String key, int min, int code){
+	public void isL(String key, int min, String code){
 		try{
 			String value = _valueOf(key);
 			int i = Integer.parseInt(value, 10);
@@ -352,7 +352,7 @@ public final class FormValidator {
 	 * @param min
 	 * @param code
 	 */
-	public void isl(String key, int min, int code){
+	public void isl(String key, int min, String code){
 		try{
 			String value = _valueOf(key);
 			int i = Integer.parseInt(value, 10);
@@ -371,7 +371,7 @@ public final class FormValidator {
 	 * @param max
 	 * @param code
 	 */
-	public void isLr(String key, int min, int max, int code){
+	public void isLr(String key, int min, int max, String code){
 		try{
 			String value = _valueOf(key);
 			int i = Integer.parseInt(value, 10);
@@ -390,7 +390,7 @@ public final class FormValidator {
 	 * @param max
 	 * @param code
 	 */
-	public void isLR(String key, int min, int max, int code){
+	public void isLR(String key, int min, int max, String code){
 		try{
 			String value = _valueOf(key);
 			int i = Integer.parseInt(value, 10);
@@ -409,7 +409,7 @@ public final class FormValidator {
 	 * @param max
 	 * @param code
 	 */
-	public void islr(String key, int min, int max, int code){
+	public void islr(String key, int min, int max, String code){
 		try{
 			String value = _valueOf(key);
 			int i = Integer.parseInt(value, 10);
@@ -428,7 +428,7 @@ public final class FormValidator {
 	 * @param max
 	 * @param code
 	 */
-	public void islR(String key, int min, int max, int code){
+	public void islR(String key, int min, int max, String code){
 		try{
 			String value = _valueOf(key);
 			int i = Integer.parseInt(value, 10);
@@ -446,7 +446,7 @@ public final class FormValidator {
 	 * @param max
 	 * @param code
 	 */
-	public void isR(String key, int max, int code){
+	public void isR(String key, int max, String code){
 		try{
 			String value = _valueOf(key);
 			int i = Integer.parseInt(value, 10);
@@ -464,7 +464,7 @@ public final class FormValidator {
 	 * @param max
 	 * @param code
 	 */
-	public void isr(String key, int max, int code){
+	public void isr(String key, int max, String code){
 		try{
 			String value = _valueOf(key);
 			int i = Integer.parseInt(value, 10);
@@ -482,7 +482,7 @@ public final class FormValidator {
 	 * @param min
 	 * @param code
 	 */
-	public void isL(String key, long min, int code){
+	public void isL(String key, long min, String code){
 		try{
 			String value = _valueOf(key);
 			long i = Long.parseLong(value, 10);
@@ -500,7 +500,7 @@ public final class FormValidator {
 	 * @param min
 	 * @param code
 	 */
-	public void isl(String key, long min, int code){
+	public void isl(String key, long min, String code){
 		try{
 			String value = _valueOf(key);
 			long i = Long.parseLong(value, 10);
@@ -519,7 +519,7 @@ public final class FormValidator {
 	 * @param max
 	 * @param code
 	 */
-	public void isLr(String key, long min, long max, int code){
+	public void isLr(String key, long min, long max, String code){
 		try{
 			String value = _valueOf(key);
 			long i = Long.parseLong(value, 10);
@@ -538,7 +538,7 @@ public final class FormValidator {
 	 * @param max
 	 * @param code
 	 */
-	public void isLR(String key, long min, long max, int code){
+	public void isLR(String key, long min, long max, String code){
 		try{
 			String value = _valueOf(key);
 			long i = Long.parseLong(value, 10);
@@ -557,7 +557,7 @@ public final class FormValidator {
 	 * @param max
 	 * @param code
 	 */
-	public void islr(String key, long min, long max, int code){
+	public void islr(String key, long min, long max, String code){
 		try{
 			String value = _valueOf(key);
 			long i = Long.parseLong(value, 10);
@@ -576,7 +576,7 @@ public final class FormValidator {
 	 * @param max
 	 * @param code
 	 */
-	public void islR(String key, long min, long max, int code){
+	public void islR(String key, long min, long max, String code){
 		try{
 			String value = _valueOf(key);
 			long i = Long.parseLong(value, 10);
@@ -594,7 +594,7 @@ public final class FormValidator {
 	 * @param max
 	 * @param code
 	 */
-	public void isR(String key, long max, int code){
+	public void isR(String key, long max, String code){
 		try{
 			String value = _valueOf(key);
 			long i = Long.parseLong(value, 10);
@@ -612,7 +612,7 @@ public final class FormValidator {
 	 * @param max
 	 * @param code
 	 */
-	public void isr(String key, long max, int code){
+	public void isr(String key, long max, String code){
 		try{
 			String value = _valueOf(key);
 			long i = Long.parseLong(value, 10);
