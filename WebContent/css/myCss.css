@@ -85,7 +85,7 @@
 	cursor:pointer;
 	transform:rotate(180deg);
 }
-.store-btn-delete,.store-btn-edit
+.store-btn-delete,#newStoreDel,.store-btn-edit
 {
 	transition:all 0.5s;
 }
@@ -96,7 +96,7 @@
 	cursor:pointer;
 }
 
-.store-btn-delete:hover
+.store-btn-delete:hover,#newStoreDel:hover
 {
 	cursor:pointer;
 	transform:rotate(180deg);

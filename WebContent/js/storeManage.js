@@ -49,10 +49,29 @@ $(document).on("click",".store-btn-delete",function(){
             });
 });
 
-$("#addStoreBut").click(function(){
-	$(".modal-wrapper").show();
-	$("body").css("overflow","hide");
-});
+
+
+function addClick()
+{
+	$("#addStoreLine").html("<td class='short-input-td'>新增</td>\
+			<td><input type='text'  id='newStoreName' placeholder='请输入店名'></td>\
+			<td><input type='text'  id='newStoreLocation' placeholder='请输入地址'></td>\
+			<td><input type='text'  id='newStoreTel' placeholder='请输入联系电话'></td>\
+		    <td><a class='store-btn-edit' id='newStoreEdit>'><img\
+					src='../img/edit.png'></a></td>\
+			<td><a id='newStoreDel'><img class='delImg'\
+					src='../img/delete.png'></a></td>");
+
+	$("#newStoreDel").click(function()
+	{
+		$("#addStoreLine").html("<td colspan='6'> <div class='addBut' id='addStoreBut'>+</div></td>");
+		$("#addStoreBut").click(addClick);
+	});
+	//$(".modal-wrapper").show();
+	//$("body").css("overflow","hide");
+}
+
+$("#addStoreBut").click(addClick);
 
 $(".confirm-btn").on("click",function(){
 	var name=$("#name").val();

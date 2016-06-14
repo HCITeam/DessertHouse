@@ -67,7 +67,7 @@
 					<%	
 						    }
 					%>
-					<tr class="tableBottomTr">
+					<tr class="tableBottomTr" id="addStoreLine">
 						<td colspan="6"> <div class="addBut" id="addStoreBut">+</div></td>
 					</tr>
 				</table>
