@@ -21,6 +21,7 @@ body{
 	margin: auto 0; 
 }*/
 
+
 .wrapper{
 	width: 80%;
 	margin: 0 auto;
@@ -85,7 +86,7 @@ body{
 	font-size: 37.5px;
 }
 
-#a-register{
+#a-register,#a-login{
 	display: block;
 	padding-top: 5px;
 	padding-bottom: 5px;
@@ -197,4 +198,9 @@ body{
 	font-size: 70px;
 	color: #f29c9f;
 	text-align: center;
+}
+
+.register-wrapper
+{
+	display:none;
 }

@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<div class="welcome">
+	<div class="welcome" id="first-show">
 		<div class="top-part">
 			<img class="img-logo" src="./img/logo.png" alt="logo"> <img
 				class="welcome-macarons" src="./img/macarons.png" alt="logo">
@@ -21,7 +21,18 @@
 			<p>“从这里, 开启甜蜜之旅”</p>
 		</div>
 	</div>
-
+	<script>
+	var showNum=sessionStorage.getItem("showNum");
+	if(showNum==null)
+	{
+		sessionStorage.setItem("showNum","already");
+	}
+	else
+	{
+		myFirstShow=document.getElementById("first-show");
+		myFirstShow.style.display="none";
+	}
+	</script>
 	<img src="./img/logo.png" alt="logo" class="img-logo">
 	<div class="toolkit">
 		<a href="./jsp/employeeLogin.jsp" id="worker-login">工作人员<img
@@ -39,11 +50,12 @@
 				<div class="register-wrapper">
 					<input type="password" class="form-control" id="password-second"
 						placeholder="再次输入密码" aria-describedby="sizing-addon1">
+					<a href="#" id="a-login">登陆</a>
 					<button type="button" class="btn btn-default" id="signup">注&nbsp&nbsp&nbsp册</button>
 				</div>
 				<div class="login-wrapper">
 					<a href="#" id="a-register">注册</a> <input
-						class="btn btn-default login-btn" type="submit"
+						class="btn btn-default login-btn" id="login" type="submit"
 						value="登&nbsp&nbsp&nbsp陆"></input>
 				</div>
 			</form>
@@ -51,6 +63,7 @@
 				<%
 					String message = (String) request.getServletContext().getAttribute("message");
 					if (message != null) {
+						message="错误码:"+message;
 				%>
 				<div class="alert alert-danger alert-dismissable">
 					<button type="button" class="close" data-dismiss="alert"
@@ -71,9 +84,6 @@
 	</div>
 	<img src="./img/login-dessert.png" alt="dessert" id="img-dessert">
 	
-	<script>
-		
-	</script>
 	<script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
 <script src="./js/bootstrap.js"></script>
 <script type="text/javascript" src="./js/login.js"></script>

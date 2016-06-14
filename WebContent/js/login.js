@@ -8,7 +8,7 @@ $(document).ready(function (){
 	// setTimeout(function() {
 	// 	$('.welcome p').fadeIn(100);
 	// },11);
-    
+	$(".register-wrapper").hide();
 	setTimeout(function ()
 	{
 	    $('.top-part').animate(
@@ -28,12 +28,18 @@ $(document).ready(function (){
 
 	}, 1999);
 	
-	$(".register-wrapper").hide();
+
 });
 
 $("#a-register").click(function() {
 	$(".login-wrapper").hide();
 	$(".register-wrapper").show(600);
+	$("#message").hide();
+});
+
+$("#a-login").click(function() {
+	$(".login-wrapper").show(600);
+	$(".register-wrapper").hide();
 });
 
 $("#signup")
@@ -43,24 +49,28 @@ $("#signup")
 					var password = $("#password").val();
 					var passwordTwice = $("#password-second").val();
 					if (username == "") {
+						$("#message").show(600);
 						$("#message")
 								.html(
 										"<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>用户名不能为空</div>");
 						return;
 					}
 					if (password == "") {
+						$("#message").show(600);
 						$("#message")
 								.html(
 										"<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>密码不能为空</div>");
 						return;
 					}
 					if (passwordTwice == "") {
+						$("#message").show(600);
 						$("#message")
 								.html(
 										"<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>请再次输入密码</div>");
 						return;
 					}
 					if (password != passwordTwice) {
+						$("#message").show(600);
 						$("#message")
 								.html(
 										"<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>输入密码不一致，请再次确认</div>");
@@ -70,3 +80,25 @@ $("#signup")
 					$("#signup-password").val(password);
 					$("#user-signup").submit();
 				});
+/*$("#login")
+.mouseover(
+		function() 
+		{
+			var username = $("#name").val();
+			var password = $("#password").val();
+			if (username == "") {
+				//$("#login").attr("disabled", true);
+				$("#name").css("border","3px solid red");
+			}
+			if (password == "") {
+				//$("#login").attr("disabled", true);
+				$("#password").css("border","3px solid red");
+			}
+		});
+$("#login")
+.mouseout(
+		function() 
+		{
+			$("#name").css("border","none");
+			$("#password").css("border","none");
+		});*/

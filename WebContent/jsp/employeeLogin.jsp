@@ -27,6 +27,7 @@
 					type="password" class="form-control" id="password" name="password"
 					placeholder="密码" aria-describedby="sizing-addon1">
 
+					<br/>
 				<div class="login-wrapper">
 					<input class="btn btn-default login-btn" type="submit"
 						value="登&nbsp&nbsp&nbsp录"></input>
