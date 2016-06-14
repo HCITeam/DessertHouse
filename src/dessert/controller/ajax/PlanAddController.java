@@ -9,9 +9,7 @@ import org.springframework.stereotype.Controller;
 import dessert.configure.Configure;
 import dessert.configure.ErrorCode;
 import dessert.controller.AjaxController;
-import dessert.entity.Store;
 import dessert.pvo.PlanPVO;
-import dessert.rvo.ResultVO;
 import dessert.rvo.plan.PlanInfoResultVO;
 import dessert.rvo.store.StoreRVO;
 import dessert.service.PlanService;
@@ -28,6 +26,7 @@ public class PlanAddController extends AjaxController {
 	@Autowired
 	StoreService storeService;
 
+
 	@Override
 	public String execute() throws Exception {
 		return controller(response(), request());
@@ -41,7 +40,6 @@ public class PlanAddController extends AjaxController {
 		validator.put(Configure.P_NUM, params.get(Configure.P_NUM));
 		validator.put(Configure.PRICE, params.get(Configure.PRICE));
 		validator.isRequired(Configure.P_DATE, ErrorCode.SDATE_IS_EMPTY);
-		// validator.isRequired(Configure., code);
 		validator.isInt(Configure.P_NUM, ErrorCode.NUM_NOT_INT);
 		validator.isInt(Configure.S_ID, ErrorCode.ID_NOT_INT);
 	}
@@ -49,6 +47,7 @@ public class PlanAddController extends AjaxController {
 	@Override
 	public String process(FormValidator validator) {
 		// TODO Auto-generated method stub
+		String name = (String)session().getAttribute(Configure.NAME);
 		Map<String, Object> map=new HashMap<>();
 		PlanPVO pvo=new PlanPVO();
 		pvo.setP_name(validator.getS(Configure.P_NAME));
@@ -56,6 +55,7 @@ public class PlanAddController extends AjaxController {
 		pvo.setPlandate(Util.getDateFromString(validator.getS(Configure.P_DATE)));
 		pvo.setPrice(Double.parseDouble(validator.getS(Configure.PRICE)));
 		pvo.setS_id(validator.getI(Configure.S_ID));
+		pvo.setEmployee_name(name);
 		PlanInfoResultVO rVo=planService.addPlan(pvo);
 		StoreRVO store=storeService.getStore(rVo.getS_id()+"");
 		map.put(Configure.STORE_NAME, store.getName());

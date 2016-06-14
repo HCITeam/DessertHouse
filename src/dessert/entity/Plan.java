@@ -21,10 +21,14 @@ public class Plan {
 	private double price;
 	@ColumnDefault(value = "0")
 	private int state;
+	@ColumnDefault(value = "0")
+	private int delete_flag;
+	private String emp_name;
 
 	public int getId() {
 		return id;
 	}
+
 	public Date getPlandate() {
 		return plandate;
 	}
@@ -71,6 +75,22 @@ public class Plan {
 
 	public void setState(int state) {
 		this.state = state;
+	}
+
+	public int getDelete_flag() {
+		return delete_flag;
+	}
+
+	public void setDelete_flag(int delete_flag) {
+		this.delete_flag = delete_flag;
+	}
+
+	public String getEmp_name() {
+		return emp_name;
+	}
+
+	public void setEmp_name(String emp_name) {
+		this.emp_name = emp_name;
 	}
 
 }

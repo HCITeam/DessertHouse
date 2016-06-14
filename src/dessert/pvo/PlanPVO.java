@@ -10,6 +10,7 @@ public class PlanPVO {
 	private String p_name;
 	private int p_num;
 	private double price;
+	private String employee_name;
 
 	
 	public Date getPlandate() {
@@ -51,6 +52,17 @@ public class PlanPVO {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+	public String getEmployee_name() {
+		return employee_name;
+	}
+
+	public void setEmployee_name(String employee_name) {
+		this.employee_name = employee_name;
+	}
+	
+	
+	
 
 
 }

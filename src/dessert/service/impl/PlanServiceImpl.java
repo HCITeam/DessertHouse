@@ -76,6 +76,7 @@ public class PlanServiceImpl implements PlanService {
 		plan.setPlandate(pvo.getPlandate());
 		plan.setPrice(pvo.getPrice());
 		plan.setS_id(pvo.getS_id());
+		//TODO
 		planDao.add(plan);
 		resultVO=new PlanInfoResultVO(planDao.getByPVO(pvo));
 		resultVO.setSuccess(Configure.SUCCESS_INT);

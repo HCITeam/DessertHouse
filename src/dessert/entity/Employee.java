@@ -15,6 +15,8 @@ public class Employee {
 	private int type;
 	@ColumnDefault(value = "0")
 	private int s_id;
+	@ColumnDefault(value = "0")
+	private int delete_flag;
 
 	public String getName() {
 		return name;
@@ -47,6 +49,15 @@ public class Employee {
 	public void setS_id(int s_id) {
 		this.s_id = s_id;
 	}
+	
+	public int getDelete_flag() {
+		return delete_flag;
+	}
+
+	public void setDelete_flag(int delete_flag) {
+		this.delete_flag = delete_flag;
+	}
+
 	public String getTypeString(){
 		switch (type) {
 		case Configure.HEAD_SERVER:
