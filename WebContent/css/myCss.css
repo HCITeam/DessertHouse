@@ -1,0 +1,68 @@
+.btn
+{
+	transition:all 0.5s;
+}
+.alert-dismissable
+{
+	text-align:center;
+}
+
+.loadShow
+{
+	
+	text-align:center;
+}
+
+.loadImg
+{
+	width:30px;
+	height:30px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:black;
+	color:white;
+	animation: myfirst 5s;
+	-moz-animation: myfirst 5s;	/* Firefox */
+	-webkit-animation: myfirst 5s;	/* Safari 和 Chrome */
+	-o-animation: myfirst 5s;	/* Opera */
+	
+	animation-iteration-count: infinite;
+	-moz-animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+	-o-animation-iteration-count: infinite;
+}
+
+
+@keyframes myfirst
+{
+0%   {transform:rotate(0deg);}
+50%  {transform:rotate(180deg);}
+100% {transform:rotate(360deg);}
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+0%   {transform:rotate(0deg);}
+50%  {transform:rotate(180deg);}
+100% {transform:rotate(360deg);}
+}
+
+@-webkit-keyframes myfirst /* Safari 和 Chrome */
+{
+0%   {transform:rotate(0deg);}
+50%  {transform:rotate(180deg);}
+100% {transform:rotate(360deg);}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+0%   {transform:rotate(0deg);}
+50%  {transform:rotate(180deg);}
+100% {transform:rotate(360deg);}
+}
+
+
+.noneStoreShow
+{
+	
+}

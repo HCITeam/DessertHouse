@@ -9,6 +9,11 @@ $(document).ready(function (){
 	// 	$('.welcome p').fadeIn(100);
 	// },11);
 	$(".register-wrapper").hide();
+	if(sessionStorage.getItem("lastLogOrReg")=="reg")
+	{
+		$(".login-wrapper").hide();
+		$(".register-wrapper").show();
+	}
 	setTimeout(function ()
 	{
 	    $('.top-part').animate(
@@ -32,15 +37,29 @@ $(document).ready(function (){
 });
 
 $("#a-register").click(function() {
+	sessionStorage.setItem("lastLogOrReg","reg");
 	$(".login-wrapper").hide();
 	$(".register-wrapper").show(600);
 	$("#message").hide();
 });
 
 $("#a-login").click(function() {
+	sessionStorage.setItem("lastLogOrReg","log");
 	$(".login-wrapper").show(600);
 	$(".register-wrapper").hide();
 });
+
+$("#login").click(function() 
+{
+	playWait("#login");
+	$("#user-login").submit();
+});
+
+function playWait(widget)
+{
+	$(widget).html("<div class='loadShow'><div class='loadImg'>+</div></div>");
+	$(widget).attr("disabled", true); 
+}
 
 $("#signup")
 		.click(
@@ -78,6 +97,7 @@ $("#signup")
 					}
 					$("#signup-name").val(username);
 					$("#signup-password").val(password);
+					playWait("#signup");
 					$("#user-signup").submit();
 				});
 /*$("#login")

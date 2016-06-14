@@ -8,7 +8,9 @@
 <link rel="stylesheet" href="./css/reset.css">
 <link rel="stylesheet" href="./css/bootstrap.css">
 <link rel="stylesheet" href="./css/login.css">
+<link rel="stylesheet" href="./css/myCss.css">
 
+<script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
 </head>
 <body>
 
@@ -29,7 +31,7 @@
 		var lastVist=localStorage.getItem("lastVist");
 		if(lastVist==null)
 		{
-			
+			sessionStorage.setItem("lastLogOrReg","log");
 		}
 		else
 		{
@@ -52,7 +54,7 @@
 	<div class="center-block">
 		<div class="wrapper">
 			<p id="welcome">Welcome</p>
-			<form action="/Desserthouse/Login" method="post">
+			<form action="/Desserthouse/Login" method="post" id="user-login">
 				<input type="text" class="form-control" id="name" name="name"
 					placeholder="用户名/会员卡号" aria-describedby="sizing-addon1"> <input
 					type="password" class="form-control" id="password" name="password"
@@ -62,19 +64,19 @@
 					<input type="password" class="form-control" id="password-second"
 						placeholder="再次输入密码" aria-describedby="sizing-addon1">
 					<a href="#" id="a-login">登陆</a>
-					<button type="button" class="btn btn-default" id="signup">注&nbsp&nbsp&nbsp册</button>
+					<div class="btn btn-default" id="signup">注&nbsp&nbsp&nbsp册</div>
 				</div>
 				<div class="login-wrapper">
-					<a href="#" id="a-register">注册</a> <input
-						class="btn btn-default login-btn" id="login" type="submit"
-						value="登&nbsp&nbsp&nbsp陆"></input>
+					<a href="#" id="a-register">注册</a> <div
+						class="btn btn-default login-btn" id="login"
+						>登&nbsp&nbsp&nbsp陆</div>
 				</div>
 			</form>
 			<div id="message">
 				<%
 					String message = (String) request.getServletContext().getAttribute("message");
 					if (message != null) {
-						message="错误码:"+message;
+						message="错误:"+message;
 						request.getServletContext().removeAttribute("message");
 				%>
 				<div class="alert alert-danger alert-dismissable">
@@ -96,8 +98,12 @@
 	</div>
 	<img src="./img/login-dessert.png" alt="dessert" id="img-dessert">
 	
-	<script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
 <script src="./js/bootstrap.js"></script>
 <script type="text/javascript" src="./js/login.js"></script>
 </body>
+<script>
+
+</script>
+
+
 </html>
