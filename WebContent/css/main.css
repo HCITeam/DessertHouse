@@ -202,6 +202,7 @@ input[type="radio"] {
 }
 
 .manage-btn img {
+	width:30px;
 	height: 25px;
 	float: right;
 	vertical-align: middle;
@@ -256,7 +257,6 @@ input[type="radio"] {
 }
 
 .book-table {
-	width: 740px;
 	margin: 40px auto;
 	font-size: 21px;
 	overflow: auto;
@@ -388,7 +388,7 @@ input[type="text"].num-input {
 	margin-left: 50px;
 	margin-top:20px;
 	cursor: pointer;
-	float£ºnone;
+	floatï¿½ï¿½none;
 } */
 
 .tool-bar .date-input{

@@ -42,39 +42,34 @@
 					<a class="btn tool-btn" id="tool-btn-store" href="javascript:void(0)">添加分店</a>
 					<div class="clear"></div>
 				</div>
-				<%
-					if (sotreList.size() <= 0) {
-				%>
-				<div class="noneStoreShow"> 当前无任何分店</div>
-				<%
-					} else {
-				%>
-				<table class="book-table" id="store-table" border="1">
-					<tr>
-						<th>编号</th>
-						<th>店名</th>
-						<th>地址</th>
-						<th>联系电话</th>
-						<th>修改</th>
-						<th>删除</th>
+				<table class="book-table" id="store-table" border="0">
+					<tr class="tableTr">
+						<th width="100px">编号</th>
+						<th width="280px">店名</th>
+						<th width="280px">地址</th>
+						<th width="280px">联系电话</th>
+						<th width="100px">修改</th>
+						<th width="100px">删除</th>
 					</tr>
 					<%
 						for (int i = 0; i < sotreList.size(); i++) {
 					%>
-					<tr>
-						<td><%=sotreList.get(i).getId()%></td>
-						<td><input type="text" class="short-input-td" id="<%=sotreList.get(i).getId() + "-name"%>" value="<%=sotreList.get(i).getName() %>"></td>
-						<td><input type="text" class="long-input-td" id="<%=sotreList.get(i).getId() + "-addr"%>" value="<%=sotreList.get(i).getAddress() %>"></td>
-						<td><input type="text" class="long-input-td" id="<%=sotreList.get(i).getId() + "-tel"%>" value="<%=sotreList.get(i).getTelphone() %>"></td>
+					<tr class="tableBottomTr">
+						<td class="short-input-td"><%=sotreList.get(i).getId()%></td>
+						<td><input type="text"  id="<%=sotreList.get(i).getId() + "-name"%>" value="<%=sotreList.get(i).getName() %>"></td>
+						<td><input type="text"  id="<%=sotreList.get(i).getId() + "-addr"%>" value="<%=sotreList.get(i).getAddress() %>"></td>
+						<td><input type="text"  id="<%=sotreList.get(i).getId() + "-tel"%>" value="<%=sotreList.get(i).getTelphone() %>"></td>
 					    <td><a class="store-btn-edit" id="<%=sotreList.get(i).getId() + "-edit"%>"><img
 								src="../img/edit.png"></a></td>
-						<td><a class="store-btn-delete" id="<%=sotreList.get(i).getId()  + "-delete"%>"><img
+						<td><a class="store-btn-delete" id="<%=sotreList.get(i).getId()  + "-delete"%>"><img class="delImg"
 								src="../img/delete.png"></a></td>
 					</tr>
-					<%
+					<%	
 						    }
-						}
 					%>
+					<tr class="tableBottomTr">
+						<td colspan="6"> <div class="addBut" id="addStoreBut">+</div></td>
+					</tr>
 				</table>
 				<div class="message"></div>
 			</div>

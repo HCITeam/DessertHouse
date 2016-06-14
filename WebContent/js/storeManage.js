@@ -35,6 +35,7 @@ $(document).on("click",".store-btn-edit",function(){
 $(document).on("click",".store-btn-delete",function(){
    var button_id=$(this).attr("id");
    var id=button_id.split("-")[0];//取得id
+   $("#"+button_id+"").parent().parent().hide(500);
   // alert(id);
 	$.ajax({
                 type:"POST",
@@ -42,10 +43,15 @@ $(document).on("click",".store-btn-delete",function(){
                 data:{'s_id':id},
                 success:function(result,textStatus){
                     	if (result.success==1) {
-                    		$("#"+button_id+"").parent().parent().hide(500);
+                    		
                     	}
                 }
             });
+});
+
+$("#addStoreBut").click(function(){
+	$(".modal-wrapper").show();
+	$("body").css("overflow","hide");
 });
 
 $(".confirm-btn").on("click",function(){

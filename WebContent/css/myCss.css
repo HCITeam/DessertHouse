@@ -62,7 +62,61 @@
 }
 
 
-.noneStoreShow
+.addBut
 {
-	
+	background-color:#f4bdbf;
+	margin-left:auto;
+	margin-right:auto;
+	width:40px;
+	height:40px;
+	text-align:center;
+	border-radius:20px;
+	color:white;
+	font-size:28px;
+	font-weight:bolder;
+	-webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    transition:all 0.5s;
+}
+.addBut:hover
+{
+	cursor:pointer;
+	transform:rotate(180deg);
+}
+.store-btn-delete,.store-btn-edit
+{
+	transition:all 0.5s;
+}
+
+.store-btn-edit:hover
+{
+	margin-left:10px;
+	cursor:pointer;
+}
+
+.store-btn-delete:hover
+{
+	cursor:pointer;
+	transform:rotate(180deg);
+}
+
+.tableTr
+{
+	background-color:#f4bdbf;
+}
+.tableBottomTr
+{
+	border:1px solid grey;
+}
+
+.tool-bar
+{
+ visibility:hidden;
+}
+.delImg
+{
+	width:30px;
+	height:30px;
 }
