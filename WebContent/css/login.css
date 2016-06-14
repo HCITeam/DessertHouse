@@ -204,3 +204,12 @@ body{
 {
 	display:none;
 }
+
+#workerLogin
+{
+	background-color: #ffdec9;
+}
+#workerLogin:hover
+{
+	background-color: #fcf4f4;
+}

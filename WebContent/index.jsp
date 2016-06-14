@@ -26,12 +26,23 @@
 	if(showNum==null)
 	{
 		sessionStorage.setItem("showNum","already");
+		var lastVist=localStorage.getItem("lastVist");
+		if(lastVist==null)
+		{
+			
+		}
+		else
+		{
+			window.location.href="./jsp/employeeLogin.jsp";
+		}
 	}
 	else
 	{
 		myFirstShow=document.getElementById("first-show");
 		myFirstShow.style.display="none";
+		localStorage.removeItem("lastVist");
 	}
+	
 	</script>
 	<img src="./img/logo.png" alt="logo" class="img-logo">
 	<div class="toolkit">
@@ -64,6 +75,7 @@
 					String message = (String) request.getServletContext().getAttribute("message");
 					if (message != null) {
 						message="错误码:"+message;
+						request.getServletContext().removeAttribute("message");
 				%>
 				<div class="alert alert-danger alert-dismissable">
 					<button type="button" class="close" data-dismiss="alert"

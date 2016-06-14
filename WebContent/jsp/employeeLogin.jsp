@@ -9,6 +9,10 @@
 <link rel="stylesheet" href="../css/bootstrap.css">
 <link rel="stylesheet" href="../css/login.css">
 </head>
+<script>
+	localStorage.setItem("lastVist","employee");
+	
+</script>
 <body>
 
 	<img src="../img/logo.png" alt="logo" class="img-logo">
@@ -17,19 +21,18 @@
 			src="../img/goto.png" alt="进入" id="img-goto"></a>
 	</div>
 
-
 	<div class="center-block">
 		<div class="wrapper">
 			<p id="welcome">Welcome</p>
 			<form action="/Desserthouse/EmploeeLogin" method="post">
 				<input type="text" class="form-control" id="name" name="name"
-					placeholder="用户名/会员卡号" aria-describedby="sizing-addon1"> <input
+					placeholder="工作人员名" aria-describedby="sizing-addon1"> <input
 					type="password" class="form-control" id="password" name="password"
 					placeholder="密码" aria-describedby="sizing-addon1">
 
 					<br/>
 				<div class="login-wrapper">
-					<input class="btn btn-default login-btn" type="submit"
+					<input class="btn btn-default login-btn" type="submit" id="workerLogin"
 						value="登&nbsp&nbsp&nbsp录"></input>
 				</div>
 			</form>
@@ -37,6 +40,7 @@
 				<%
 					String message = (String) request.getServletContext().getAttribute("message");
 					if (message != null) {
+						request.getServletContext().removeAttribute("message");
 				%>
 				<div class="alert alert-danger alert-dismissable">
 					<button type="button" class="close" data-dismiss="alert"
