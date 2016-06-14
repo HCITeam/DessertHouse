@@ -28,7 +28,7 @@ body{
 }
 
 .center-block {
-	width: 20%;
+	width: 384px;
 	margin-top: 150px;
 	padding: 1%;
 	/*height: 20%;*/
@@ -203,4 +203,13 @@ body{
 .register-wrapper
 {
 	display:none;
+}
+
+#workerLogin
+{
+	background-color: #ffeb94;
+}
+#workerLogin:hover
+{
+	background-color: #fcf4f4;
 }

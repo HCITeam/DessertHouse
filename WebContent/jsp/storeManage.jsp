@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="../css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../css/reset.css">
 <link rel="stylesheet" type="text/css" href="../css/main.css">
+<link rel="stylesheet" type="text/css" href="../css/myCss.css">
 <%
 	ServletContext sc = request.getServletContext();
 	List<StoreRVO> sotreList = (List<StoreRVO>) sc.getAttribute("store_list");
@@ -44,11 +45,7 @@
 				<%
 					if (sotreList.size() <= 0) {
 				%>
-				<form class="info-form">
-					<ul>
-						<li><span>当前无任何分店</span></li>
-					</ul>
-				</form>
+				<div class="noneStoreShow"> 当前无任何分店</div>
 				<%
 					} else {
 				%>

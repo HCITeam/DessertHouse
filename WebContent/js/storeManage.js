@@ -27,7 +27,7 @@ $(document).on("click",".store-btn-edit",function(){
                 url:"/Desserthouse/api/UpdateStore",
                 data:{'s_id':id,'store_name':name,'address':addr,'phone':tel},
                 success:function(result,textStatus){
-                    	alert(result.message);
+                    	//alert(result.message);
                 }
             });
 });
@@ -35,15 +35,14 @@ $(document).on("click",".store-btn-edit",function(){
 $(document).on("click",".store-btn-delete",function(){
    var button_id=$(this).attr("id");
    var id=button_id.split("-")[0];//取得id
-   alert(id);
+  // alert(id);
 	$.ajax({
                 type:"POST",
                 url:"/Desserthouse/api/DeleteStore",
                 data:{'s_id':id},
                 success:function(result,textStatus){
-                    	alert(result.message);
                     	if (result.success==1) {
-                    		$("#"+button_id+"").parent().parent().remove();
+                    		$("#"+button_id+"").parent().parent().hide(500);
                     	}
                 }
             });
@@ -62,7 +61,7 @@ $(".confirm-btn").on("click",function(){
                 url:"/Desserthouse/api/AddStore",
                 data:{'store_name':name,'address':addr,'phone':tel},
                 success:function(result,textStatus){
-                    	alert(result.message);
+                    	//alert(result.message);
                     	//alert(result.s_id);
                     	$("#store-table").append("<tr>"+
                     		"<td>"+result.s_id+"</td>"+
