@@ -62,17 +62,16 @@ public class LoginController extends HtmlController{
 			//获得商家信息
 			//TODO
 			Date date=Util.getCurrentDate();
-//			Date date=Util.getDateFromString("2016-02-28");
+//			Date date=Util.getDateFromString("2016-05-05");
 			String[] storeName=storeService.getAllStoreName();
-//			System.err.println(storeName);
-//			System.err.println(date.toString());
 			List<InventoryRVO> firstList=commodityService.getByNameandDate(storeName[0], date);
 			List<InventoryRVO> secondList=commodityService.getByNameandDate(storeName[0], Util.theDateAfterday(date, 1));
 			List<InventoryRVO> thirdList=commodityService.getByNameandDate(storeName[0], Util.theDateAfterday(date, 2));
 			
 			String date1 = Util.getDateString(date);
 			String date2 = Util.getDateString(Util.theDateAfterday(date, 1));
-			String date3 = Util.getDateString(Util.theDateAfterday(date, 3));
+			String date3 = Util.getDateString(Util.theDateAfterday(date, 2));
+//			System.out.println(date1+"dddd:::"+date2);
 			
 			sc.setAttribute(Configure.VISITED, storeName[0]);
 			sc.setAttribute(Configure.STORE_NAME, storeName);
@@ -83,26 +82,6 @@ public class LoginController extends HtmlController{
 			sc.setAttribute(Configure.DATE_TWO, date2);
 			sc.setAttribute(Configure.DATE_THREE, date3);
 			
-			
-			//			int size=list.size();
-//			int [] s_id=new int[size];
-//			String[] p_name=new String[size];
-//			int [] p_num=new int[size];
-//			String[] s_date=new String[size];
-//			
-//			for (int i = 0; i < size; i++) {
-//				InventoryRVO inventoryRVO=list.get(i);
-//				s_id[i]=inventoryRVO.getS_id();
-//				p_name[i]=inventoryRVO.getP_name();
-//				p_num[i]=inventoryRVO.getP_num();
-//				s_date[i]=Util.getDateString(inventoryRVO.getS_date());
-//			}
-//			
-//			sc.setAttribute(Configure.STORE_NAME, storeName);
-//			sc.setAttribute(Configure.S_ID, s_id);
-//			sc.setAttribute(Configure.P_NAME, p_name);
-//			sc.setAttribute(Configure.P_NUM, p_num);
-//			sc.setAttribute(Configure.S_DATE, s_date);
 			return Configure.SUCCESS;
 		}
 //		ServletContext sc = request().getServletContext();

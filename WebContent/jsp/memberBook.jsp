@@ -89,9 +89,9 @@
 					<div class="clear"></div>
 				</div>
 				<%
-					if (firstList.size() <= 0) {
+					if ((firstList==null)||(firstList.size() <= 0)){
 				%>
-				<form class="info-form">
+				<form class="info-form" id="table-first">
 					<ul>
 						<li><span>非常抱歉</span></li>
 						<li><span>此日期尚不支持预定</span></li>
@@ -125,7 +125,7 @@
 				</table>
 
 				<%
-					if (secondList.size() <= 0) {
+					if ((secondList==null)||(secondList.size() <= 0)) {
 				%>
 				<form class="info-form" id="table-second" style="display: none">
 					<ul>
@@ -162,7 +162,7 @@
 				</table>
 
 				<%
-					if (thirdList.size() <= 0) {
+					if ((thirdList==null)||(thirdList.size() <= 0)) {
 				%>
 				<form class="info-form" id="table-third" style="display: none">
 					<ul>
