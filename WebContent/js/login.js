@@ -57,8 +57,8 @@ $("#login").click(function()
 
 function playWait(widget)
 {
-	$(widget).html("<div class='loadShow'><div class='loadImg'>+</div></div>");
-	$(widget).attr("disabled", true); 
+	$(widget).html("<div class='loadShow'><img class='loadImg' src='./img/load.png' alt='O'></div>");
+	$(widget).attr("disabled", true);
 }
 
 $("#signup")

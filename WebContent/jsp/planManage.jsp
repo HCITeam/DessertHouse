@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="../css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../css/reset.css">
 <link rel="stylesheet" type="text/css" href="../css/main.css">
+<link rel="stylesheet" type="text/css" href="../css/myCss.css">
+
 <%
 	ServletContext sc = request.getServletContext();
 	Map<Integer, String> store = (Map<Integer, String>) sc.getAttribute("store_list");
@@ -41,30 +43,19 @@
 		<div class="content">
 			<div class="wrapper">
 				<div style="height: 1px"></div>
-				<%
-					if (impassList.size() <= 0) {
-				%>
-				<form class="info-form">
-					<ul>
-						<li><span>当前没有未通过审批的计划项</span></li>
-					</ul>
-				</form>
-				<%
-					} else {
-				%>
-				<table class="book-table" id="plan-table" border="1">
-					<tr>
-						<th>日期</th>
-						<th>店面</th>
-						<th>商品名</th>
-						<th>数量</th>
-						<th>价格</th>
-						<th>通过</th>
+				<table class="book-table" id="plan-table" border="0">
+					<tr class="tableTr">
+						<th width="280px">日期</th>
+						<th width="280px">店面</th>
+						<th width="280px">商品名</th>
+						<th width="100px">数量</th>
+						<th width="100px">价格</th>
+						<th width="100px">通过</th>
 					</tr>
 					<%
 						for (int i = 0; i < impassList.size(); i++) {
 					%>
-					<tr>
+					<tr class="tableBottomTr">
 						<td><%=impassList.get(i).getDate()%></td>
 						<td><%=store.get(impassList.get(i).getS_id())%></td>
 						<td><%=impassList.get(i).getP_name()%></td>
@@ -75,33 +66,29 @@
 					</tr>
 					<%
 						    }
+
+						if(impassList.size()<=0)
+						{
+					%>
+					<tr class="tableBottomTr" id="addStoreLine">
+						<td colspan="6"> 暂无未审批计划</td>
+					</tr>
+					<% 
 						}
 					%>
 				</table>
-				
-				<%
-					if (passList.size() <= 0) {
-				%>
-				<form class="info-form">
-					<ul>
-						<li><span>当前已审批的计划项</span></li>
-					</ul>
-				</form>
-				<%
-					} else {
-				%>
-				<table class="book-table" id="pass-table" border="1" style="display: none">
-					<tr>
-						<th>日期</th>
-						<th>店面</th>
-						<th>商品名</th>
-						<th>数量</th>
-						<th>价格</th>
+				<table class="book-table" id="pass-table" border="0" style="display: none">
+					<tr class="tableTr">
+						<th width="280px">日期</th>
+						<th width="280px">店面</th>
+						<th width="280px">商品名</th>
+						<th width="100px">数量</th>
+						<th width="100px">价格</th>
 					</tr>
 					<%
 						for (int i = 0; i < passList.size(); i++) {
 					%>
-					<tr>
+					<tr class="tableBottomTr">
 						<td><%=passList.get(i).getDate()%></td>
 						<td><%=store.get(passList.get(i).getS_id())%></td>
 						<td><%=passList.get(i).getP_name()%></td>
@@ -109,7 +96,14 @@
 						<td><%=passList.get(i).getPrice() %></td>
 					</tr>
 					<%
-						    }
+						}
+						if(passList.size()<=0)
+						{
+					%>
+					<tr class="tableBottomTr" id="addStoreLine">
+						<td colspan="6"> 暂无已审批计划</td>
+					</tr>
+					<% 
 						}
 					%>
 				</table>

@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../css/bootstrap.css">
 <link rel="stylesheet" href="../css/login.css">
+<link rel="stylesheet" href="../css/myCss.css">
+
+<script src="../js/jquery-2.1.4.min.js"></script>
 </head>
 <script>
 	localStorage.setItem("lastVist","employee");
@@ -24,7 +27,7 @@
 	<div class="center-block">
 		<div class="wrapper">
 			<p id="welcome">Welcome</p>
-			<form action="/Desserthouse/EmploeeLogin" method="post">
+			<form action="/Desserthouse/EmploeeLogin" method="post" id="workerPost">
 				<input type="text" class="form-control" id="name" name="name"
 					placeholder="工作人员名" aria-describedby="sizing-addon1"> <input
 					type="password" class="form-control" id="password" name="password"
@@ -32,8 +35,8 @@
 
 					<br/>
 				<div class="login-wrapper">
-					<input class="btn btn-default login-btn" type="submit" id="workerLogin"
-						value="登&nbsp&nbsp&nbsp录"></input>
+					<div class="btn btn-default login-btn" type="submit" id="workerLogin"
+						>登&nbsp&nbsp&nbsp录</div>
 				</div>
 			</form>
 			<div id="message">
@@ -56,7 +59,7 @@
 	</div>
 	<img src="../img/login-dessert.png" alt="dessert" id="img-dessert">
 
-	<script src="../js/jquery-2.1.4.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
+	<script src="../js/loginworker.js"></script>
 </body>
 </html>

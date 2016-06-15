@@ -19,7 +19,6 @@
 	height:30px;
 	margin-left:auto;
 	margin-right:auto;
-	background-color:black;
 	color:white;
 	animation: myfirst 5s;
 	-moz-animation: myfirst 5s;	/* Firefox */
@@ -85,7 +84,7 @@
 	cursor:pointer;
 	transform:rotate(180deg);
 }
-.store-btn-delete,#newStoreDel,.store-btn-edit
+.store-btn-delete,#newStoreDel,#newStoreAdd,.store-btn-edit
 {
 	transition:all 0.5s;
 }
@@ -100,6 +99,12 @@
 {
 	cursor:pointer;
 	transform:rotate(180deg);
+}
+
+#newStoreAdd:hover
+{
+	cursor:pointer;
+	margin-left:10px;
 }
 
 .tableTr
@@ -119,4 +124,8 @@
 {
 	width:30px;
 	height:30px;
+}
+th,td,td input,td select option
+{
+	text-align:center;
 }

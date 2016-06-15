@@ -8,6 +8,27 @@ $(document).on("click",".employee-btn-edit",function(){
 	$("body").css("overflow","hide");
 });
 
+function addClick()
+{
+	$("#addStoreLine").html("<td><input type='text'  id='newStoreName' placeholder='请输入用户名'></td>\
+							<td><select id='add-s-id'><option value='0'>无</option></select></td>\
+							<td><select id='add-type'><option value='2'>总店服务员</option><option value='3'>分店服务员</option></select></td>\
+							<td><a id='newStoreAdd'><img class='delImg'\
+							src='../img/check.png'></a></td>\
+							<td><a id='newStoreDel'><img class='delImg'\
+							src='../img/delete2.png'></a></td>");
+
+	$("#newStoreDel").click(function()
+	{
+		$("#addStoreLine").html("<td colspan='6'> <div class='addBut' id='addStoreBut'>+</div></td>");
+		$("#addStoreBut").click(addClick);
+	});
+	//$(".modal-wrapper").show();
+	//$("body").css("overflow","hide");
+}
+
+$("#addStoreBut").click(addClick);
+
 $("#tool-btn-employee").click(function(){
 	$("#employee-add").show();
 	$("body").css("overflow","hide");
@@ -86,7 +107,7 @@ $(".confirm-btn").on("click",function(){
                     		"<td>"+result.store_name+"</td>"+
                     		"<td>"+result.work_type+"</td>"+
                     		"<td><a class=\"plan-btn-edit\" id=\""+name+"-edit\"><img src=\"../img/edit.png\"></a></td>"+
-                    		"<td><a class=\"plan-btn-delete\" id=\""+name+"-delete\"><img src=\"../img/delete.png\"></a></td>"+
+                    		"<td><a class=\"plan-btn-delete\" id=\""+name+"-delete\"><img src=\"../img/delete2.png\"></a></td>"+
                     		"</tr>");
                     	$("#employee-add").show();
                     	$("body").css("overflow","hide");

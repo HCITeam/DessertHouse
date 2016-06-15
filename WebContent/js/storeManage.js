@@ -57,10 +57,10 @@ function addClick()
 			<td><input type='text'  id='newStoreName' placeholder='请输入店名'></td>\
 			<td><input type='text'  id='newStoreLocation' placeholder='请输入地址'></td>\
 			<td><input type='text'  id='newStoreTel' placeholder='请输入联系电话'></td>\
-		    <td><a class='store-btn-edit' id='newStoreEdit>'><img\
-					src='../img/edit.png'></a></td>\
+		    <td><a id='newStoreAdd'><img class='delImg'\
+					src='../img/check.png'></a></td>\
 			<td><a id='newStoreDel'><img class='delImg'\
-					src='../img/delete.png'></a></td>");
+					src='../img/delete2.png'></a></td>");
 
 	$("#newStoreDel").click(function()
 	{
@@ -93,8 +93,8 @@ $(".confirm-btn").on("click",function(){
                     		"<td><input type=\"text\" class=\"short-input-td\" id=\""+result.s_id+"-name\" value=\""+name+"\"></td>"+
                     		"<td><input type=\"text\" class=\"long-input-td\" id=\""+result.s_id+"-addr\" value=\""+addr+"\"></td>"+
                     		"<td><input type=\"text\" class=\"long-input-td\" id=\""+result.s_id+"-tel\" value=\""+tel+"\"></td>"+
-                    		"<td><a class=\"plan-btn-edit\" id=\""+result.s_id+"-edit\"><img src=\"../img/edit.png\"></a></td>"+
-                    		"<td><a class=\"plan-btn-delete\" id=\""+result.s_id+"-delete\"><img src=\"../img/delete.png\"></a></td>"+
+                    		"<td><a class=\"plan-btn-edit\" id=\""+result.s_id+"-edit\"><img class='delImg' src=\"../img/edit.png\"></a></td>"+
+                    		"<td><a class=\"plan-btn-delete\" id=\""+result.s_id+"-delete\"><img class='delImg' src=\"../img/delete2.png\"></a></td>"+
                     		"</tr>");
                     	$("#employee-add").show();
                     	$("body").css("overflow","hide");

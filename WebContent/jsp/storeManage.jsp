@@ -59,10 +59,10 @@
 						<td><input type="text"  id="<%=sotreList.get(i).getId() + "-name"%>" value="<%=sotreList.get(i).getName() %>"></td>
 						<td><input type="text"  id="<%=sotreList.get(i).getId() + "-addr"%>" value="<%=sotreList.get(i).getAddress() %>"></td>
 						<td><input type="text"  id="<%=sotreList.get(i).getId() + "-tel"%>" value="<%=sotreList.get(i).getTelphone() %>"></td>
-					    <td><a class="store-btn-edit" id="<%=sotreList.get(i).getId() + "-edit"%>"><img
+					    <td><a class="store-btn-edit" id="<%=sotreList.get(i).getId() + "-edit"%>"><img  class="delImg"
 								src="../img/edit.png"></a></td>
 						<td><a class="store-btn-delete" id="<%=sotreList.get(i).getId()  + "-delete"%>"><img class="delImg"
-								src="../img/delete.png"></a></td>
+								src="../img/delete2.png"></a></td>
 					</tr>
 					<%	
 						    }

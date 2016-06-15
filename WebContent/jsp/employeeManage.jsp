@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="../css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../css/reset.css">
 <link rel="stylesheet" type="text/css" href="../css/main.css">
+<link rel="stylesheet" type="text/css" href="../css/myCss.css">
 <%
 	ServletContext sc = request.getServletContext();
 Map<Integer, String> sotreList = (Map<Integer, String>) sc.getAttribute("store_list");
@@ -42,40 +43,28 @@ Map<Integer, String> sotreList = (Map<Integer, String>) sc.getAttribute("store_l
 					<a class="btn tool-btn" id="tool-btn-employee" href="javascript:void(0)">添加服务员</a>
 					<div class="clear"></div>
 				</div>
-				<%
-					if ((headList.size()+serverList.size()) <= 0) {
-				%>
-				<form class="info-form">
-					<ul>
-						<li><span>当前无任何服务员</span></li>
-					</ul>
-				</form>
-				<%
-					} else {
-				%>
-				<table class="book-table" id="store-table" border="1">
-					<tr>
-						<th>用户名</th>
-						<th>所属分店</th>
-						<th>工作类型</th>
-						<th>修改</th>
-						<th>删除</th>
+				<table class="book-table" id="store-table" border="0">
+					<tr class="tableTr">
+						<th width="280px">用户名</th>
+						<th width="280px">所属分店</th>
+						<th width="280px">工作类型</th>
+						<th width="100px">修改</th>
+						<th width="100px">删除</th>
 					</tr>
 					<%
 						for (int i = 0; i < headList.size(); i++) {
 					%>
-					<tr>
+					<tr class="tableBottomTr">
 						<td class="employee-name-td"><%=headList.get(i).getName()%></td>
 						<td class="employee-store-td">总</td>
 						<td class="employee-work-td"><%=headList.get(i).getTypeString()%></td>
 						<td><a class="employee-btn-edit" id="<%=headList.get(i).getName() + "-edit"%>"><img
 								src="../img/edit.png"></a></td>
 						<td><a class="employee-btn-delete" id="<%=headList.get(i).getName()  + "-delete"%>"><img
-								src="../img/delete.png"></a></td>
+								src="../img/delete2.png"></a></td>
 					</tr>
 					<%
 						    }
-						}
 					%>
 					
 					<%
@@ -88,11 +77,15 @@ Map<Integer, String> sotreList = (Map<Integer, String>) sc.getAttribute("store_l
 						<td><a class="employee-btn-edit" id="<%=serverList.get(i).getName() + "-edit"%>"><img
 								src="../img/edit.png"></a></td>
 						<td><a class="employee-btn-delete" id="<%=serverList.get(i).getName()  + "-delete"%>"><img
-								src="../img/delete.png"></a></td>
+								src="../img/delete2.png"></a></td>
 					</tr>
 					<%
 						    }
 					%>
+					
+					<tr class="tableBottomTr" id="addStoreLine">
+						<td colspan="6"> <div class="addBut" id="addStoreBut">+</div></td>
+					</tr>
 				</table>
 				<div class="message"></div>
 			</div>

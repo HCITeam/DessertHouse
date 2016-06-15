@@ -42,7 +42,7 @@ $(document).on("click",".plan-btn-pass",function(){
 $("#sale-record").click(function(){
 	var month=2;
 	var id=1;
-	
+		
 	$("#input-month-s").val(month);
 	$("#input-sid-s").val(id);
 	$("#form-record").submit();
