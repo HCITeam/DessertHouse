@@ -80,6 +80,11 @@
     					<param name="root">jsonResult</param>
     				</result>
     			</action>
+    			<action name="ListStore" class="listStore" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
     			<action name="UpdateEmployee" class="updateEmployee" method="execute">
     				<result type="json">
     					<param name="root">jsonResult</param>
