@@ -15,6 +15,11 @@ public interface EmployeeService {
 	public EmployeeAddResultVO addEmployee(EmployeePVO po);
 	//删除工作人员信息
 	public ResultVO deleteEmployee(String name);
+	
+	public ResultVO emptyEmployee(String name);
+
+	// 清空所有已删除
+	public ResultVO emptyAll();
 	//修改工作人员信息
 	public ResultVO updateEmployee(EmployeeUpdatePVO po);
 	//得到所有工作人员
@@ -25,4 +30,6 @@ public interface EmployeeService {
 	public ResultVO ChangePassword(String name,String password);
 	//工作人员登录
 	public EmployeeLoginRVO login(String name,String password);
+	//获得被删除的店员
+	public ArrayList<EmploeeInfoResultVO> getEmploeeDelete();
 }

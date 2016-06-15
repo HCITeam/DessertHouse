@@ -20,6 +20,11 @@ public interface PlanService {
 	// 删除计划
 	// 已通过计划不可删除
 	public ResultVO deletePlan(String id);
+	
+	public ResultVO emptyPlan(String id);
+	
+	//清空所有已删除
+	public ResultVO emptyAll();
 
 	// 通过计划
 	public ResultVO passPlan(String id);
@@ -35,4 +40,7 @@ public interface PlanService {
 
 	// 获得已通过计划
 	public List<PlanInfoResultVO> getPassPlan(int page);
+	
+	//获得已删除计划
+	public List<PlanInfoResultVO> getDeletePlan(int page);
 }

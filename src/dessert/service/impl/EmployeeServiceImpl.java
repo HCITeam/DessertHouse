@@ -64,7 +64,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public ResultVO deleteEmployee(String name) {
 		Employee employee=employeeDao.getFromName(name);
 		if (employee!=null) {
-			employeeDao.delete(employee);
+			employee.setDelete_flag(Configure.DELETE_FLAG_TRUE);
+			employeeDao.update(employee);
 		}
 		ResultVO rVo=new ResultVO();
 		rVo.setSuccess(Configure.SUCCESS_INT);
@@ -162,6 +163,41 @@ public class EmployeeServiceImpl implements EmployeeService {
 		}
 
 		return rVo;
+	}
+
+	@Override
+	public ResultVO emptyEmployee(String name) {
+		Employee employee=employeeDao.getFromName(name);
+		if (employee!=null) {
+			employeeDao.delete(employee);
+		}
+		ResultVO rVo=new ResultVO();
+		rVo.setSuccess(Configure.SUCCESS_INT);
+		rVo.setMessage("成功删除");
+		return rVo;
+	}
+
+	@Override
+	public ResultVO emptyAll() {
+		employeeDao.deleteByColumn(Employee.class, "delete_flag", Configure.DELETE_FLAG_TRUE);
+		ResultVO rVo=new ResultVO();
+		rVo.setSuccess(Configure.SUCCESS_INT);
+		rVo.setMessage("成功删除");
+		return rVo;
+	}
+
+	@Override
+	public ArrayList<EmploeeInfoResultVO> getEmploeeDelete() {
+		List<Employee> employees=employeeDao.getListByColumn(Employee.class, "delete_flag", Configure.DELETE_FLAG_TRUE);
+		ArrayList<EmploeeInfoResultVO> vos=new ArrayList<>();
+		if (employees!=null) {
+			for (int i = 0; i < employees.size(); i++) {
+				EmploeeInfoResultVO infoResultVO=new EmploeeInfoResultVO();
+				infoResultVO.setFromEmployee(employees.get(i));
+				vos.add(infoResultVO);
+			}
+		}
+		return vos;
 	}
 
 	

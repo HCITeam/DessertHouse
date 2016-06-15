@@ -11,18 +11,26 @@ import dessert.rvo.store.StoreRVO;
 public interface StoreService {
 
 	public StoreRVO addStore(StorePVO pvo);
-	
+
 	public ResultVO deleteStore(String id);
-	
-	public ResultVO updateStore(StorePVO pvo,String id);
-	
+
+	public ResultVO emptyStore(String id);
+
+	// 清空所有已删除
+	public ResultVO emptyAll();
+
+	public ResultVO updateStore(StorePVO pvo, String id);
+
 	public String[] getAllStoreName();
-	
+
 	public Map<Integer, String> getStores();
-	
+
 	public List<StoreRVO> getAllStoreNotDelete();
-	
+
 	public StoreRVO getStore(String id);
+
+	public List<SaleRecordRVO> getSaleRecord(int month, int s_id);
 	
-	 public List<SaleRecordRVO> getSaleRecord(int month,int s_id);
+	//获得已删除店面
+	public List<StoreRVO> getAllStoreDelete();
 }

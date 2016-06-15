@@ -59,7 +59,7 @@ public class StoreServiceImpl implements StoreService{
 	public ResultVO deleteStore(String id) {
 		ResultVO resultVO=new ResultVO();
 		Store store=storeDao.getById(id);
-		if (store==null||store.getDelete_flag()==Configure.DELETE_FLAG_TRUE) {
+		if (store==null) {
 			resultVO.setSuccess(Configure.FAIL);
 			resultVO.setMessage("找不到该店面");
 		}else {
@@ -139,6 +139,42 @@ public class StoreServiceImpl implements StoreService{
 	public List<SaleRecordRVO> getSaleRecord(int month, int s_id) {
 		
 		return storeSaleDao.getByMonthAndStore(month, s_id);
+	}
+
+	@Override
+	public ResultVO emptyStore(String id) {
+		ResultVO resultVO=new ResultVO();
+		Store store=storeDao.getById(id);
+		if (store==null) {
+			resultVO.setSuccess(Configure.FAIL);
+			resultVO.setMessage("找不到该店面");
+		}else {
+			storeDao.delete(store);
+			resultVO.setSuccess(Configure.SUCCESS_INT);
+			resultVO.setMessage("删除成功");
+		}
+		return resultVO;
+	}
+
+	@Override
+	public ResultVO emptyAll() {
+		ResultVO resultVO=new ResultVO();
+		storeDao.deleteByColumn(Store.class, "delete_flag", Configure.DELETE_FLAG_TRUE);
+		resultVO.setSuccess(Configure.SUCCESS_INT);
+		resultVO.setMessage("删除成功");
+		return resultVO;
+	}
+
+	@Override
+	public List<StoreRVO> getAllStoreDelete() {
+		List<Store> list=storeDao.getListByColumn(Store.class, "delete_flag", Configure.DELETE_FLAG_TRUE);//已删除
+		List<StoreRVO> result=new ArrayList<StoreRVO>();
+		for (int i = 0; i < list.size(); i++) {
+			StoreRVO rvo=new StoreRVO();
+			rvo.setFromStore(list.get(i));
+			result.add(rvo);
+		}
+		return result;
 	}
 
 }
