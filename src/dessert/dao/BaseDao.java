@@ -25,6 +25,8 @@ public interface BaseDao<T> {
 	public List<T> searchByPatternAndPage(Class t, String column, String pattern, int page, int size);
     public void add(T t);
     public void delete(T t);
+    @SuppressWarnings({ "rawtypes" })
+    public void deleteByColumn(Class t, String column, Object value);
     public void update(T t);
     @SuppressWarnings({ "rawtypes" })
 	public List<T> getAll(Class t);

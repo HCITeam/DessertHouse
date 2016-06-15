@@ -15,6 +15,7 @@ public class PlanInfoResultVO extends ResultVO{
 	private int p_num;
 	private double price;
 	private int state;
+	private String emp_name;
 
 	public PlanInfoResultVO(){
 		
@@ -28,6 +29,7 @@ public class PlanInfoResultVO extends ResultVO{
 		p_num=plan.getP_num();
 		price=plan.getPrice();
 		state=plan.getState();
+		emp_name=plan.getEmp_name();
 	}
 	
 	public int getId() {
@@ -84,6 +86,14 @@ public class PlanInfoResultVO extends ResultVO{
 	
 	public String getDate(){
 		return Util.getDateString(plandate);
+	}
+
+	public String getEmp_name() {
+		return emp_name;
+	}
+
+	public void setEmp_name(String emp_name) {
+		this.emp_name = emp_name;
 	}
 
 }

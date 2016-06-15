@@ -5,8 +5,10 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -100,6 +102,15 @@ public class BaseDaoImpl<T> {
     	Session session = sessionFactory.getCurrentSession();
 		session.update(t);
     };
+    @SuppressWarnings({ "rawtypes" })
+    public void deleteByColumn(Class t, String column, Object value){
+    	Session session = sessionFactory.getCurrentSession();
+    	Transaction tran = session.beginTransaction() ;     
+        String hql = "Delete FROM "+t.getName().toLowerCase()+" Where "+column+"="+value ;     
+        Query q = session.createQuery(hql) ;              
+        q.executeUpdate();
+        tran.commit() ;  
+    }
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<T> getAll(Class t){
     	Session session = sessionFactory.getCurrentSession();
