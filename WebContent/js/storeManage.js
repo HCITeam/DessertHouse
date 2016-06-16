@@ -130,21 +130,22 @@ function addStore()
                 success:function(result,textStatus){
                     	//alert(result.message);
                     	//alert(result.s_id);
-                		$("#addStoreLine").remove();
-                    	$("#store-table").append("<tr  class='tableBottomTr'>"+
-                    		"<td>"+result.s_id+"</td>"+
-                    		"<td><input type=\"text\" class=\"short-input-td\" id=\""+result.s_id+"-name\" value=\""+name+"\"></td>"+
-                    		"<td><input type=\"text\" class=\"long-input-td\" id=\""+result.s_id+"-addr\" value=\""+addr+"\"></td>"+
-                    		"<td><input type=\"text\" class=\"long-input-td\" id=\""+result.s_id+"-tel\" value=\""+tel+"\"></td>"+
-                    		"<td><a class=\"plan-btn-edit\" id=\""+result.s_id+"-edit\"><img class='delImg' src=\"../img/edit.png\"></a></td>"+
-                    		"<td><a class=\"plan-btn-delete\" id=\""+result.s_id+"-delete\"><img class='delImg' src=\"../img/delete2.png\"></a></td>"+
-                    		"</tr>" +
-                    		"<tr class='tableBottomTr' id='addStoreLine'>"+
-                    		"<td colspan='6'> <div class='addBut' id='addStoreBut'>+</div></td>"+
-                    		"</tr>");
-                    	$("#employee-add").show();
-                    	$("body").css("overflow","hide");
-                		$("#addStoreBut").click(addClick);
+                	window.location = "/Desserthouse/ManageStore";
+//                		$("#addStoreLine").remove();
+//                    	$("#store-table").append("<tr  class='tableBottomTr'>"+
+//                    		"<td>"+result.s_id+"</td>"+
+//                    		"<td><input type=\"text\" class=\"short-input-td\" id=\""+result.s_id+"-name\" value=\""+name+"\"></td>"+
+//                    		"<td><input type=\"text\" class=\"long-input-td\" id=\""+result.s_id+"-addr\" value=\""+addr+"\"></td>"+
+//                    		"<td><input type=\"text\" class=\"long-input-td\" id=\""+result.s_id+"-tel\" value=\""+tel+"\"></td>"+
+//                    		"<td><a class=\"plan-btn-edit\" id=\""+result.s_id+"-edit\"><img class='delImg' src=\"../img/edit.png\"></a></td>"+
+//                    		"<td><a class=\"plan-btn-delete\" id=\""+result.s_id+"-delete\"><img class='delImg' src=\"../img/delete2.png\"></a></td>"+
+//                    		"</tr>" +
+//                    		"<tr class='tableBottomTr' id='addStoreLine'>"+
+//                    		"<td colspan='6'> <div class='addBut' id='addStoreBut'>+</div></td>"+
+//                    		"</tr>");
+//                    	$("#employee-add").show();
+//                    	$("body").css("overflow","hide");
+//                		$("#addStoreBut").click(addClick);
                 }
                 ,error:function(XMLHttpRequest, textStatus, errorThrown)
                 {
@@ -156,33 +157,4 @@ function addStore()
     	}
 }
 
-/**$(".confirm-btn").on("click",function(){
-	var name=$("#name").val();
-    var addr=$("#addr").val();
-    var tel=$("#tel").val();
-    if (tel==""||name==""||addr=="") {
-		$(".form-message").html("<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>输入不能为空</div>");
-		return;
-	}
-	$.ajax({
-                type:"POST",
-                url:"/Desserthouse/api/AddStore",
-                data:{'store_name':name,'address':addr,'phone':tel},
-                success:function(result,textStatus){
-                    	//alert(result.message);
-                    	//alert(result.s_id);
-                    	$("#store-table").append("<tr>"+
-                    		"<td>"+result.s_id+"</td>"+
-                    		"<td><input type=\"text\" class=\"short-input-td\" id=\""+result.s_id+"-name\" value=\""+name+"\"></td>"+
-                    		"<td><input type=\"text\" class=\"long-input-td\" id=\""+result.s_id+"-addr\" value=\""+addr+"\"></td>"+
-                    		"<td><input type=\"text\" class=\"long-input-td\" id=\""+result.s_id+"-tel\" value=\""+tel+"\"></td>"+
-                    		"<td><a class=\"plan-btn-edit\" id=\""+result.s_id+"-edit\"><img class='delImg' src=\"../img/edit.png\"></a></td>"+
-                    		"<td><a class=\"plan-btn-delete\" id=\""+result.s_id+"-delete\"><img class='delImg' src=\"../img/delete2.png\"></a></td>"+
-                    		"</tr>");
-                    	$("#employee-add").show();
-                    	$("body").css("overflow","hide");
-                }
-            });
-});
- * 
- */
+

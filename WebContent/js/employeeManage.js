@@ -11,8 +11,8 @@ $(document).on("click",".employee-btn-edit",function(){
 function addClick()
 {
 	$("#addStoreLine").html("<td><input type='text'  id='newStoreName' placeholder='请输入用户名'></td>\
-							<td><select id='newStoreId'><option value='0'>无</option></select></td>\
-							<td><select id='newStoreType'><option value='2'>总店服务员</option><option value='3'>分店服务员</option></select></td>\
+							<td><select id='add-s-id'><option value='0'>无</option></select></td>\
+							<td><select id='add-type'><option value='2'>总店服务员</option><option value='3'>分店服务员</option></select></td>\
 							<td><a id='newStoreAdd'><img class='delImg'\
 							src='../img/check.png'></a></td>\
 							<td><a id='newStoreDel'><img class='delImg'\
@@ -36,7 +36,6 @@ function addClick()
         	alert("error:"+textStatus+","+errorThrown);
         }
 	});
-	//小春威武
 	$("#newStoreAdd").click(addEmployee);
 	$("#newStoreDel").click(function()
 	{
@@ -46,60 +45,6 @@ function addClick()
 	//$(".modal-wrapper").show();
 	//$("body").css("overflow","hide");
 }
-
-function addEmployee()
-{
-	var name=$("#newStoreName").val();
-	var s_id=$("#newStoreId").val();
-	var type=$("#newStoreType").val();
-	var passwored="admin";
-	var pass="admin";
-	if(name=="")
-	{
-		document.getElementById('newStoreName').focus();
-	    $("#newStoreName").attr("placeholder","店名不能为空");
-	    return;
-	}
-	
-	
-	
-	if (passwored!=pass) {
-		$("#confirm-add").html("<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>两次密码不一致</div>");
-		return;
-	}
-	if(type==2){
-		 s_id=0;
-		 $("#add-s-id").val(s_id);
-	}
-	$("#addStoreLine").html("<td colspan='6'><div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div></td>");
-	$.ajax({
-	            type:"POST",
-	            url:"/Desserthouse/api/AddEmployee",
-	            data:{'s_id':s_id,'name':name,'work_type':type,'password':passwored},
-	            success:function(result,textStatus){
-	            		$("#addStoreLine").remove();
-	//                    	alert(result.store_name);
-	                	$("#store-table").append("<tr>"+
-	                		"<td>"+name+"</td>"+
-	                		"<td>"+result.store_name+"</td>"+
-	                		"<td>"+result.work_type+"</td>"+
-	                		"<td><a class=\"plan-btn-edit\" id=\""+name+"-edit\"><img src=\"../img/edit.png\"></a></td>"+
-	                		"<td><a class=\"plan-btn-delete\" id=\""+name+"-delete\"><img src=\"../img/delete2.png\"></a></td>"+
-	                		"</tr>");
-	                	$("#employee-add").show();
-	                	$("body").css("overflow","hide");
-	                	$("#addStoreBut").click(addClick);
-	            }
-	            ,error:function(XMLHttpRequest, textStatus, errorThrown)
-	            {
-	            	$("#addStoreLine").html("<td colspan='6'> <div class='addBut' id='addStoreBut'>+</div></td>");
-	        		$("#addStoreBut").click(addClick);
-	        		$("#addStoreBut").click(addClick);
-	            	alert(textStatus);
-	            }
-	});
-}
-
 
 $("#addStoreBut").click(addClick);
 
