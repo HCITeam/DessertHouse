@@ -115,12 +115,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 		if (employees!=null) {
 			for (int i = 0; i < employees.size(); i++) {
 				EmploeeInfoResultVO infoResultVO=new EmploeeInfoResultVO();
-				infoResultVO.setFromEmployee(employees.get(i));
-				vos.add(infoResultVO);
+				if (employees.get(i).getDelete_flag()==0) {
+					infoResultVO.setFromEmployee(employees.get(i));
+					vos.add(infoResultVO);
+				}
 			}
 		}
 		return vos;
-	
 	}
 
 	@Override
