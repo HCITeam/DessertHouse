@@ -1,7 +1,29 @@
 package dessert.service;
 
+import java.util.ArrayList;
+import java.util.Date;
+
+import dessert.pvo.MessagePVO;
+import dessert.pvo.MessageUpdatePVO;
+import dessert.rvo.ResultVO;
+import dessert.rvo.message.MessageAddResultVO;
+
 public interface MessageService {
 
-	//发送信息
-	
+	//添加
+	public MessageAddResultVO addMessage(MessagePVO po);
+	//删除
+	public ResultVO deleteMessage(String emp_name,Date date);
+	//已读，修改状态
+	public ResultVO readMessage(MessageUpdatePVO po);
+	//得到所有消息
+	public ArrayList<MessagePVO> getMessageList();
+	//得到某个服务员的所有消息
+	public ArrayList<MessagePVO> getMessageByEmp_name(String emp_name);
+	//得到某个服务员的所有未读消息
+	public ArrayList<MessagePVO> getUnreadMessageByEmp_name(String emp_name);
+	//某个服务员的所有已读消息
+	public ArrayList<MessagePVO> getReadMessageByEmp_name(String emp_name);
+	// 得到某天消息
+	public MessagePVO getMessageByDate(String emp_name,Date date);
 }
