@@ -58,9 +58,9 @@ Map<Integer, String> sotreList = (Map<Integer, String>) sc.getAttribute("store_l
 						<td class="employee-name-td"><%=headList.get(i).getName()%></td>
 						<td class="employee-store-td">总</td>
 						<td class="employee-work-td"><%=headList.get(i).getTypeString()%></td>
-						<td><a class="employee-btn-edit" id="<%=headList.get(i).getName() + "-edit"%>"><img
+						<td><a class="store-btn-edit" id="<%=headList.get(i).getName() + "-edit"%>"><img
 								src="../img/edit.png"></a></td>
-						<td><a class="employee-btn-delete" id="<%=headList.get(i).getName()  + "-delete"%>"><img
+						<td><a class="store-btn-delete" id="<%=headList.get(i).getName()  + "-delete"%>"><img
 								src="../img/delete2.png"></a></td>
 					</tr>
 					<%
@@ -70,13 +70,13 @@ Map<Integer, String> sotreList = (Map<Integer, String>) sc.getAttribute("store_l
 					<%
 						for (int i = 0; i < serverList.size(); i++) {
 					%>
-					<tr>
+					<tr class="tableBottomTr">
 						<td><%=serverList.get(i).getName()%></td>
 						<td><%=sotreList.get(serverList.get(i).getS_id()) %></td>
 						<td><%=serverList.get(i).getTypeString()%></td>
-						<td><a class="employee-btn-edit" id="<%=serverList.get(i).getName() + "-edit"%>"><img
+						<td><a class="store-btn-edit" id="<%=serverList.get(i).getName() + "-edit"%>"><img
 								src="../img/edit.png"></a></td>
-						<td><a class="employee-btn-delete" id="<%=serverList.get(i).getName()  + "-delete"%>"><img
+						<td><a class="store-btn-delete" id="<%=serverList.get(i).getName()  + "-delete"%>"><img
 								src="../img/delete2.png"></a></td>
 					</tr>
 					<%
