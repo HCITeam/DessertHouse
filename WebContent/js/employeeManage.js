@@ -19,8 +19,8 @@ function addClick()
 							src='../img/delete2.png'></a></td>");
 
 	$.ajax({
-        type:"POST",
-        url:"/DessertHouse/api/ListStore",
+        type:"GET",
+        url:"/Desserthouse/api/ListStore",
         success:function(result,textStatus)
         {
         	var stores=result['store_list'];
