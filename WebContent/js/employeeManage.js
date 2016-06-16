@@ -36,7 +36,7 @@ function addClick()
         	alert("error:"+textStatus+","+errorThrown);
         }
 	});
-	
+	//小春威武
 	$("#newStoreAdd").click(addEmployee);
 	$("#newStoreDel").click(function()
 	{
