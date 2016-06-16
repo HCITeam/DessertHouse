@@ -3,10 +3,11 @@ $("#impass").on("click",function(){
 		$("#pass").removeClass("tab-btn-active");
 		$("#pass-table").hide();
 	}
-
+	
 	$("#impass").removeClass();
 	$("#impass").addClass("tab-btn tab-btn-active");
 	$("#plan-table").show();
+	sessionStorage.removeItem("planLastSee");
 });
 
 $("#pass").on("click",function(){
@@ -14,11 +15,23 @@ $("#pass").on("click",function(){
 		$("#impass").removeClass("tab-btn-active");
 		$("#plan-table").hide();
 	}
-
+	sessionStorage.setItem("planLastSee","pass");
 	$("#pass").removeClass();
 	$("#pass").addClass("tab-btn tab-btn-active");
 	$("#pass-table").show();
 });
+
+var lastSee=sessionStorage.getItem("planLastSee");
+if(lastSee=="pass")
+{
+	if ($("#impass").hasClass("tab-btn-active")) {
+		$("#impass").removeClass("tab-btn-active");
+		$("#plan-table").hide();
+	}
+	$("#pass").removeClass();
+	$("#pass").addClass("tab-btn tab-btn-active");
+	$("#pass-table").show();
+}
 
 $(document).on("click",".plan-btn-pass",function(){
 	var button_id=$(this).attr("id");

@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="../css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../css/reset.css">
 <link rel="stylesheet" type="text/css" href="../css/main.css">
+<link rel="stylesheet" type="text/css" href="../css/myCss.css">
 <%
 	ServletContext sc = request.getServletContext();
 	Map<Integer, String> store = (Map<Integer, String>) sc.getAttribute("store_list");
@@ -64,28 +65,17 @@
 					<div class="clear"></div>
 				</div>
 				<div style="height: 1px"></div>
-				<%
-					if (list.size() <= 0) {
-				%>
-				<form class="info-form">
-					<ul>
-						<li><span>当前没有销售情况</span></li>
-					</ul>
-				</form>
-				<%
-					} else {
-				%>
-				<table class="book-table" id="plan-table" border="1">
-					<tr>
-						<th>商品名</th>
-						<th>数量</th>
-						<th>总价</th>
-						<th>类型</th>
+				<table class="book-table" id="plan-table" border="0">
+					<tr  class="tableTr">
+						<th  width="280px">商品名</th>
+						<th  width="280px">数量</th>
+						<th  width="280px">总价</th>
+						<th  width="280px">类型</th>
 					</tr>
 					<%
 						for (int i = 0; i < list.size(); i++) {
 					%>
-					<tr>
+					<tr  class="tableBottomTr">
 						<td><%=list.get(i).getP_name()%></td>
 						<td><%=list.get(i).getP_num()%></td>
 						<td><%=list.get(i).getAmount()%></td>
@@ -96,7 +86,14 @@
 						<%} %>
 					</tr>
 					<%
-						    }
+						}
+						if(list.size()<=0)
+						{
+					%>
+					<tr class="tableBottomTr" id="addStoreLine">
+						<td colspan="4"> 暂无销售情况</td>
+					</tr>
+					<%		
 						}
 					%>
 				</table>
