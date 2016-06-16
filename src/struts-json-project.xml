@@ -130,5 +130,59 @@
     					<param name="root">jsonResult</param>
     				</result>
     			</action>
+    			<!-- 清空一个店员 -->
+    			<action name="EmpEmptyOne" class="empEmptyOne" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<!-- 清空多个店员 -->
+    			<action name="EmpEmptyAll" class="empEmptyAll" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<!-- 获得已删除的店员 -->
+    			<action name="EmpListDeleteGet" class="empListDeleteGet" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<!-- 清空一个店面 -->
+    			<action name="StoreEmptyOne" class="storeEmptyOne" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<!-- 清空多个店面 -->
+    			<action name="StoreEmptyAll" class="storeEmptyAll" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<!-- 获得已删除的店面-->
+    			<action name="StoreListDeleteGet" class="storeListDeleteGet" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<!-- 清空一个计划 -->
+    			<action name="PlanEmptyOne" class="planEmptyOne" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<!-- 清空多个计划 -->
+    			<action name="PlanEmptyAll" class="planEmptyAll" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<!-- 获得已删除的计划-->
+    			<action name="PlanListDeleteGet" class="planListDeleteGet" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
     		</package>		
     </struts>

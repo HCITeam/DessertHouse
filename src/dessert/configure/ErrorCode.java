@@ -20,4 +20,5 @@ public class ErrorCode {
 	public static final String     TYPE_IS_EMPTY			=	"类型不能为空";
 	public static final String     AREA_IS_EMPTY			=	"地区不能为空";
 	public static final String     MONTH_IS_EMPTY			=	"月份不能为空";
+	public static final String     PAGE_IS_EMPTY			=	"页数不能为空";
 }

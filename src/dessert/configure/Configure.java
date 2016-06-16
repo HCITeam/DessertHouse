@@ -70,6 +70,10 @@ public class Configure {
 	public static final String  DATE_ONE			=	"date_one";
 	public static final String  DATE_TWO			=	"date_two";
 	public static final String  DATE_THREE			=	"date_three";
+	public static final String  DELETE_FLAG			=	"delete_flag";
+	public static final String  SERVERS				=	"servers";
+	public static final String  PAGE				=	"page";
+	public static final String  PLAN_LIST			=	"plan_list";
 	//
 	
 	public static final int  	FAIL				=	0;

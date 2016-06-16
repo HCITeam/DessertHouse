@@ -179,7 +179,7 @@ public class PlanServiceImpl implements PlanService {
 		if (page <= 0) {
 			page = 1;
 		}
-		List<Plan> list = planDao.getAllByPage(Plan.class, page, 10);
+		List<Plan> list = planDao.getListByColumn(Plan.class, Configure.DELETE_FLAG, Configure.DELETE_FLAG_FALSE);
 		List<PlanInfoResultVO> resultVOs = new ArrayList<>();
 		if (list == null) {
 			return resultVOs;
@@ -201,7 +201,9 @@ public class PlanServiceImpl implements PlanService {
 			return resultVOs;
 		}
 		for (int i = 0; i < list.size(); i++) {
-			resultVOs.add(new PlanInfoResultVO(list.get(i)));
+			if (list.get(i).getDelete_flag()==0) {
+				resultVOs.add(new PlanInfoResultVO(list.get(i)));
+			}
 		}
 		return resultVOs;
 	}
@@ -217,7 +219,9 @@ public class PlanServiceImpl implements PlanService {
 			return resultVOs;
 		}
 		for (int i = 0; i < list.size(); i++) {
-			resultVOs.add(new PlanInfoResultVO(list.get(i)));
+			if (list.get(i).getDelete_flag()==0) {
+				resultVOs.add(new PlanInfoResultVO(list.get(i)));
+			}
 		}
 		return resultVOs;
 	}

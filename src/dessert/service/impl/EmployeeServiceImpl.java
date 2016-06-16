@@ -94,7 +94,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public ArrayList<EmploeeInfoResultVO> getEmploeeList() {
-		List<Employee> employees=(List<Employee>)employeeDao.getAll(Employee.class);
+		List<Employee> employees=(List<Employee>)employeeDao.getListByColumn(Employee.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
 		ArrayList<EmploeeInfoResultVO> vos=new ArrayList<>();
 		if (employees!=null) {
 			for (int i = 0; i < employees.size(); i++) {
