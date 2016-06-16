@@ -156,7 +156,7 @@ function addStore()
     	}
 }
 
-$(".confirm-btn").on("click",function(){
+/**$(".confirm-btn").on("click",function(){
 	var name=$("#name").val();
     var addr=$("#addr").val();
     var tel=$("#tel").val();
@@ -183,6 +183,6 @@ $(".confirm-btn").on("click",function(){
                     	$("body").css("overflow","hide");
                 }
             });
-});/**
+});
  * 
  */
