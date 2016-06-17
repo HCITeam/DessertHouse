@@ -17,7 +17,6 @@ public class Configure {
 	public static final String  NAME				=	"name";
 	public static final String  PASSWORD			=	"password";
 	public static final String  WORK_TYPE			=	"work_type";
-//	public static final String  STORE_ID			=	"s_id";
 	public static final String  STATE				=	"state";
 	public static final String  S_ID				=	"s_id";
 	public static final String  S_DATE				=	"s_date";
@@ -74,6 +73,8 @@ public class Configure {
 	public static final String  SERVERS				=	"servers";
 	public static final String  PAGE				=	"page";
 	public static final String  PLAN_LIST			=	"plan_list";
+	public static final String  CONTENT				=	"content";
+	public static final String  RESULT				=	"result";
 	//
 	
 	public static final int  	FAIL				=	0;

@@ -141,4 +141,7 @@ public class BaseDaoImpl<T> {
     	int count = Integer.parseInt(criteria.setProjection(Projections.rowCount()).uniqueResult().toString());
     	return count;
     }
+    public void clearBuffer(){
+    	
+    }
 }
