@@ -84,7 +84,7 @@ function addClick()
 							<td><a id='newStoreDel'><img class='delImg'\
 							src='../img/delete2.png'></a></td>");
 
-	$.ajax({
+/*	$.ajax({
         type:"GET",
         url:"/DessertHouse/api/ListStore",
         data:{},
@@ -102,7 +102,7 @@ function addClick()
         {
         	alert("error:"+textStatus+","+errorThrown);
         }
-	});
+	});*/
 	$("#newStoreAdd").click(addEmployee);
 	$("#newStoreDel").click(function()
 	{
