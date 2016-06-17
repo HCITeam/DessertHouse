@@ -114,6 +114,8 @@
 .tableBottomTr
 {
 	border:1px solid grey;
+	border-left:0px;
+	border-right:0px;
 }
 
 .tool-bar
@@ -128,4 +130,13 @@
 th,td,td input,td select option
 {
 	text-align:center;
+}
+#add-s-id,#add-type
+{
+	width:200px;
+}
+.showBorder
+{
+	outline: none;
+	box-shadow: 0px 0px 2px 2px #ff8488;
 }
