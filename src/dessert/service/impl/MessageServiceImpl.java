@@ -3,6 +3,7 @@ package dessert.service.impl;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
 import dessert.configure.Configure;
@@ -15,6 +16,7 @@ import dessert.rvo.employee.EmployeeAddResultVO;
 import dessert.rvo.message.MessageAddResultVO;
 import dessert.service.MessageService;
 
+@Service
 public class MessageServiceImpl implements MessageService{
 
 	@Override
