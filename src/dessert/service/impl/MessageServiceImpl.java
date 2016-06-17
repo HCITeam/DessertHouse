@@ -37,6 +37,7 @@ public class MessageServiceImpl implements MessageService{
 		message.setRead(0);
 		Date date=Util.getCurrentDate();
 		message.setDraftdate(date);
+		message.setDelete_flag(0);
 		messageDao.add(message);
 		
 		
@@ -49,15 +50,16 @@ public class MessageServiceImpl implements MessageService{
 	}
 
 	@Override
-	public ResultVO deleteMessage(String emp_name, Date date) {
+	public ResultVO deleteMessage(int id) {
 		// TODO Auto-generated method stub
 		ResultVO rVo=new ResultVO();
-		Message message=messageDao.getByNameAndDate(emp_name, date);
+		Message message=messageDao.getById(id);
 		if (message == null) {
 			rVo.setSuccess(Configure.FAIL);
 			rVo.setMessage("这天没有消息");
 		} else {
-			messageDao.delete(message);
+			message.setDelete_flag(1);
+			messageDao.update(message);
 			rVo.setSuccess(Configure.SUCCESS_INT);
 			rVo.setMessage("删除消息成功");
 		}
@@ -67,7 +69,10 @@ public class MessageServiceImpl implements MessageService{
 	@Override
 	public ResultVO readMessage(MessageUpdatePVO po) {
 		// TODO Auto-generated method stub
-		return null;
+		ResultVO rVo=new ResultVO();
+		//Message message=messageDao.getById();
+		
+		return rVo;
 	}
 
 	@Override
@@ -94,8 +99,28 @@ public class MessageServiceImpl implements MessageService{
 		return null;
 	}
 
+	
+
 	@Override
-	public MessagePVO getMessageByDate(String emp_name, Date date) {
+	public MessagePVO getMessageByDate_emp(String emp_name, Date date) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<MessagePVO> getMessageByDate(Date date) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultVO emptyOneMessage(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultVO emptyAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
