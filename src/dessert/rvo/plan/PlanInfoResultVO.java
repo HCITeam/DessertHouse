@@ -16,7 +16,15 @@ public class PlanInfoResultVO extends ResultVO{
 	private double price;
 	private int state;
 	private String emp_name;
+	private String remark;
 
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark=remark;
+	}
 	public PlanInfoResultVO(){
 		
 	}

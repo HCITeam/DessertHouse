@@ -15,7 +15,7 @@ public interface MessageService {
 	//删除
 	public ResultVO deleteMessage(int id);
 	//已读，修改状态
-	public ResultVO readMessage(MessageUpdatePVO po);
+	public ResultVO readMessage(MessageUpdatePVO po,int id);
 	//得到所有消息
 	public ArrayList<MessagePVO> getMessageList();
 	//得到某个服务员的所有消息

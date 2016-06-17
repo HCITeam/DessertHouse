@@ -43,4 +43,6 @@ public interface PlanService {
 	
 	//获得已删除计划
 	public List<PlanInfoResultVO> getDeletePlan(int page);
+	
+	public ResultVO rejectPlan(PlanPVO pvo, String id);
 }

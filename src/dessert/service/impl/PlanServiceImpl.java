@@ -252,7 +252,7 @@ public class PlanServiceImpl implements PlanService {
 		planDao.deleteByColumn(Plan.class, "delete_flag", Configure.DELETE_FLAG_TRUE);
 		resultVO.setSuccess(Configure.SUCCESS_INT);
 		resultVO.setMessage("清空成功");
-		return null;
+		return resultVO;
 	}
 
 	@Override
@@ -269,6 +269,31 @@ public class PlanServiceImpl implements PlanService {
 			resultVOs.add(new PlanInfoResultVO(list.get(i)));
 		}
 		return resultVOs;
+	}
+
+	@Override
+	public ResultVO rejectPlan(PlanPVO pvo, String id) {
+		// TODO Auto-generated method stub
+		ResultVO resultVO = new ResultVO();
+		Plan plan = planDao.getById(id);
+		if (plan == null) {
+			resultVO.setSuccess(Configure.FAIL);
+			resultVO.setMessage("找不到该计划");
+			return resultVO;
+		}
+
+		if (plan.getState() == Configure.PASS) {
+			resultVO.setSuccess(Configure.FAIL);
+			resultVO.setMessage("该计划已通过审批，不可驳回");
+			return resultVO;
+		}
+		
+		plan.setRemark(pvo.getRemark());
+		planDao.update(plan);
+		resultVO.setSuccess(Configure.SUCCESS_INT);
+		resultVO.setMessage("修改成功");
+
+		return resultVO;
 	}
 
 }

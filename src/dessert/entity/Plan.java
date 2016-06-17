@@ -24,6 +24,8 @@ public class Plan {
 	@ColumnDefault(value = "0")
 	private int delete_flag;
 	private String emp_name;
+	
+	private String remark;
 
 	public int getId() {
 		return id;
@@ -51,6 +53,14 @@ public class Plan {
 
 	public void setP_name(String p_name) {
 		this.p_name = p_name;
+	}
+	
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 
 	public int getP_num() {
