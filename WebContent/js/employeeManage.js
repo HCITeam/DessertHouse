@@ -84,6 +84,25 @@ function addClick()
 							<td><a id='newStoreDel'><img class='delImg'\
 							src='../img/delete2.png'></a></td>");
 
+	$.ajax({
+        type:"GET",
+        url:"/DessertHouse/api/ListStore",
+        data:{},
+        success:function(result,textStatus)
+        {
+        	var stores=result['store_list'];
+        	$.each(stores,function(index,store)
+        	{
+        		var id=store.id;
+        		var name=store.name;
+        		alert(id+":"+name);
+        	});
+        }
+        ,error:function(XMLHttpRequest, textStatus, errorThrown)
+        {
+        	alert("error:"+textStatus+","+errorThrown);
+        }
+	});
 	$("#newStoreAdd").click(addEmployee);
 	$("#newStoreDel").click(function()
 	{
@@ -110,7 +129,6 @@ function addClick()
         	$("body").html(data.responseText);
         }
     });
-	
 	//$(".modal-wrapper").show();
 	//$("body").css("overflow","hide");
 }
@@ -212,15 +230,18 @@ $(document).on("click","#confirm-edit",function(){
             });
 });
 
-$(document).on("click",".store-btn-delete",function(){
+$(document).on("click",".employee-btn-delete",function(){
    var button_id=$(this).attr("id");
    var name=button_id.split("-")[0];//取得id
-   $("#"+button_id+"").parent().parent().hide(500);
 	$.ajax({
                 type:"POST",
                 url:"/Desserthouse/api/DeleteEmployee",
                 data:{'name':name},
                 success:function(result,textStatus){
+                    	alert(result.message);
+                    	if (result.success==1) {
+                    		$("#"+button_id+"").parent().parent().remove();
+                    	}
                 }
             });
 });

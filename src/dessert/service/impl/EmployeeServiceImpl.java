@@ -81,10 +81,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 			rVo.setSuccess(Configure.FAIL);
 			rVo.setMessage("该账号不存在");
 		}else {
-			employee.setName(po.getName());
-//			Store store=storeDao.getByName(po.getS_name());
-			employee.setS_id(po.getS_id());
-			employee.setType(po.getType());
+			String password = (po.getPassword()=="")?employee.getPassword():DigestUtils.md5DigestAsHex(po.getPassword().getBytes());
+			String name = (po.getName()=="")?employee.getName():po.getName();
+			int s_id = (po.getS_id()== -1)?employee.getS_id():po.getS_id();
+			int type = (po.getType()== -1)?employee.getType():po.getType();
+			employee.setName(name);
+			employee.setPassword(password);
+			employee.setS_id(s_id);
+			employee.setType(type);
 			employeeDao.update(employee);
 			rVo.setSuccess(Configure.SUCCESS_INT);
 			rVo.setMessage("修改成功");

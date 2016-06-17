@@ -29,11 +29,11 @@ public class EmployeeUpdateController extends AjaxController{
 		validator.put(Configure.NAME, params.get(Configure.NAME));
 		validator.put(Configure.S_ID, params.get(Configure.S_ID));
 		validator.put(Configure.WORK_TYPE, params.get(Configure.WORK_TYPE));
-//		validator.put(Configure.PHONE, params.get(Configure.PHONE));
+		validator.put(Configure.PASSWORD, params.get(Configure.PASSWORD));
 		validator.isRequired(Configure.NAME, ErrorCode.NAME_IS_EMPTY);
 		validator.isRequired(Configure.S_ID, ErrorCode.ID_IS_EMPTY);
 		validator.isRequired(Configure.WORK_TYPE, ErrorCode.TYPE_IS_EMPTY);
-//		validator.isRequired(Configure.PHONE, ErrorCode.PHONE_IS_EMPTY);
+		validator.isRequired(Configure.PASSWORD, ErrorCode.PASSWORD_IS_EMPTY);
 	}
 
 	@Override

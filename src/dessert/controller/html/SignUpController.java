@@ -65,12 +65,20 @@ public class SignUpController extends HtmlController{
 			List<InventoryRVO> secondList=commodityService.getByNameandDate(storeName[0], Util.theDateAfterday(date, 1));
 			List<InventoryRVO> thirdList=commodityService.getByNameandDate(storeName[0], Util.theDateAfterday(date, 2));
 			
+			String date1 = Util.getDateString(date);
+			String date2 = Util.getDateString(Util.theDateAfterday(date, 1));
+			String date3 = Util.getDateString(Util.theDateAfterday(date, 2));
+			
 			sc.setAttribute(Configure.VISITED, storeName[0]);
 			sc.setAttribute(Configure.STORE_NAME, storeName);
 			sc.setAttribute(Configure.DATE_FIRST,firstList);
 			sc.setAttribute(Configure.DATE_SECOND, secondList);
 			sc.setAttribute(Configure.DATE_THIRD, thirdList);
 			sc.setAttribute(Configure.IS_SIGNUP, "1");//代表通过注册登录
+			sc.setAttribute(Configure.DATE_ONE, date1);
+			sc.setAttribute(Configure.DATE_TWO, date2);
+			sc.setAttribute(Configure.DATE_THREE, date3);
+			
 			return Configure.SUCCESS;
 		}
 		sc.setAttribute(Configure.SUCCESS, Configure.FAIL);

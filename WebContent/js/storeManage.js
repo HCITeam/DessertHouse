@@ -130,29 +130,28 @@ function addStore()
                 success:function(result,textStatus){
                     	//alert(result.message);
                     	//alert(result.s_id);
-                	//window.location = "/Desserthouse/ManageStore";
-                		$("#addStoreLine").remove();
-                    	$("#store-table").append("<tr  class='tableBottomTr'>"+
-                    		"<td>"+result.s_id+"</td>"+
-                    		"<td><input disabled='true' type=\"text\" class=\"short-input-td\" id=\""+result.s_id+"-name\" value=\""+name+"\"></td>"+
-                    		"<td><input disabled='true' type=\"text\" class=\"long-input-td\" id=\""+result.s_id+"-addr\" value=\""+addr+"\"></td>"+
-                    		"<td><input disabled='true' type=\"text\" class=\"long-input-td\" id=\""+result.s_id+"-tel\" value=\""+tel+"\"></td>"+
-                    		"<td><a class='store-btn-edit' id=\""+result.s_id+"-edit\"><img class='delImg' src=\"../img/edit.png\"></a></td>"+
-                    		"<td><a class='store-btn-delete' id=\""+result.s_id+"-delete\"><img class='delImg' src=\"../img/delete2.png\"></a></td>"+
-                    		"</tr>" +
-                    		"<tr class='tableBottomTr' id='addStoreLine'>"+
-                    		"<td colspan='6'> <div class='addBut' id='addStoreBut'>+</div></td>"+
-                    		"</tr>");
-                    	$("#employee-add").show();
-                    	$("body").css("overflow","hide");
-                		$("#addStoreBut").click(addClick);
+                	window.location = "/Desserthouse/ManageStore";
+//                		$("#addStoreLine").remove();
+//                    	$("#store-table").append("<tr  class='tableBottomTr'>"+
+//                    		"<td>"+result.s_id+"</td>"+
+//                    		"<td><input type=\"text\" class=\"short-input-td\" id=\""+result.s_id+"-name\" value=\""+name+"\"></td>"+
+//                    		"<td><input type=\"text\" class=\"long-input-td\" id=\""+result.s_id+"-addr\" value=\""+addr+"\"></td>"+
+//                    		"<td><input type=\"text\" class=\"long-input-td\" id=\""+result.s_id+"-tel\" value=\""+tel+"\"></td>"+
+//                    		"<td><a class=\"plan-btn-edit\" id=\""+result.s_id+"-edit\"><img class='delImg' src=\"../img/edit.png\"></a></td>"+
+//                    		"<td><a class=\"plan-btn-delete\" id=\""+result.s_id+"-delete\"><img class='delImg' src=\"../img/delete2.png\"></a></td>"+
+//                    		"</tr>" +
+//                    		"<tr class='tableBottomTr' id='addStoreLine'>"+
+//                    		"<td colspan='6'> <div class='addBut' id='addStoreBut'>+</div></td>"+
+//                    		"</tr>");
+//                    	$("#employee-add").show();
+//                    	$("body").css("overflow","hide");
+//                		$("#addStoreBut").click(addClick);
                 }
-                ,error:function(data)
+                ,error:function(XMLHttpRequest, textStatus, errorThrown)
                 {
                 	$("#addStoreLine").html("<td colspan='6'> <div class='addBut' id='addStoreBut'>+</div></td>");
             		$("#addStoreBut").click(addClick);
-                	alert(data.responseText);
-                	//$("body").html(data.responseText);
+                	alert(textStatus);
                 }
             });
     	}

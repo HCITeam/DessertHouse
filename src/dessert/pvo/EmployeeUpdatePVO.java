@@ -7,6 +7,7 @@ public class EmployeeUpdatePVO {
 	private String name;
 	private int type;
 	private int  s_id;
+	private String password;
 
 	public EmployeeUpdatePVO() {
 
@@ -22,6 +23,7 @@ public class EmployeeUpdatePVO {
 		setName(validator.getS(Configure.NAME));
 		setType(validator.getI(Configure.WORK_TYPE));
 		setS_id(validator.getI(Configure.S_ID));
+		setPassword(validator.getS(Configure.PASSWORD));
 	}
 
 	public String getName() {
@@ -48,5 +50,12 @@ public class EmployeeUpdatePVO {
 		this.s_id = s_id;
 	}
 
+	public String getPassword() {
+		return password;
+	}
 
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 }
