@@ -20,6 +20,14 @@ public class Message {
 	private Date draftdate;
 	@ColumnDefault(value = "0")
 	private int isRead;
+	private int delete_flag;
+	
+	public int getDelete_flag() {
+		return delete_flag;
+	}
+	public void setDelete_flag(int delete_flag) {
+		this.delete_flag = delete_flag;
+	}
 	
 	public int getId() {
 		return id;

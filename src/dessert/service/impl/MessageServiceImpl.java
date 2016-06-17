@@ -58,7 +58,7 @@ public class MessageServiceImpl implements MessageService{
 		} else {
 			messageDao.delete(message);
 			rVo.setSuccess(Configure.SUCCESS_INT);
-			rVo.setMessage("解绑成功");
+			rVo.setMessage("删除消息成功");
 		}
 		return rVo;
 	}
