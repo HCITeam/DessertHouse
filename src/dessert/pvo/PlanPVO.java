@@ -11,7 +11,15 @@ public class PlanPVO {
 	private int p_num;
 	private double price;
 	private String employee_name;
+	private String remark;
 
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 	
 	public Date getPlandate() {
 		return plandate;
