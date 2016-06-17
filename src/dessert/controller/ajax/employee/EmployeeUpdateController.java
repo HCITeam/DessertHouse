@@ -26,10 +26,12 @@ public class EmployeeUpdateController extends AjaxController{
 
 	@Override
 	public void validate(Map<String, String> params, FormValidator validator) {
+		System.out.println("heheheheehehehhehe");
 		validator.put(Configure.NAME, params.get(Configure.NAME));
 		validator.put(Configure.S_ID, params.get(Configure.S_ID));
 		validator.put(Configure.WORK_TYPE, params.get(Configure.WORK_TYPE));
 		validator.put(Configure.PASSWORD, params.get(Configure.PASSWORD));
+		System.out.println(params.get(Configure.NAME)+"   "+params.get(Configure.S_ID)+"    "+params.get(Configure.WORK_TYPE)+"   "+params.get(Configure.PASSWORD));
 		validator.isRequired(Configure.NAME, ErrorCode.NAME_IS_EMPTY);
 		validator.isRequired(Configure.S_ID, ErrorCode.ID_IS_EMPTY);
 		validator.isRequired(Configure.WORK_TYPE, ErrorCode.TYPE_IS_EMPTY);
@@ -39,6 +41,7 @@ public class EmployeeUpdateController extends AjaxController{
 	@Override
 	public String process(FormValidator validator) {
 		// TODO Auto-generated method stub
+		System.out.println(validator.getS(Configure.PASSWORD));
 		EmployeeUpdatePVO pvo=new EmployeeUpdatePVO();
 		pvo.setFromValidator(validator);
 		

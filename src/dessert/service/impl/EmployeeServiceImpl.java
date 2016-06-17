@@ -81,7 +81,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 			rVo.setSuccess(Configure.FAIL);
 			rVo.setMessage("该账号不存在");
 		}else {
-			String password = (po.getPassword()=="")?employee.getPassword():DigestUtils.md5DigestAsHex(po.getPassword().getBytes());
+			String password = ((po.getPassword().equals("0")||po.getPassword().equals("")) || (po.getPassword()==null))?employee.getPassword():DigestUtils.md5DigestAsHex(po.getPassword().getBytes());
 			String name = (po.getName()=="")?employee.getName():po.getName();
 			int s_id = (po.getS_id()== -1)?employee.getS_id():po.getS_id();
 			int type = (po.getType()== -1)?employee.getType():po.getType();

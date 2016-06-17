@@ -73,8 +73,14 @@ $("#confirm-recharge").on("click",function(){
                 data:{'bankcard':bankcard,'amount':amount},
                 success:function(result,textStatus){
                    // var isSuccess=result.success;
-                   var message=result.message;
-                   	alert(message);
+                	if(result.success==1){
+                		var amount_old = $("#span-balance").html();
+                		var amount_new = parseInt(amount_old);
+                		$("#span-balance").html(amount_new);
+                	}else{
+                		var message=result.message;
+                       	alert(message);	
+                	}
                    	$(".modal-wrapper").hide();
                     $("body").css("overflow","auto");
                 }
