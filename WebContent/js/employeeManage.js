@@ -7,12 +7,17 @@ $(document).on("click",".store-btn-edit",function()
 	var idId="#"+name+"-id";
 	var typeId="#"+name+"-type";
 	var passwordId="#"+name+"-password";
+	var lastId=$(idId).html();
 	if($(this).attr("disabled")=="disabled") return;
 	if($(passwordId).attr("disabled")=="disabled")
 	{
 		$(idId).html("读取中");
 		//$(idId).html("<select disabled='disabled' id='"+name+"-editId'><option value='0'>读取中</option></select>");
-		$(typeId).html("<select id='"+name+"-editType'><option value='2'>总店服务员</option><option value='3'>分店服务员</option></select>");
+		if($(typeId).html()=="分店服务员")
+		{
+			$(typeId).html("<select id='"+name+"-editType'><option value='2'>总店服务员</option><option selected='selected' value='3'>分店服务员</option></select>");
+		}
+		else $(typeId).html("<select id='"+name+"-editType'><option value='2'>总店服务员</option><option value='3'>分店服务员</option></select>");
 		$(passwordId).removeAttr("disabled");
 		$(passwordId).addClass("showBorder");
 		$("#"+name+"-edit").attr("disabled","disabled");
@@ -28,13 +33,14 @@ $(document).on("click",".store-btn-edit",function()
 	        	{
 	        		var id=store.id;
 	        		var nameS=store.name;
-	        		$("#"+name+"-editId").append("<option value='"+id+"'>"+nameS+"</option>");
+	        		if(lastId==nameS)$("#"+name+"-editId").append("<option selected='selected' value='"+id+"'>"+nameS+"</option>");
+	        		else $("#"+name+"-editId").append("<option value='"+id+"'>"+nameS+"</option>");
 	        	});
 	        	
 	        	$("#"+name+"-edit").removeAttr("disabled");
 	        	$("#"+name+"-editId").removeAttr("disabled");
 	        }
-	        ,error:function(data)
+	        ,error:function(data)	
 	        {
 	        	$("body").html(data.responseText);
 	        }

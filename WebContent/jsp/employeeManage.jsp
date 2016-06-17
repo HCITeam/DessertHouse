@@ -59,7 +59,7 @@
 					%>
 					<tr class="tableBottomTr">
 						<td id="<%=headList.get(i).getName() + "-name"%>"><%=headList.get(i).getName()%></td>
-						<td id="<%=headList.get(i).getName() + "-id"%>">总</td>
+						<td id="<%=headList.get(i).getName() + "-id"%>">总店</td>
 						<td id="<%=headList.get(i).getName() + "-type"%>"><%=headList.get(i).getTypeString()%></td>
 						<td><input disabled="true" type="text"  id="<%=headList.get(i).getName() + "-password"%>" placeholder='在此输入新密码'></td>
 						<td><a class="store-btn-edit" id="<%=headList.get(i).getName() + "-edit"%>"><img
@@ -75,10 +75,10 @@
 						for (int i = 0; i < serverList.size(); i++) {
 					%>
 					<tr class="tableBottomTr">
-						<td id="<%=headList.get(i).getName() + "-name"%>"><%=serverList.get(i).getName()%></td>
-						<td id="<%=headList.get(i).getName() + "-id"%>"><%=sotreList.get(serverList.get(i).getS_id()) %></td>
-						<td id="<%=headList.get(i).getName() + "-type"%>"><%=serverList.get(i).getTypeString()%></td>
-						<td><input disabled="true" type="text"  id="<%=headList.get(i).getName() + "-password"%>" placeholder='在此输入新密码'></td>
+						<td id="<%=serverList.get(i).getName() + "-name"%>"><%=serverList.get(i).getName()%></td>
+						<td id="<%=serverList.get(i).getName() + "-id"%>"><%=sotreList.get(serverList.get(i).getS_id()) %></td>
+						<td id="<%=serverList.get(i).getName() + "-type"%>"><%=serverList.get(i).getTypeString()%></td>
+						<td><input disabled="true" type="text"  id="<%=serverList.get(i).getName() + "-password"%>" placeholder='在此输入新密码'></td>
 						<td><a class="store-btn-edit" id="<%=serverList.get(i).getName() + "-edit"%>"><img
 								src="../img/edit.png"></a></td>
 						<td><a class="store-btn-delete" id="<%=serverList.get(i).getName()  + "-delete"%>"><img
