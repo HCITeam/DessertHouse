@@ -14,6 +14,10 @@ public class MessagePVO {
 		this.date = date;
 	}
 
+	public MessagePVO() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getContent() {
 		return content;
 	}

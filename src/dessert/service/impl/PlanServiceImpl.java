@@ -252,7 +252,7 @@ public class PlanServiceImpl implements PlanService {
 		planDao.deleteByColumn(Plan.class, "delete_flag", Configure.DELETE_FLAG_TRUE);
 		resultVO.setSuccess(Configure.SUCCESS_INT);
 		resultVO.setMessage("清空成功");
-		return null;
+		return resultVO;
 	}
 
 	@Override
