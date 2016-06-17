@@ -61,8 +61,8 @@ public class LoginController extends HtmlController{
 			session.setAttribute(Configure.STATE, rvo.getState());
 			//获得商家信息
 			//TODO
-			Date date=Util.getCurrentDate();
-//			Date date=Util.getDateFromString("2016-05-05");
+//			Date date=Util.getCurrentDate();
+			Date date=Util.getDateFromString("2016-05-05");
 			String[] storeName=storeService.getAllStoreName();
 			List<InventoryRVO> firstList=commodityService.getByNameandDate(storeName[0], date);
 			List<InventoryRVO> secondList=commodityService.getByNameandDate(storeName[0], Util.theDateAfterday(date, 1));

@@ -7,13 +7,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Manage</title>
+
 <link rel="stylesheet" href="../css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../css/reset.css">
 <link rel="stylesheet" type="text/css" href="../css/main.css">
 <link rel="stylesheet" type="text/css" href="../css/myCss.css">
+
 <%
 	ServletContext sc = request.getServletContext();
-Map<Integer, String> sotreList = (Map<Integer, String>) sc.getAttribute("store_list");
+	Map<Integer, String> sotreList = (Map<Integer, String>) sc.getAttribute("store_list");
 	List<EmploeeInfoResultVO> headList = (List<EmploeeInfoResultVO>) sc.getAttribute("head_server");
 	List<EmploeeInfoResultVO> serverList = (List<EmploeeInfoResultVO>) sc.getAttribute("server");
 %>
@@ -48,6 +50,7 @@ Map<Integer, String> sotreList = (Map<Integer, String>) sc.getAttribute("store_l
 						<th width="280px">用户名</th>
 						<th width="280px">所属分店</th>
 						<th width="280px">工作类型</th>
+						<th width="280px">密码</th>
 						<th width="100px">修改</th>
 						<th width="100px">删除</th>
 					</tr>
@@ -55,14 +58,15 @@ Map<Integer, String> sotreList = (Map<Integer, String>) sc.getAttribute("store_l
 						for (int i = 0; i < headList.size(); i++) {
 					%>
 					<tr class="tableBottomTr">
-						<td class="employee-name-td"><%=headList.get(i).getName()%></td>
-						<td class="employee-store-td">总</td>
-						<td class="employee-work-td"><%=headList.get(i).getTypeString()%></td>
+						<td id="<%=headList.get(i).getName() + "-name"%>"><%=headList.get(i).getName()%></td>
+						<td id="<%=headList.get(i).getName() + "-id"%>">总店</td>
+						<td id="<%=headList.get(i).getName() + "-type"%>"><%=headList.get(i).getTypeString()%></td>
+						<td><input disabled="true" type="text"  id="<%=headList.get(i).getName() + "-password"%>" placeholder='在此输入新密码'></td>
 						<td><a class="store-btn-edit" id="<%=headList.get(i).getName() + "-edit"%>"><img
 								src="../img/edit.png"></a></td>
 						<td><a class="store-btn-delete" id="<%=headList.get(i).getName()  + "-delete"%>"><img
 								src="../img/delete2.png"></a></td>
-					</tr>
+					</tr>	
 					<%
 						    }
 					%>
@@ -71,9 +75,10 @@ Map<Integer, String> sotreList = (Map<Integer, String>) sc.getAttribute("store_l
 						for (int i = 0; i < serverList.size(); i++) {
 					%>
 					<tr class="tableBottomTr">
-						<td><%=serverList.get(i).getName()%></td>
-						<td><%=sotreList.get(serverList.get(i).getS_id()) %></td>
-						<td><%=serverList.get(i).getTypeString()%></td>
+						<td id="<%=serverList.get(i).getName() + "-name"%>"><%=serverList.get(i).getName()%></td>
+						<td id="<%=serverList.get(i).getName() + "-id"%>"><%=sotreList.get(serverList.get(i).getS_id()) %></td>
+						<td id="<%=serverList.get(i).getName() + "-type"%>"><%=serverList.get(i).getTypeString()%></td>
+						<td><input disabled="true" type="text"  id="<%=serverList.get(i).getName() + "-password"%>" placeholder='在此输入新密码'></td>
 						<td><a class="store-btn-edit" id="<%=serverList.get(i).getName() + "-edit"%>"><img
 								src="../img/edit.png"></a></td>
 						<td><a class="store-btn-delete" id="<%=serverList.get(i).getName()  + "-delete"%>"><img

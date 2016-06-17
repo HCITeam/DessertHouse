@@ -34,4 +34,5 @@ public interface BaseDao<T> {
 	public List<T> getAllByPage(Class t,int page,int size);
     @SuppressWarnings("rawtypes")
 	public int getCounts(Class t);
+    public void clearBuffer();
 }
