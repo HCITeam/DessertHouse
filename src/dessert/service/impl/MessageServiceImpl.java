@@ -2,7 +2,7 @@ package dessert.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
-
+import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.DigestUtils;
 
@@ -20,6 +20,7 @@ import dessert.rvo.message.MessageAddResultVO;
 import dessert.service.MessageService;
 import dessert.util.Util;
 
+@Service
 public class MessageServiceImpl implements MessageService{
 	@Autowired
 	MessageDao messageDao;
