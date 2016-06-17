@@ -11,7 +11,7 @@ import dessert.rvo.message.MessageAddResultVO;
 public interface MessageService {
 
 	//添加
-	public MessageAddResultVO addMessage(MessagePVO po);
+	public ResultVO addMessage(MessagePVO po);
 	//删除
 	public ResultVO deleteMessage(String emp_name,Date date);
 	//已读，修改状态
