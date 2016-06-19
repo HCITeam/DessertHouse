@@ -60,9 +60,9 @@ public abstract class AjaxController extends BaseController{
 	@Override
 	public boolean assertLogin(HttpSession session) {
 		String name=(String)session.getAttribute(Configure.NAME);
-		if (name==null) {
-			return false;
-		}
+//		if (name==null) {
+//			return false;
+//		}
 		return true;
 	}
 

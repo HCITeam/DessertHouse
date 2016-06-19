@@ -23,7 +23,6 @@ public class MessageServiceImpl implements MessageService{
 	
 	@Override
 	public ResultVO addMessage(MessagePVO po) {
-		// TODO Auto-generated method stub
 		MessageAddResultVO rVO = new MessageAddResultVO();
 		rVO.setEmp_name(po.getEmployee_name());
 		rVO.setContent(po.getContent());
@@ -47,7 +46,6 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ResultVO deleteMessage(int id) {
-		// TODO Auto-generated method stub
 		ResultVO rVo=new ResultVO();
 		Message message=messageDao.getById(id);
 		if (message == null) {
@@ -64,7 +62,6 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ResultVO readMessage(int id) {
-		// TODO Auto-generated method stub
 		ResultVO rVo=new ResultVO();
 		Message message=messageDao.getById(id);
 		if (message == null) {
@@ -81,7 +78,6 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ArrayList<MessagePVO> getMessageList() {
-		// TODO Auto-generated method stub
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
 		ArrayList<MessagePVO> vos=new ArrayList<>();
 		if (messages!=null) {
@@ -99,7 +95,6 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ArrayList<MessagePVO> getMessageByEmp_name(String emp_name) {
-		// TODO Auto-generated method stub
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
 		ArrayList<MessagePVO> vos=new ArrayList<>();
 		if (messages!=null) {
@@ -119,7 +114,6 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ArrayList<MessagePVO> getUnreadMessageByEmp_name(String emp_name) {
-		// TODO Auto-generated method stub
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
 		ArrayList<MessagePVO> vos=new ArrayList<>();
 		if (messages!=null) {
@@ -139,7 +133,6 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ArrayList<MessagePVO> getReadMessageByEmp_name(String emp_name) {
-		// TODO Auto-generated method stub
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
 		ArrayList<MessagePVO> vos=new ArrayList<>();
 		if (messages!=null) {
@@ -161,7 +154,6 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public MessagePVO getMessageByDate_emp(String emp_name, Date date) {
-		// TODO Auto-generated method stub
 		Message mes=messageDao.getByNameAndDate(emp_name, date);
 		MessagePVO infoResultVO=new MessagePVO();
 		infoResultVO.setContent(mes.getContent());
@@ -172,7 +164,6 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ArrayList<MessagePVO> getMessageByDate(Date date) {
-		// TODO Auto-generated method stub
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
 		ArrayList<MessagePVO> vos=new ArrayList<>();
 		if (messages!=null) {
@@ -192,7 +183,6 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ResultVO emptyOneMessage(int id) {
-		// TODO Auto-generated method stub
 		ResultVO rVo=new ResultVO();
 		Message message=messageDao.getById(id);
 		if (message == null) {
@@ -208,12 +198,32 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ResultVO emptyAll() {
-		// TODO Auto-generated method stub
 		ResultVO resultVO = new ResultVO();
 		messageDao.deleteByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_TRUE);
 		resultVO.setSuccess(Configure.SUCCESS_INT);
 		resultVO.setMessage("清空成功");
 		return resultVO;
+	}
+
+	@Override
+	public ArrayList<MessagePVO> getMessageByDel_name(String emp_name) {
+
+		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_TRUE);
+		ArrayList<MessagePVO> vos=new ArrayList<>();
+		if (messages!=null) {
+			for (int i = 0; i < messages.size(); i++) {
+				Message mes=messages.get(i);
+				if(mes.getEmp_name().equals(emp_name)){
+					MessagePVO infoResultVO=new MessagePVO();
+					infoResultVO.setContent(mes.getContent());
+					infoResultVO.setDate(mes.getDraftdate());
+					infoResultVO.setEmployee_name(mes.getEmp_name());
+					vos.add(infoResultVO);
+				}
+			}
+		}
+		return vos;
+	
 	}
 
 }

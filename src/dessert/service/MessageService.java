@@ -22,6 +22,8 @@ public interface MessageService {
 	public ArrayList<MessagePVO> getUnreadMessageByEmp_name(String emp_name);
 	//某个服务员的所有已读消息
 	public ArrayList<MessagePVO> getReadMessageByEmp_name(String emp_name);
+	//某个服务员的所有被删除消息
+	public ArrayList<MessagePVO> getMessageByDel_name(String emp_name);
 	// 得到某天消息
 	public MessagePVO getMessageByDate_emp(String emp_name,Date date);
 	//经理得到某天消息

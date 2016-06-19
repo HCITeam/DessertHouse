@@ -63,7 +63,7 @@
 								src="../img/edit.png"></a></td>
 						<td><a class="store-btn-delete" id="<%=sotreList.get(i).getId()  + "-delete"%>"><img class="delImg"
 								src="../img/delete2.png"></a></td>
-					</tr>
+					</tr> 
 					<%	
 						    }
 					%>
