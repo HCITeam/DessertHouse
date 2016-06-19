@@ -51,12 +51,9 @@
 				<%
 					if (allList.size() <= 0) {
 				%>
-				<form class="info-form" id="table-first">
-					<ul>
-						<li><span>非常抱歉</span></li>
-						<li><span>您尚无记录</span></li>
-					</ul>
-				</form>
+				<div>
+					非常抱歉,您尚无记录
+				<div>
 				<%
 					} else {
 				%>

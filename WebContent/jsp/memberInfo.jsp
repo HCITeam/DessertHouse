@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="../css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="../css/reset.css">
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../css/myCss.css">
 	<%
 		ServletContext sc = request.getServletContext();
 	    int success = (int) sc.getAttribute("success");
@@ -47,33 +48,33 @@
 		<div class="content">
 			<div class="wrapper">
 				<div class="tool-bar">
-					<a class="btn tool-btn" id="tool-btn-cancel" href="javascript:void(0)">取消会员卡</a>
+					<a class="btn tool-btn setNotShow" id="tool-btn-cancel" href="javascript:void(0)">取消会员卡</a>
 					<div class="clear"></div>
 				</div>
 				<!-- <div style="height: 1px"></div> -->
-				<form class="info-form">
+				<form class="info-form recharge-content">
 				<ul>
 					<%if(success==0){   
-						%><li><span>称呼:</span><input type="text" id="compellation" placeholder="用于派送预定商品"></li>
+						%><li><span>称呼:</span><input class="setBackWhite" type="text" id="compellation" placeholder="用于派送预定商品"></li>
 						<li><span>性别:</span> 男<input type="radio" name="gender" value="1">女<input type="radio" name="gender" value="0" checked="checked"></li>
-						<li><span>生日:</span><input type="date" id="birthday" placeholder="生日"></li>
-						<li><span>送货地址:</span><input type="text" id="address" placeholder="送货地址"></li>
-						<li><span>联系电话:</span><input type="text" id="phone" placeholder="联系方式"></li>
+						<li><span>生日:</span><input class="setBackWhite" type="date" id="birthday" placeholder="生日"></li>
+						<li><span>送货地址:</span><input class="setBackWhite" type="text" id="address" placeholder="送货地址"></li>
+						<li><span>联系电话:</span><input class="setBackWhite" type="text" id="phone" placeholder="联系方式"></li>
 					<%}else{ 
 						String compellation = (String) sc.getAttribute("compellation");
 						String birthday = (String) sc.getAttribute("birthday");
 						int gender = (int) sc.getAttribute("gender");
 						String address = (String) sc.getAttribute("address");
 						String phone = (String) sc.getAttribute("phone");
-						%><li><span>称呼:</span><input type="text" id="compellation" placeholder="<%=compellation%>"></li>
+						%><li><span>称呼:</span><input class="setBackWhite" type="text" id="compellation" placeholder="<%=compellation%>"></li>
 						<%if(gender==1){
-						%><li><span>性别:</span> 男<input type="radio" name="gender" value="1" checked="checked">女<input type="radio" name="gender" value="0"></li>
+						%><li><span>性别:</span> 男<input class="setBackWhite" type="radio" name="gender" value="1" checked="checked">女<input type="radio" name="gender" value="0"></li>
 						<%}else { %>
-						<li><span>性别:</span> 男<input type="radio" name="gender" value="1">女<input type="radio" name="gender" value="0" checked="checked"></li>
+						<li><span>性别:</span> 男<input class="setBackWhite" type="radio" name="gender" value="1">女<input type="radio" name="gender" value="0" checked="checked"></li>
 						<%} %>
-						<li><span>生日:</span><input type="date" id="birthday" placeholder="<%=birthday%>"></li>
+						<li><span>生日:</span><input class="setBackWhite" type="date" id="birthday" placeholder="<%=birthday%>"></li>
 						<li><span>送货地址:</span>
-						<select class="select-info" id="address-select">
+						<select class="select-info setBackWhite" id="address-select">
 							<option value="0">玄武区</option>
 							<option value="1">鼓楼区</option>
 							<option value="2">建邺区</option>
@@ -86,7 +87,7 @@
 							<option value="9">溧水区</option>
 							<option value="10">高淳区</option>
 						</select>
-						<input type="text" id="address" placeholder="<%=address%>"></li>
+						<input class="setBackWhite" type="text" id="address" placeholder="<%=address%>"></li>
 						<li><span>联系电话:</span><input type="text" id="phone" placeholder="<%=phone%>"></li>
 					<%} %>
 						<li><input class="btn modify-btn" value="修改"></li>

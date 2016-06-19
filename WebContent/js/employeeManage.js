@@ -58,6 +58,7 @@ $(document).on("click",".store-btn-edit",function()
 		$(passwordId).attr("disabled","disabled");
 		$(passwordId).removeClass("showBorder");
 		$(passwordId).val("");
+		if(pass=="") pass="0";
 		$.ajax({
             type:"POST",
             url:"/Desserthouse/api/UpdateEmployee",

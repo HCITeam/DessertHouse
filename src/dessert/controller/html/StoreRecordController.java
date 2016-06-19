@@ -12,6 +12,8 @@ import dessert.configure.Configure;
 import dessert.configure.ErrorCode;
 import dessert.controller.HtmlController;
 import dessert.rvo.commodity.SaleRecordRVO;
+import dessert.rvo.employee.EmploeeInfoResultVO;
+import dessert.service.EmployeeService;
 import dessert.service.StoreService;
 import dessert.util.FormValidator;
 
@@ -23,6 +25,8 @@ public class StoreRecordController extends HtmlController{
 
 	@Autowired
 	StoreService storeService;
+	@Autowired
+	EmployeeService employeeService;
 	@Override
 	public String execute() throws Exception {	
 		return controller(response(), request());
@@ -41,11 +45,13 @@ public class StoreRecordController extends HtmlController{
 		
 		Map<Integer, String>  store=storeService.getStores();
 		List<SaleRecordRVO> rvos=storeService.getSaleRecord(validator.getI(Configure.MONTH), validator.getI(Configure.S_ID));
+		List<EmploeeInfoResultVO> servers = employeeService.getEmploeesByType(Configure.HEAD_SERVER);
 		ServletContext sc = request().getServletContext();
 		sc.setAttribute(Configure.S_ID, validator.getI(Configure.S_ID));
 		sc.setAttribute(Configure.MONTH, validator.getI(Configure.MONTH));
 		sc.setAttribute(Configure.STORE_LIST, store);
 		sc.setAttribute(Configure.SALE_RECORD, rvos);
+		sc.setAttribute(Configure.SERVERS, servers);
 		return Configure.SUCCESS;
 	}
 

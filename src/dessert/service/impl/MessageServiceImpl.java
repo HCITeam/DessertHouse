@@ -4,15 +4,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 
 import dessert.configure.Configure;
 import dessert.dao.MessageDao;
 import dessert.entity.Message;
 import dessert.pvo.MessagePVO;
-import dessert.pvo.MessageUpdatePVO;
 import dessert.rvo.ResultVO;
 import dessert.rvo.message.MessageAddResultVO;
 import dessert.rvo.message.MessageInfoResultVO;
@@ -66,7 +64,7 @@ public class MessageServiceImpl implements MessageService{
 	}
 
 	@Override
-	public ResultVO readMessage(MessageUpdatePVO po,int id) {
+	public ResultVO readMessage(int id) {
 		// TODO Auto-generated method stub
 		ResultVO rVo=new ResultVO();
 		Message message=messageDao.getById(id);
@@ -74,7 +72,7 @@ public class MessageServiceImpl implements MessageService{
 			rVo.setSuccess(Configure.FAIL);
 			rVo.setMessage("没有消息");
 		} else {
-			message.setRead(1);
+			message.setRead(Configure.SUCCESS_INT);
 			messageDao.update(message);
 			rVo.setSuccess(Configure.SUCCESS_INT);
 			rVo.setMessage("已读消息成功");

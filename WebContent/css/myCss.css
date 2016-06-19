@@ -118,7 +118,7 @@
 	border-right:0px;
 }
 
-.tool-bar
+.tool-bar,.setNotShow
 {
  visibility:hidden;
 }
@@ -139,4 +139,110 @@ th,td,td input,td select option
 {
 	outline: none;
 	box-shadow: 0px 0px 2px 2px #ff8488;
+}
+.wrapper-right
+{
+	border:1px solid grey;
+}
+
+#new-pname-card
+{
+	width:250px;
+}
+#new-good-num
+{
+	width:100px;
+}
+.recharge-content
+{
+	padding-top:50px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:50px;
+	border:1px solid white;
+	width:500px;
+	background-color:#f6d9da;
+	border-radius:20px;
+}
+.modify-btn
+{
+	width:150px;
+	height:50px;
+	margin-left:auto;
+	margin-right:auto;
+	color:white;
+	background-color:#f29c9f;
+	
+}
+
+.myInput
+{
+	background-color:white;
+}
+.alert-dismissable
+{
+	background-color:#f29c9f;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:20px;
+	height:50px;
+}
+.cart-table
+{
+	overflow:auto;
+}
+.setShow
+{
+	 visibility:visible;
+}
+.confirm-btn
+{
+	text-align:center;
+}
+.setBackWhite
+{
+	background-color:white;
+}
+#modify-integral
+{
+	width:90px;
+	height:30px;
+}
+.cardBottom-btn
+{
+	margin-left:120px;
+	background-color:#f29c9f;
+	width:100px;
+	height:50px;
+	font-size:20px;
+	color:white;
+}
+#bankcard
+{
+	width:270px;
+}
+.dialog-title
+{
+	text-align:center;
+	font-size:25px;
+}
+#amount
+{
+	width:200px;
+	margin-left:auto;
+	margin-right:auto;
+	height:40px;
+}
+.amount-input
+{
+	text-align:center;
+}
+#confirm-recharge
+{
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:-7px;
+	width:80px;
+	height:40px;
+	font-size:18px;
 }
