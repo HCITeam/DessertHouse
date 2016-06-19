@@ -22,5 +22,6 @@ public class ErrorCode {
 	public static final String     MONTH_IS_EMPTY			=	"月份不能为空";
 	public static final String     PAGE_IS_EMPTY			=	"页数不能为空";
 	public static final String     CONTENT_IS_EMPTY			=	"消息内容不能为空";
-	public static final String     REMARK_IS_EMPTY          =    "备注信息不能为空";
+	public static final String     REMARK_IS_EMPTY          =   "备注信息不能为空";
+	public static final String     EMP_NAME_IS_EMPTY        =   "服务员姓名不能为空";
 }

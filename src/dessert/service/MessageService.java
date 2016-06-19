@@ -7,6 +7,7 @@ import dessert.pvo.MessagePVO;
 import dessert.pvo.MessageUpdatePVO;
 import dessert.rvo.ResultVO;
 import dessert.rvo.message.MessageAddResultVO;
+import dessert.rvo.message.MessageInfoResultVO;
 
 public interface MessageService {
 
@@ -17,17 +18,19 @@ public interface MessageService {
 	//已读，修改状态
 	public ResultVO readMessage(MessageUpdatePVO po,int id);
 	//得到所有消息
-	public ArrayList<MessagePVO> getMessageList();
+	public ArrayList<MessageInfoResultVO> getMessageList();
 	//得到某个服务员的所有消息
-	public ArrayList<MessagePVO> getMessageByEmp_name(String emp_name);
+	public ArrayList<MessageInfoResultVO> getMessageByEmp_name(String emp_name);
 	//得到某个服务员的所有未读消息
-	public ArrayList<MessagePVO> getUnreadMessageByEmp_name(String emp_name);
+	public ArrayList<MessageInfoResultVO> getUnreadMessageByEmp_name(String emp_name);
 	//某个服务员的所有已读消息
-	public ArrayList<MessagePVO> getReadMessageByEmp_name(String emp_name);
+	public ArrayList<MessageInfoResultVO> getReadMessageByEmp_name(String emp_name);
+	
+	public ArrayList<MessageInfoResultVO> getDeleteMessageByEmp_name(String emp_name);
 	// 得到某天消息
-	public MessagePVO getMessageByDate_emp(String emp_name,Date date);
+	public MessageInfoResultVO getMessageByDate_emp(String emp_name,Date date);
 	//经理得到某天消息
-	public ArrayList<MessagePVO> getMessageByDate(Date date);
+	public ArrayList<MessageInfoResultVO> getMessageByDate(Date date);
 	//清空一条消息
 	public ResultVO emptyOneMessage(int id);
 	//清空所有已删除信息

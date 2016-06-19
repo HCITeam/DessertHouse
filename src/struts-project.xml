@@ -48,6 +48,13 @@
 		<action name="ManageStore" class="manageStore">
 			<result name="success" type="redirect">/jsp/storeManage.jsp</result>
 		</action>
+		<!-- 新增  消息管理界面 -->
+		<action name="ManageMessage" class="manageMessage">
+			<result name="success" type="redirect">/jsp/messageManage.jsp</result>
+		</action>
+		<action name="E_ManagePlan" class="e_planManage">
+			<result name="success" type="redirect">/jsp/planManage.jsp</result>
+		</action>
 		<action name="AllInfo" class="allInfo">
 			<result name="success" type="redirect">/jsp/memberAllInfo.jsp</result>
 		</action>

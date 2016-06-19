@@ -76,6 +76,7 @@ public class Configure {
 	public static final String  CONTENT				=	"content";
 	public static final String  RESULT				=	"result";
 	public static final String  REMARK              =   "remark";
+	public static final String  EMP_NAME            =   "emp_name";
 	
 	public static final int  	FAIL				=	0;
 	public static final int  	SUCCESS_INT			=	1;
@@ -107,7 +108,9 @@ public class Configure {
 	//描述
 	public static final String  RECHARGE_BYCARD		=	"银行卡充值";
 	public static final String  RECHARGE_BYCASH		=	"现金充值";
-	
+	public static final String UNREAD_MESSAGE       =    "unread_message";
+	public static final String READ_MESSAGE       =    "read_message";
+	public static final String DELETE_MESSAGE       =    "delete_message";
 	
 
 }

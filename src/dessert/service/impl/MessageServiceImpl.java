@@ -15,6 +15,7 @@ import dessert.pvo.MessagePVO;
 import dessert.pvo.MessageUpdatePVO;
 import dessert.rvo.ResultVO;
 import dessert.rvo.message.MessageAddResultVO;
+import dessert.rvo.message.MessageInfoResultVO;
 import dessert.service.MessageService;
 import dessert.util.Util;
 
@@ -82,17 +83,18 @@ public class MessageServiceImpl implements MessageService{
 	}
 
 	@Override
-	public ArrayList<MessagePVO> getMessageList() {
+	public ArrayList<MessageInfoResultVO> getMessageList() {
 		// TODO Auto-generated method stub
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
-		ArrayList<MessagePVO> vos=new ArrayList<>();
+		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
 		if (messages!=null) {
 			for (int i = 0; i < messages.size(); i++) {
-				MessagePVO infoResultVO=new MessagePVO();
+				MessageInfoResultVO infoResultVO=new MessageInfoResultVO();
 				Message mes=messages.get(i);
 				infoResultVO.setContent(mes.getContent());
-				infoResultVO.setDate(mes.getDraftdate());
-				infoResultVO.setEmployee_name(mes.getEmp_name());
+				infoResultVO.setDraftdate(mes.getDraftdate());
+				infoResultVO.setEmp_name(mes.getEmp_name());
+				infoResultVO.setId(mes.getId());
 				vos.add(infoResultVO);
 			}
 		}
@@ -100,18 +102,19 @@ public class MessageServiceImpl implements MessageService{
 	}
 
 	@Override
-	public ArrayList<MessagePVO> getMessageByEmp_name(String emp_name) {
+	public ArrayList<MessageInfoResultVO> getMessageByEmp_name(String emp_name) {
 		// TODO Auto-generated method stub
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
-		ArrayList<MessagePVO> vos=new ArrayList<>();
+		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
 		if (messages!=null) {
 			for (int i = 0; i < messages.size(); i++) {
 				Message mes=messages.get(i);
 				if(mes.getEmp_name().equals(emp_name)){
-					MessagePVO infoResultVO=new MessagePVO();
+					MessageInfoResultVO infoResultVO=new MessageInfoResultVO();
 					infoResultVO.setContent(mes.getContent());
-					infoResultVO.setDate(mes.getDraftdate());
-					infoResultVO.setEmployee_name(mes.getEmp_name());
+					infoResultVO.setDraftdate(mes.getDraftdate());
+					infoResultVO.setEmp_name(mes.getEmp_name());
+					infoResultVO.setId(mes.getId());
 					vos.add(infoResultVO);
 				}
 			}
@@ -120,18 +123,19 @@ public class MessageServiceImpl implements MessageService{
 	}
 
 	@Override
-	public ArrayList<MessagePVO> getUnreadMessageByEmp_name(String emp_name) {
+	public ArrayList<MessageInfoResultVO> getUnreadMessageByEmp_name(String emp_name) {
 		// TODO Auto-generated method stub
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
-		ArrayList<MessagePVO> vos=new ArrayList<>();
+		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
 		if (messages!=null) {
 			for (int i = 0; i < messages.size(); i++) {
 				Message mes=messages.get(i);
 				if(mes.getEmp_name().equals(emp_name) && mes.isRead()==0){
-					MessagePVO infoResultVO=new MessagePVO();
+					MessageInfoResultVO infoResultVO=new MessageInfoResultVO();
 					infoResultVO.setContent(mes.getContent());
-					infoResultVO.setDate(mes.getDraftdate());
-					infoResultVO.setEmployee_name(mes.getEmp_name());
+					infoResultVO.setDraftdate(mes.getDraftdate());
+					infoResultVO.setEmp_name(mes.getEmp_name());
+					infoResultVO.setId(mes.getId());
 					vos.add(infoResultVO);
 				}
 			}
@@ -140,18 +144,19 @@ public class MessageServiceImpl implements MessageService{
 	}
 
 	@Override
-	public ArrayList<MessagePVO> getReadMessageByEmp_name(String emp_name) {
+	public ArrayList<MessageInfoResultVO> getReadMessageByEmp_name(String emp_name) {
 		// TODO Auto-generated method stub
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
-		ArrayList<MessagePVO> vos=new ArrayList<>();
+		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
 		if (messages!=null) {
 			for (int i = 0; i < messages.size(); i++) {
 				Message mes=messages.get(i);
 				if(mes.getEmp_name().equals(emp_name) && mes.isRead()==1){
-					MessagePVO infoResultVO=new MessagePVO();
+					MessageInfoResultVO infoResultVO=new MessageInfoResultVO();
 					infoResultVO.setContent(mes.getContent());
-					infoResultVO.setDate(mes.getDraftdate());
-					infoResultVO.setEmployee_name(mes.getEmp_name());
+					infoResultVO.setDraftdate(mes.getDraftdate());
+					infoResultVO.setEmp_name(mes.getEmp_name());
+					infoResultVO.setId(mes.getId());
 					vos.add(infoResultVO);
 				}
 			}
@@ -162,29 +167,31 @@ public class MessageServiceImpl implements MessageService{
 	
 
 	@Override
-	public MessagePVO getMessageByDate_emp(String emp_name, Date date) {
+	public MessageInfoResultVO getMessageByDate_emp(String emp_name, Date date) {
 		// TODO Auto-generated method stub
 		Message mes=messageDao.getByNameAndDate(emp_name, date);
-		MessagePVO infoResultVO=new MessagePVO();
+		MessageInfoResultVO infoResultVO=new MessageInfoResultVO();
 		infoResultVO.setContent(mes.getContent());
-		infoResultVO.setDate(mes.getDraftdate());
-		infoResultVO.setEmployee_name(mes.getEmp_name());
+		infoResultVO.setDraftdate(mes.getDraftdate());
+		infoResultVO.setEmp_name(mes.getEmp_name());
+		infoResultVO.setId(mes.getId());
 		return infoResultVO;
 	}
 
 	@Override
-	public ArrayList<MessagePVO> getMessageByDate(Date date) {
+	public ArrayList<MessageInfoResultVO> getMessageByDate(Date date) {
 		// TODO Auto-generated method stub
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
-		ArrayList<MessagePVO> vos=new ArrayList<>();
+		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
 		if (messages!=null) {
 			for (int i = 0; i < messages.size(); i++) {
 				Message mes=messages.get(i);
 				if(mes.getDraftdate()==date){
-					MessagePVO infoResultVO=new MessagePVO();
+					MessageInfoResultVO infoResultVO=new MessageInfoResultVO();
 					infoResultVO.setContent(mes.getContent());
-					infoResultVO.setDate(mes.getDraftdate());
-					infoResultVO.setEmployee_name(mes.getEmp_name());
+					infoResultVO.setDraftdate(mes.getDraftdate());
+					infoResultVO.setEmp_name(mes.getEmp_name());
+					infoResultVO.setId(mes.getId());
 					vos.add(infoResultVO);
 				}
 			}
@@ -216,6 +223,27 @@ public class MessageServiceImpl implements MessageService{
 		resultVO.setSuccess(Configure.SUCCESS_INT);
 		resultVO.setMessage("清空成功");
 		return resultVO;
+	}
+
+	@Override
+	public ArrayList<MessageInfoResultVO> getDeleteMessageByEmp_name(String emp_name) {
+		// TODO Auto-generated method stub
+		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_TRUE);
+		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
+		if (messages!=null) {
+			for (int i = 0; i < messages.size(); i++) {
+				Message mes=messages.get(i);
+				if(mes.getEmp_name().equals(emp_name)){
+					MessageInfoResultVO infoResultVO=new MessageInfoResultVO();
+					infoResultVO.setContent(mes.getContent());
+					infoResultVO.setDraftdate(mes.getDraftdate());
+					infoResultVO.setEmp_name(mes.getEmp_name());
+					infoResultVO.setId(mes.getId());
+					vos.add(infoResultVO);
+				}
+			}
+		}
+		return vos;
 	}
 
 }
