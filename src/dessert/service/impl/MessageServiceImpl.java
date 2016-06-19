@@ -24,7 +24,6 @@ public class MessageServiceImpl implements MessageService{
 	
 	@Override
 	public ResultVO addMessage(MessagePVO po) {
-		// TODO Auto-generated method stub
 		MessageAddResultVO rVO = new MessageAddResultVO();
 		rVO.setEmp_name(po.getEmployee_name());
 		rVO.setContent(po.getContent());
@@ -48,7 +47,6 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ResultVO deleteMessage(int id) {
-		// TODO Auto-generated method stub
 		ResultVO rVo=new ResultVO();
 		Message message=messageDao.getById(id);
 		if (message == null) {
@@ -65,7 +63,6 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ResultVO readMessage(int id) {
-		// TODO Auto-generated method stub
 		ResultVO rVo=new ResultVO();
 		Message message=messageDao.getById(id);
 		if (message == null) {
@@ -81,8 +78,12 @@ public class MessageServiceImpl implements MessageService{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public ArrayList<MessageInfoResultVO> getMessageList() {
 		// TODO Auto-generated method stub
+=======
+	public ArrayList<MessagePVO> getMessageList() {
+>>>>>>> f177a33b9ca571c62a7806dd08484448ab252e91
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
 		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
 		if (messages!=null) {
@@ -100,8 +101,12 @@ public class MessageServiceImpl implements MessageService{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public ArrayList<MessageInfoResultVO> getMessageByEmp_name(String emp_name) {
 		// TODO Auto-generated method stub
+=======
+	public ArrayList<MessagePVO> getMessageByEmp_name(String emp_name) {
+>>>>>>> f177a33b9ca571c62a7806dd08484448ab252e91
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
 		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
 		if (messages!=null) {
@@ -121,8 +126,12 @@ public class MessageServiceImpl implements MessageService{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public ArrayList<MessageInfoResultVO> getUnreadMessageByEmp_name(String emp_name) {
 		// TODO Auto-generated method stub
+=======
+	public ArrayList<MessagePVO> getUnreadMessageByEmp_name(String emp_name) {
+>>>>>>> f177a33b9ca571c62a7806dd08484448ab252e91
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
 		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
 		if (messages!=null) {
@@ -142,8 +151,12 @@ public class MessageServiceImpl implements MessageService{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public ArrayList<MessageInfoResultVO> getReadMessageByEmp_name(String emp_name) {
 		// TODO Auto-generated method stub
+=======
+	public ArrayList<MessagePVO> getReadMessageByEmp_name(String emp_name) {
+>>>>>>> f177a33b9ca571c62a7806dd08484448ab252e91
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
 		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
 		if (messages!=null) {
@@ -165,8 +178,12 @@ public class MessageServiceImpl implements MessageService{
 	
 
 	@Override
+<<<<<<< HEAD
 	public MessageInfoResultVO getMessageByDate_emp(String emp_name, Date date) {
 		// TODO Auto-generated method stub
+=======
+	public MessagePVO getMessageByDate_emp(String emp_name, Date date) {
+>>>>>>> f177a33b9ca571c62a7806dd08484448ab252e91
 		Message mes=messageDao.getByNameAndDate(emp_name, date);
 		MessageInfoResultVO infoResultVO=new MessageInfoResultVO();
 		infoResultVO.setContent(mes.getContent());
@@ -177,8 +194,12 @@ public class MessageServiceImpl implements MessageService{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public ArrayList<MessageInfoResultVO> getMessageByDate(Date date) {
 		// TODO Auto-generated method stub
+=======
+	public ArrayList<MessagePVO> getMessageByDate(Date date) {
+>>>>>>> f177a33b9ca571c62a7806dd08484448ab252e91
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
 		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
 		if (messages!=null) {
@@ -199,7 +220,6 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ResultVO emptyOneMessage(int id) {
-		// TODO Auto-generated method stub
 		ResultVO rVo=new ResultVO();
 		Message message=messageDao.getById(id);
 		if (message == null) {
@@ -215,7 +235,6 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ResultVO emptyAll() {
-		// TODO Auto-generated method stub
 		ResultVO resultVO = new ResultVO();
 		messageDao.deleteByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_TRUE);
 		resultVO.setSuccess(Configure.SUCCESS_INT);
@@ -224,24 +243,42 @@ public class MessageServiceImpl implements MessageService{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public ArrayList<MessageInfoResultVO> getDeleteMessageByEmp_name(String emp_name) {
 		// TODO Auto-generated method stub
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_TRUE);
 		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
+=======
+	public ArrayList<MessagePVO> getMessageByDel_name(String emp_name) {
+
+		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_TRUE);
+		ArrayList<MessagePVO> vos=new ArrayList<>();
+>>>>>>> f177a33b9ca571c62a7806dd08484448ab252e91
 		if (messages!=null) {
 			for (int i = 0; i < messages.size(); i++) {
 				Message mes=messages.get(i);
 				if(mes.getEmp_name().equals(emp_name)){
+<<<<<<< HEAD
 					MessageInfoResultVO infoResultVO=new MessageInfoResultVO();
 					infoResultVO.setContent(mes.getContent());
 					infoResultVO.setDraftdate(mes.getDraftdate());
 					infoResultVO.setEmp_name(mes.getEmp_name());
 					infoResultVO.setId(mes.getId());
+=======
+					MessagePVO infoResultVO=new MessagePVO();
+					infoResultVO.setContent(mes.getContent());
+					infoResultVO.setDate(mes.getDraftdate());
+					infoResultVO.setEmployee_name(mes.getEmp_name());
+>>>>>>> f177a33b9ca571c62a7806dd08484448ab252e91
 					vos.add(infoResultVO);
 				}
 			}
 		}
 		return vos;
+<<<<<<< HEAD
+=======
+	
+>>>>>>> f177a33b9ca571c62a7806dd08484448ab252e91
 	}
 
 }
