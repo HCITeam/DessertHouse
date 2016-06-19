@@ -77,8 +77,9 @@ $("#tab-thirdday").on("click",function(){
 	$("#table-third").show();
 });
 
-$(".book-btn-td").on("click",function(){//添加预约对象
+$(".store-btn-delete").on("click",function(){//添加预约对象
 	$(this).children("img").attr("src","../img/check.png");
+	$(this).removeClass(".store-btn-delete");
 	$(this).attr("disable","true");
 	var storeName=visited;
 //	alert(storeName);

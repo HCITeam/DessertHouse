@@ -394,9 +394,9 @@ input[type="text"].num-input {
 	height: 50px;
 	margin-top: 20px;
 	margin-right: 20px;
-	float: right;
+	float: left;
+	margin-left:20px;
 }
-
 .toolkit {
     position: absolute;
 	right: 30px;

@@ -23,11 +23,14 @@
  });
 
  $("#modify-bankcard").on("click",function(){
+	if($("#modify-bankcard").attr("disabled")=="disabled") return;
  	var bankcard=$("#bankcard").val();
  	if (bankcard==""||bankcard==" ") {
  		$(".message").html("<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>请输入银行卡号</div>");
 		return;
  	}
+ 	$("#modify-bankcard").attr("disabled","disabled");
+ 	$("#modify-bankcard").html("<div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div>");
  	$.ajax({
                 type:"POST",
                 url:"/Desserthouse/api/ChangeBankcard",
@@ -35,8 +38,9 @@
                 success:function(result,textStatus){
                    // var isSuccess=result.success;
                    var message=result.message;
-                   	alert(message);
-                   
+                   $("#modify-bankcard").html("修改");
+                   $("#modify-bankcard").removeAttr("disabled");
+                   $(".message").html("<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>"+message+"</div>");
                 }
             });
  });
@@ -57,6 +61,7 @@ $(".close-btn").on("click",function(){
 });
 
 $("#confirm-recharge").on("click",function(){
+	if($("#confirm-recharge").attr("disabled")=="disabled") return;
 	var amount=$("#amount").val();
 	var bankcard=$("#bankcard").val();
 	if (amount=="") {
@@ -67,6 +72,9 @@ $("#confirm-recharge").on("click",function(){
 		$(".dialog-message").html("<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>请输入数字</div>");
 		return;
 	}
+	$("#confirm-recharge").attr("disabled","disabled");
+ 	$("#confirm-recharge").html("<div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div>");
+ 	$(".dialog-message").html("");
 	$.ajax({
                 type:"POST",
                 url:"/Desserthouse/api/CardRecharge",
@@ -79,7 +87,8 @@ $("#confirm-recharge").on("click",function(){
                 		$("#span-balance").html(amount_new);
                 	}else{
                 		var message=result.message;
-                       	alert(message);	
+                		$("#confirm-recharge").removeAttr("disabled");
+                		$(".dialog-message").html("<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>"+message+"</div>");
                 	}
                    	$(".modal-wrapper").hide();
                     $("body").css("overflow","auto");

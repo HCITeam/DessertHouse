@@ -91,32 +91,38 @@
 				<%
 					if ((firstList==null)||(firstList.size() <= 0)){
 				%>
-				<form class="info-form" id="table-first">
-					<ul>
-						<li><span>非常抱歉</span></li>
-						<li><span>此日期尚不支持预定</span></li>
-					</ul>
-				</form>
+				<table class="book-table" id="table-first" border="0"
+					style="display: none">
+					<tr class="tableTr">
+						<th width="280px">名称</th>
+						<th width="150px">价格</th>
+						<th width="150px">剩余数量</th>
+						<th width="150px">加入购物车</th>
+					</tr>
+					<tr class="tableBottomTr">
+						<td colspan="6">非常抱歉,此日期尚不支持预定</td>
+					</tr>
+				</table>
 				<%
 					} else {
 				%>
-				<table class="book-table" id="table-first" border="1">
-					<tr>
-						<th>名称</th>
-						<th>价格</th>
-						<th>剩余数量</th>
-						<th>预定</th>
+				<table class="book-table" id="table-first" border="0">
+					<tr class="tableTr">
+						<th width="280px">名称</th>
+						<th width="150px">价格</th>
+						<th width="150px">剩余数量</th>
+						<th width="150px">加入购物车</th>
 					</tr>
 					<%
 						for (int i = 0; i < firstList.size(); i++) {
 					%>
-					<tr>
+					<tr class="tableBottomTr">
 						<td class="dessert-name-td"><%=firstList.get(i).getP_name()%></td>
 						<td class="dessert-price-td"><%=firstList.get(i).getPrice()%></td>
 						<td class="dessert-num-td"><%=firstList.get(i).getP_num()%></td>
-						<td><a class="book-btn-td"
+						<td><a class="store-btn-delete"
 							id="<%=firstList.get(i).getS_date() + "-" + i%>"><img
-								src="../img/check transparent.png"></a></td>
+								src="../img/delete.png"></a></td>
 					</tr>
 					<%
 						    }
@@ -127,33 +133,39 @@
 				<%
 					if ((secondList==null)||(secondList.size() <= 0)) {
 				%>
-				<form class="info-form" id="table-second" style="display: none">
-					<ul>
-						<li><span>非常抱歉</span></li>
-						<li><span>此日期尚不支持预定</span></li>
-					</ul>
-				</form>
+					<table class="book-table" id="table-second" border="0"
+					style="display: none">
+					<tr class="tableTr">
+						<th width="280px">名称</th>
+						<th width="150px">价格</th>
+						<th width="150px">剩余数量</th>
+						<th width="150px">加入购物车</th>
+					</tr>
+					<tr class="tableBottomTr">
+						<td colspan="6">非常抱歉,此日期尚不支持预定</td>
+					</tr>
+				</table>
 				<%
 					} else {
 				%>
-				<table class="book-table" id="table-second" border="1"
+				<table class="book-table" id="table-second" border="0"
 					style="display: none">
-					<tr>
-						<th>名称</th>
-						<th>价格</th>
-						<th>剩余数量</th>
-						<th>预定</th>
+					<tr class="tableTr">
+						<th width="280px">名称</th>
+						<th width="150px">价格</th>
+						<th width="150px">剩余数量</th>
+						<th width="150px">加入购物车</th>
 					</tr>
 					<%
 						for (int i = 0; i < secondList.size(); i++) {
 					%>
-					<tr>
+					<tr  class="tableBottomTr">
 						<td class="dessert-name-td"><%=secondList.get(i).getP_name()%></td>
 						<td class="dessert-price-td"><%=secondList.get(i).getPrice()%></td>
 						<td class="dessert-num-td"><%=secondList.get(i).getP_num()%></td>
-						<td><a class="book-btn-td"
+						<td><a class="store-btn-delete"
 							id="<%=secondList.get(i).getS_date() + "-" + i%>"><img
-								src="../img/check transparent.png"></a></td>
+								src="../img/delete.png"></a></td>
 					</tr>
 					<%
 						}
@@ -164,33 +176,39 @@
 				<%
 					if ((thirdList==null)||(thirdList.size() <= 0)) {
 				%>
-				<form class="info-form" id="table-third" style="display: none">
-					<ul>
-						<li><span>非常抱歉</span></li>
-						<li><span>此日期尚不支持预定</span></li>
-					</ul>
-				</form>
+				<table class="book-table" id="table-third" border="0"
+					style="display: none">
+					<tr class="tableTr">
+						<th width="280px">名称</th>
+						<th width="150px">价格</th>
+						<th width="150px">剩余数量</th>
+						<th width="150px">加入购物车</th>
+					</tr>
+					<tr class="tableBottomTr">
+						<td colspan="6">非常抱歉,此日期尚不支持预定</td>
+					</tr>
+				</table>
 				<%
 					} else {
 				%>
-				<table class="book-table" id="table-third" border="1"
+				<table class="book-table" id="table-third" border="0"
 					style="display: none">
-					<tr>
-						<th>名称</th>
-						<th>价格</th>
-						<th>剩余数量</th>
-						<th>预定</th>
+					<tr class="tableTr">
+						<th width="280px">名称</th>
+						<th width="150px">价格</th>
+						<th width="150px">剩余数量</th>
+						<th width="150px">加入购物车</th>
 					</tr>
 					<%
 						for (int i = 0; i < thirdList.size(); i++) {
 					%>
-					<tr>
+					<tr class="tableBottomTr">
 						<td class="dessert-name-td"><%=thirdList.get(i).getP_name()%></td>
 						<td class="dessert-price-td"><%=thirdList.get(i).getPrice()%></td>
 						<td class="dessert-num-td"><%=thirdList.get(i).getP_num()%></td>
-						<td><a class="book-btn-td"
+						<td><a class="store-btn-delete"
 							id="<%=thirdList.get(i).getS_date() + "-" + i%>"><img
-								src="../img/check transparent.png"></a></td>
+								src="../img/delete.png"></a></td>
 					</tr>
 					<%
 						}
