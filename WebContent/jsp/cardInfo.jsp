@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="../css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="../css/reset.css">
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../css/myCss.css">
 	<%
 		ServletContext sc = request.getServletContext();
 	    int success = (int) sc.getAttribute("success");
@@ -43,7 +44,7 @@
 		<div class="content">
 			<div class="wrapper">
 				<div style="height: 1px"></div>
-				<form class="info-form">
+				<form class="info-form recharge-content">
 				<ul>
 					<%
 					if(success==0){   
@@ -69,7 +70,7 @@
 						%><li><span>卡号:</span><span class='span-right'> <%=id %></span></li>
 						<li><span>用户名:</span><span class='span-right'> <%=name %></span></li>
 						<li><span>等级:</span><span class='span-right'> <%=grade %></span></li>
-						<li><span>积分:</span><span  class='span-right' id="span-integral"> <%=integral %></span><input class="btn confirm-btn" id="modify-integral" value="兑现"></li>
+						<li><span>积分:</span><span  class='span-right' id="span-integral"> <%=integral %></span><input class="btn confirm-btn " id="modify-integral" value="兑现"></li>
 						<li><span>状态:</span><span class='span-right'> <%=state %></span></li>
 						<li><span>余额:</span><span class='span-right' id="span-balance"> <%=balance %></span></li>
 						<li><span>累计:</span><span class='span-right'> <%=total %></span></li>
@@ -78,13 +79,13 @@
 						<li><span><input class="btn confirm-btn" id="modify-bankcard" value="绑定"></span>
 						<%
 						}else{ %><li><span>银行卡:</span><input type="text" class="long-input-td" id="bankcard" value="<%=bankcard %>"></li>
-						<li><span><input class="btn confirm-btn" id="modify-bankcard" value="修改"></span>
+						<li><span><div class="btn confirm-btn cardBottom-btn" id="modify-bankcard">修改</div></span>
 			             <%}%>
-						<span><input class="btn confirm-btn" id="modify-recharge" value="充值"></span></li>
+						<span><div class="btn confirm-btn cardBottom-btn" id="modify-recharge">充值</div></span></li>
 					<%} %>
 					</ul>
+					<div class="message"></div>
 				</form>
-				<div class="message"></div>
 			</div>
 		</div>
 	</div>
@@ -93,11 +94,12 @@
 		<div class="dialog recharge-dialog">
 			<div class="dialog-title">充值</div>
 			<a class="close-btn" href="javascript:void(0)"><b></b></a>
-			<div style="height: 1px"></div>
+			<div style="height: 80px"></div>
 			<div class="amount-input">
 				<input type="text" class="short-input-td" id="amount" placeholder="至少200方可激活">
+				
+				<a class="btn confirm-btn" id="confirm-recharge" href="javascript:void(0)">确认</a>
 			</div>
-			<a class="btn confirm-btn" id="confirm-recharge" href="javascript:void(0)">确认</a>
 			<div class="dialog-message"></div>
 			<div class="clear"></div>
 		</div>

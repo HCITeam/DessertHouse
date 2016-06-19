@@ -77,8 +77,9 @@ $("#tab-thirdday").on("click",function(){
 	$("#table-third").show();
 });
 
-$(".book-btn-td").on("click",function(){//添加预约对象
+$(".store-btn-delete").on("click",function(){//添加预约对象
 	$(this).children("img").attr("src","../img/check.png");
+	$(this).removeClass(".store-btn-delete");
 	$(this).attr("disable","true");
 	var storeName=visited;
 //	alert(storeName);
@@ -108,6 +109,7 @@ $("#tool-btn-cart").on("click",function(){
                 success:function(result,textStatus){
 //                    alert(result.root);
                     var cart_list=result.cart_list;
+                    var p=0;
                     $.each(cart_list,function(idx,item){
 //                    	alert(item.p_name);
 //                    	alert(item.store_name);
@@ -115,9 +117,12 @@ $("#tool-btn-cart").on("click",function(){
 //                    	$("#book-table-cart").append("<td class=\"book-pname-td\">"+item.p_name+"</td><td class=\"book-price-td\">"+item.price+"</td><td class=\"book-lnum-td\">"+item.left_num+"</td>");
 //                    	$("#book-table-cart").append("<td><a class=\"btn round-btn sub-btn\" style=\"line-height: 20px;\" href=\"javascript:void(0)\">-</a><input class=\"num-input\" type=\"text\" value=\""+item.p_num+"\"><a class=\"btn round-btn add-btn\" href=\"javascript:void(0)\">+</a></td></tr>");
                     	$("#book-table-cart").append("<tr><td class=\"book-sdate-td\">"+item.s_date+"</td><td class=\"book-sname-td\">"+item.store_name+"</td><td class=\"book-pname-td\">"+item.p_name+"</td><td class=\"book-price-td\">"+item.price+"</td><td class=\"book-lnum-td\">"+item.left_num+"</td><td><a class=\"btn round-btn sub-btn\" style=\"line-height: 20px;\" href=\"javascript:void(0)\">-</a><input class=\"num-input\" type=\"text\" value=\""+item.p_num+"\"><a class=\"btn round-btn add-btn\" href=\"javascript:void(0)\">+</a></td></tr>");
-                    
-                    
+                    	p++;
                     });
+                    if(p==0)
+                    {
+                    	$("#book-table-cart").append("<tr><td colspan='6'>购物车为空</td></tr>");
+                    }
                 }
             });
 	$(".modal-wrapper").show();
