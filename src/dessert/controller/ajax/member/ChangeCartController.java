@@ -14,7 +14,6 @@ import dessert.configure.ErrorCode;
 import dessert.controller.AjaxController;
 import dessert.pvo.CartItemPVO;
 import dessert.util.FormValidator;
-import dessert.util.Util;
 
 @Controller("changeCart")
 public class ChangeCartController extends AjaxController{
@@ -63,7 +62,7 @@ public class ChangeCartController extends AjaxController{
 		}else {
 			for (int i = 0; i < list.size(); i++) {
 				if (list.get(i).isEqual(pvo)) {
-					if (pvo.getP_num()==0) {
+					if (pvo.getP_num()<=0) {
 						list.remove(i);
 					}else {
 						list.set(i, pvo);	

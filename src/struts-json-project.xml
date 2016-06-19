@@ -197,5 +197,29 @@
     					<param name="root">jsonResult</param>
     				</result>
     			</action>
+    			<!-- 发送信息-->
+    			<action name="SendMessage" class="sendMessage" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<!-- 删除一条信息-->
+    			<action name="MessageDel" class="messageDel" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<!-- 已读一条信息-->
+    			<action name="ReadMessage" class="readMessage" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<!-- 清空一条信息-->
+    			<action name="MesEmptyOne" class="mesEmptyOne" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
     		</package>		
     </struts>

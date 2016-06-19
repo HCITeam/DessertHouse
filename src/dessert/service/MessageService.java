@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import dessert.pvo.MessagePVO;
-import dessert.pvo.MessageUpdatePVO;
 import dessert.rvo.ResultVO;
-import dessert.rvo.message.MessageAddResultVO;
 
 public interface MessageService {
 
@@ -15,7 +13,7 @@ public interface MessageService {
 	//删除
 	public ResultVO deleteMessage(int id);
 	//已读，修改状态
-	public ResultVO readMessage(MessageUpdatePVO po,int id);
+	public ResultVO readMessage(int id);
 	//得到所有消息
 	public ArrayList<MessagePVO> getMessageList();
 	//得到某个服务员的所有消息

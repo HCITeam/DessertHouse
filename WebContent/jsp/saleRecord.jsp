@@ -1,6 +1,8 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page import="dessert.rvo.commodity.SaleRecordRVO"%>
+<%@ page import="dessert.rvo.employee.EmploeeInfoResultVO" %>
 <%@ page import="java.util.*"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,8 +17,15 @@
 	ServletContext sc = request.getServletContext();
 	Map<Integer, String> store = (Map<Integer, String>) sc.getAttribute("store_list");
 	List<SaleRecordRVO> list = (List<SaleRecordRVO>) sc.getAttribute("sale_record");
+	List<EmploeeInfoResultVO> servers = (List<EmploeeInfoResultVO>) sc.getAttribute("servers");
 	int month=(int) sc.getAttribute("month");
 	int s_id=(int) sc.getAttribute("s_id");
+	
+	sc.removeAttribute("store_list");
+	sc.removeAttribute("sale_record");
+	sc.removeAttribute("servers");
+	sc.removeAttribute("month");
+	sc.removeAttribute("s_id");
 %>
 </head>
 <body>
@@ -30,7 +39,7 @@
 		    <a class="nav-btn nav-btn-active" id="sale-record" href="javascript:void(0)">销售统计</a>
 		</div>
 
-		<a class="manage-btn" href="/Desserthouse/Logout"> <span>登出</span> <img
+		<a class="manage-btn" href="/Desserthouse/EmployeeLogout"> <span>登出</span> <img
 			src="../img/signout.png">
 			<div class="clear"></div>
 		</a>
@@ -97,6 +106,13 @@
 						}
 					%>
 				</table>
+				<input type="text" id="input-message" />
+				<select id="server">
+				    <%for(EmploeeInfoResultVO server:servers){%>
+				    	<option value="<%=server.getName() %>"><%=server.getName() %></option>
+				    <%}%>    
+				</select>
+				<div class="btn btn-default" id="sendMessage">发送</div>
 			</div>
 		</div>
 	</div>
