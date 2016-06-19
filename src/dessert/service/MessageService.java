@@ -5,11 +5,8 @@ import java.util.Date;
 
 import dessert.pvo.MessagePVO;
 import dessert.rvo.ResultVO;
-<<<<<<< HEAD
-import dessert.rvo.message.MessageAddResultVO;
 import dessert.rvo.message.MessageInfoResultVO;
-=======
->>>>>>> 7e78dbe1d8d98dd3f1305e6d6b684c7d6d5e0cc2
+
 
 public interface MessageService {
 
@@ -26,15 +23,9 @@ public interface MessageService {
 	//得到某个服务员的所有未读消息
 	public ArrayList<MessageInfoResultVO> getUnreadMessageByEmp_name(String emp_name);
 	//某个服务员的所有已读消息
-<<<<<<< HEAD
 	public ArrayList<MessageInfoResultVO> getReadMessageByEmp_name(String emp_name);
-	
-	public ArrayList<MessageInfoResultVO> getDeleteMessageByEmp_name(String emp_name);
-=======
-	public ArrayList<MessagePVO> getReadMessageByEmp_name(String emp_name);
 	//某个服务员的所有被删除消息
-	public ArrayList<MessagePVO> getMessageByDel_name(String emp_name);
->>>>>>> f177a33b9ca571c62a7806dd08484448ab252e91
+	public ArrayList<MessageInfoResultVO> getDeleteMessageByEmp_name(String emp_name);
 	// 得到某天消息
 	public MessageInfoResultVO getMessageByDate_emp(String emp_name,Date date);
 	//经理得到某天消息
