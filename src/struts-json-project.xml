@@ -221,5 +221,11 @@
     					<param name="root">jsonResult</param>
     				</result>
     			</action>
+    			<!-- 清空所有未读信息-->
+    			<action name="MesEmptyAll" class="mesEmptyAll" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
     		</package>		
     </struts>
