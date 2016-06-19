@@ -63,6 +63,9 @@
 		<action name="Logout" class="logout">
 			<result name="success" type="redirect">/index.jsp</result>
 		</action>
+		<action name="EmployeeLogout" class="employeeLogout">
+			<result name="success" type="redirect">/jsp/employeeLogin.jsp</result>
+		</action>
 		<action name="ManagePlan" class="managePlan">
 			<result name="success" type="redirect">/jsp/planManage.jsp</result>
 		</action>
