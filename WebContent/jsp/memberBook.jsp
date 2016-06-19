@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap-datepicker3.css">
 <link rel="stylesheet" type="text/css" href="../css/main.css">
+<link rel="stylesheet" type="text/css" href="../css/myCss.css">
 <%
 	ServletContext sc = request.getServletContext();
 	String visited_store = (String) sc.getAttribute("visited");
@@ -49,7 +50,6 @@
 			<%
 				}
 			%>
-			<a class="nav-btn" href="javascript:void(0)">更多店面</a>
 		</div>
 
 		<a class="large-manage-btn" href="/Desserthouse/ShowMemberInfo"> <span>个人管理</span> <img
@@ -83,7 +83,7 @@
 		</div>
 		<div class="content">
 			<div class="wrapper">
-				<div class="tool-bar">
+				<div class="tool-bar setShow">
 					<a class="btn tool-btn" id="tool-btn-cart" href="javascript:void(0)">购物车</a>
 					<input type="text" class="date-input" placeholder="预定日期">
 					<div class="clear"></div>

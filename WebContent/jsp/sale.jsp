@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="../css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="../css/reset.css">
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../css/myCss.css">
 	<%
 		ServletContext sc = request.getServletContext();
 	    List<InventoryRVO> list=(List<InventoryRVO>)sc.getAttribute("inventory_list");
@@ -23,7 +24,6 @@
 		</div>
 		<div class="nav-btn-group">
 			<a class="nav-btn nav-btn-active" href="javascript:void(0)">销售</a>
-			<a class="nav-btn" href="/Desserthouse/jsp/memberAllInfo.jsp">会员资料</a>
 			<a class="nav-btn" href="/Desserthouse/jsp/recharge.jsp">充值</a>
 		</div>
 		<a class="manage-btn" href="/Desserthouse/Logout"> <span>登出</span> <img
@@ -37,9 +37,31 @@
 			<a class="tab-btn tab-btn-active" id="tab-card" href="javascript:void(0)">会员卡</a>
 			<a class="tab-btn" id="tab-cash" href="javascript:void(0)">现金</a>
 		</div>
+	
+		
 		<div class="content">
 			<div class="wrapper">
 			<div style="height: 1px"></div>
+				<table class="book-table" id="vip-table" border="0">
+					<tr class="tableTr">
+						<th width="280px">商品</th>
+						<th width="100px">单价</th>
+						<th width="100px">数量</th>
+						<th width="100px">总价</th>
+						<th width="100px">操作</th>
+					</tr>
+					<tr class="tableBottomTr">
+						<td><select id="new-pname-card" width="250px">
+						<%for(int i=0;i<list.size();i++) {%>
+  							<option value ="<%=list.get(i).getPrice()%>"><%=list.get(i).getP_name()%></option>
+  							<%} %>
+						</select></td>
+						<td></td>
+					    <td><input id="new-good-num" class="showBorder" type="text" width="100px" value=""></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
 				<div class="wrapper-left">
 					<table class="sale-table" border="1">
 					<tr>

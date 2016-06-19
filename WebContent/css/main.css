@@ -296,7 +296,6 @@ input[type="radio"] {
 	width: 500px;
 	height: 400px;
 	padding: 20px;
-	overflow: auto;
 }
 
 #large-cart-dialog {
@@ -315,7 +314,7 @@ input[type="radio"] {
 }
 
 .cart-table {
-	min-height: 425px;
+	height:280px;
 }
 
 .cart-dialog .book-table .sale-table {
