@@ -227,5 +227,11 @@
     					<param name="root">jsonResult</param>
     				</result>
     			</action>
+    			<!-- 获得已删除消息-->
+    			<action name="MesDeleteGet" class="mesDeleteGet" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
     		</package>		
     </struts>
