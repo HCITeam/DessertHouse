@@ -2,6 +2,8 @@ package dessert.pvo;
 
 import java.util.Date;
 
+import dessert.entity.Plan;
+
 public class PlanPVO {
 
 	
@@ -70,7 +72,16 @@ public class PlanPVO {
 	}
 	
 	
-	
+	public PlanPVO(Plan plan){
+		this.plandate=plan.getPlandate();
+		this.s_id=plan.getS_id();
+		this.p_name=plan.getP_name();
+		this.p_num=plan.getP_num();
+		this.price=plan.getPrice();
+		this.employee_name=plan.getEmp_name();
+		this.remark=plan.getRemark();
+	}
 
+	public PlanPVO(){}
 
 }

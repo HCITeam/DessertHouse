@@ -105,6 +105,11 @@
     					<param name="root">jsonResult</param>
     				</result>
     			</action>
+    			<action name="RejectPlan" class="rejectPlan" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
     			<action name="AddCommodity" class="addCommodity" method="execute">
     				<result type="json">
     					<param name="root">jsonResult</param>

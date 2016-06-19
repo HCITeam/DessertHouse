@@ -1,6 +1,7 @@
 package dessert.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -294,6 +295,17 @@ public class PlanServiceImpl implements PlanService {
 		resultVO.setMessage("修改成功");
 
 		return resultVO;
+	}
+
+	@Override
+	public PlanPVO getPlanById(String id) {
+		// TODO Auto-generated method stub
+		Plan plan= planDao.getById(id);
+		PlanPVO planPVO=new PlanPVO(plan);
+		return planPVO;
+		
+		
+
 	}
 
 }

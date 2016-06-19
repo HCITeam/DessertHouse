@@ -45,4 +45,6 @@ public interface PlanService {
 	public List<PlanInfoResultVO> getDeletePlan(int page);
 	
 	public ResultVO rejectPlan(PlanPVO pvo, String id);
+	
+	public PlanPVO getPlanById(String id);
 }

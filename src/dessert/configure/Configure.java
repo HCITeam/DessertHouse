@@ -75,7 +75,7 @@ public class Configure {
 	public static final String  PLAN_LIST			=	"plan_list";
 	public static final String  CONTENT				=	"content";
 	public static final String  RESULT				=	"result";
-	//
+	public static final String  REMARK              =   "remark";
 	
 	public static final int  	FAIL				=	0;
 	public static final int  	SUCCESS_INT			=	1;
