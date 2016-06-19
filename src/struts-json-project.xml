@@ -105,12 +105,20 @@
     					<param name="root">jsonResult</param>
     				</result>
     			</action>
+    			<!-- 不通过的计划备注 -->
     			<action name="RejectPlan" class="rejectPlan" method="execute">
     				<result type="json">
     					<param name="root">jsonResult</param>
     				</result>
     			</action>
+    			<!-- 销售界面新增商品 -->
     			<action name="AddCommodity" class="addCommodity" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<!-- 销售界面删除商品 -->
+    			<action name="DelCommodity" class="delCommodity" method="execute">
     				<result type="json">
     					<param name="root">jsonResult</param>
     				</result>
