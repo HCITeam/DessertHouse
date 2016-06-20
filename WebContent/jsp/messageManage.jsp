@@ -80,29 +80,27 @@
 				</table>
 				<table class="book-table" id="pass-table" border="0" style="display: none">
 					<tr class="tableTr">
-						<th width="280px">日期</th>
-						<th width="280px">店面</th>
-						<th width="280px">商品名</th>
-						<th width="100px">数量</th>
-						<th width="100px">价格</th>
+					    <th width="280px">日期</th>
+						<th width="280px">内容</th>
+						<th width="100px">删除</th>
+						
 					</tr>
 					<%
-						for (int i = 0; i < passList.size(); i++) {
+						for (int i = 0; i < readList.size(); i++) {
 					%>
 					<tr class="tableBottomTr">
-						<td><%=passList.get(i).getDate()%></td>
-						<td><%=store.get(passList.get(i).getS_id())%></td>
-						<td><%=passList.get(i).getP_name()%></td>
-						<td><%=passList.get(i).getP_num() %></td>
-						<td><%=passList.get(i).getPrice() %></td>
+						<td><%=readList.get(i).getDraftdate()%></td>
+						<td><%=readList.get(i).getContent()%></td>
+						<td><a class="message-btn-delete" id="<%=unreadList.get(i).getId() + "-delete"%>"><img
+								src="../img/delete2.png"></a></td>
 					</tr>
 					<%
 						}
-						if(passList.size()<=0)
+						if(readList.size()<=0)
 						{
 					%>
 					<tr class="tableBottomTr" id="addStoreLine">
-						<td colspan="6"> 暂无已审批计划</td>
+						<td colspan="6"> 暂无已读消息</td>
 					</tr>
 					<% 
 						}
