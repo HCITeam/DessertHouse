@@ -79,10 +79,7 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ArrayList<MessageInfoResultVO> getMessageList() {
-<<<<<<< HEAD
 		// TODO Auto-generated method stub
-=======
->>>>>>> eae66772c1ce109cf0bb982ca9ecc215f0b1e96b
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
 		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
 		if (messages!=null) {
@@ -101,10 +98,7 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ArrayList<MessageInfoResultVO> getMessageByEmp_name(String emp_name) {
-<<<<<<< HEAD
 		// TODO Auto-generated method stub
-=======
->>>>>>> eae66772c1ce109cf0bb982ca9ecc215f0b1e96b
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
 		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
 		if (messages!=null) {
@@ -125,10 +119,7 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ArrayList<MessageInfoResultVO> getUnreadMessageByEmp_name(String emp_name) {
-<<<<<<< HEAD
 		// TODO Auto-generated method stub
-=======
->>>>>>> eae66772c1ce109cf0bb982ca9ecc215f0b1e96b
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
 		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
 		if (messages!=null) {
@@ -149,10 +140,7 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ArrayList<MessageInfoResultVO> getReadMessageByEmp_name(String emp_name) {
-<<<<<<< HEAD
 		// TODO Auto-generated method stub
-=======
->>>>>>> eae66772c1ce109cf0bb982ca9ecc215f0b1e96b
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
 		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
 		if (messages!=null) {
@@ -175,10 +163,7 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public MessageInfoResultVO getMessageByDate_emp(String emp_name, Date date) {
-<<<<<<< HEAD
 		// TODO Auto-generated method stub
-=======
->>>>>>> eae66772c1ce109cf0bb982ca9ecc215f0b1e96b
 		Message mes=messageDao.getByNameAndDate(emp_name, date);
 		MessageInfoResultVO infoResultVO=new MessageInfoResultVO();
 		infoResultVO.setContent(mes.getContent());
@@ -190,10 +175,6 @@ public class MessageServiceImpl implements MessageService{
 
 	@Override
 	public ArrayList<MessageInfoResultVO> getMessageByDate(Date date) {
-<<<<<<< HEAD
-		// TODO Auto-generated method stub
-=======
->>>>>>> eae66772c1ce109cf0bb982ca9ecc215f0b1e96b
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_FALSE);
 		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
 		if (messages!=null) {
@@ -241,10 +222,6 @@ public class MessageServiceImpl implements MessageService{
 	public ArrayList<MessageInfoResultVO> getDeleteMessageByEmp_name(String emp_name) {
 		List<Message> messages=(List<Message>)messageDao.getListByColumn(Message.class, "delete_flag", Configure.DELETE_FLAG_TRUE);
 		ArrayList<MessageInfoResultVO> vos=new ArrayList<>();
-<<<<<<< HEAD
-
-=======
->>>>>>> eae66772c1ce109cf0bb982ca9ecc215f0b1e96b
 		if (messages!=null) {
 			for (int i = 0; i < messages.size(); i++) {
 				Message mes=messages.get(i);
