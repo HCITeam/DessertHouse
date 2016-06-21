@@ -1,7 +1,6 @@
 package dessert.service.impl;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +46,7 @@ public class PlanServiceImpl implements PlanService {
 				plan.setPlandate(vo.getPlandate());
 				plan.setPrice(vo.getPrice());
 				plan.setS_id(vo.getS_id());
+				plan.setEmp_name(vo.getEmployee_name());
 				planDao.add(plan);
 			}
 
@@ -257,11 +257,8 @@ public class PlanServiceImpl implements PlanService {
 	}
 
 	@Override
-	public List<PlanInfoResultVO> getDeletePlan(int page) {
-		if (page <= 0) {
-			page = 1;
-		}
-		List<Plan> list = planDao.getListByColumn(Plan.class, "delete_flag", Configure.DELETE_FLAG_TRUE, page, 10);
+	public List<PlanInfoResultVO> getDeletePlan() {
+		List<Plan> list = planDao.getListByColumn(Plan.class, "delete_flag", Configure.DELETE_FLAG_TRUE);
 		List<PlanInfoResultVO> resultVOs = new ArrayList<>();
 		if (list == null) {
 			return resultVOs;
