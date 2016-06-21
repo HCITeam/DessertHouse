@@ -24,7 +24,7 @@
 		</div>
 		<div class="nav-btn-group">
 			<a class="nav-btn nav-btn-active" href="javascript:void(0)">计划管理</a>
-			<a class="nav-btn" href="/Desserthouse/ManageMessage">消息管理</a>
+			<a class="nav-btn" id="message-manage" href="/Desserthouse/ManageMessage">消息管理</a>
 		</div>
 
 		<a class="manage-btn" href="/Desserthouse/Logout"> <span>登出</span> <img

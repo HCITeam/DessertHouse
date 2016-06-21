@@ -1,5 +1,6 @@
 package dessert.controller.html;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -15,10 +16,12 @@ import dessert.configure.ErrorCode;
 import dessert.controller.HtmlController;
 import dessert.rvo.commodity.InventoryRVO;
 import dessert.rvo.employee.EmployeeLoginRVO;
+import dessert.rvo.message.MessageInfoResultVO;
 import dessert.rvo.plan.PlanInfoResultVO;
 import dessert.rvo.store.StoreRVO;
 import dessert.service.CommodityService;
 import dessert.service.EmployeeService;
+import dessert.service.MessageService;
 import dessert.service.PlanService;
 import dessert.service.StoreService;
 import dessert.util.FormValidator;
@@ -36,7 +39,8 @@ public class EmploeeLoginController extends HtmlController {
 	StoreService storeService;
 	@Autowired
 	CommodityService commodityService;
-	
+	@Autowired
+	MessageService messageService;
 	/**
 	 * 
 	 */
@@ -89,7 +93,8 @@ public class EmploeeLoginController extends HtmlController {
 				directorPage();
 				return Configure.E_DIRECTOR;
 			case Configure.HEAD_SERVER:
-				headPage();
+				//headPage();
+				messagePage( validator);
 				return Configure.E_HEAD_SERVER;
 			case Configure.SERVER:
 				serverPage();
@@ -124,6 +129,20 @@ public class EmploeeLoginController extends HtmlController {
 		sc.setAttribute(Configure.STORE_LIST, store);
 		sc.setAttribute(Configure.IMPASS_PLAN, list);
 	}
+	
+	/////////////
+	public void messagePage(FormValidator validator){
+		ServletContext sc = request().getServletContext();
+		ArrayList<MessageInfoResultVO> unreadList=messageService.getUnreadMessageByEmp_name(validator.getS(Configure.NAME));
+		ArrayList<MessageInfoResultVO> readList=messageService.getReadMessageByEmp_name(validator.getS(Configure.NAME));
+		ArrayList<MessageInfoResultVO> deleteList=messageService.getDeleteMessageByEmp_name(validator.getS(Configure.NAME));
+		
+		sc.setAttribute(Configure.READ_MESSAGE, readList);
+		sc.setAttribute(Configure.UNREAD_MESSAGE, unreadList);
+		sc.setAttribute(Configure.DELETE_MESSAGE, deleteList);
+		
+	}
+	
 	private void directorPage(){
 		ServletContext sc = request().getServletContext();
 		List<PlanInfoResultVO> impass=planService.getInpassPlan(1);
