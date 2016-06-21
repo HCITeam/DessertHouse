@@ -1,6 +1,7 @@
 package dessert.controller.ajax.message;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,18 +10,16 @@ import org.springframework.stereotype.Controller;
 import dessert.configure.Configure;
 import dessert.configure.ErrorCode;
 import dessert.controller.AjaxController;
-import dessert.rvo.ResultVO;
+import dessert.rvo.message.MessageInfoResultVO;
 import dessert.service.MessageService;
 import dessert.util.FormValidator;
 
-@Controller("readMessage")
-public class MesReadController extends AjaxController{
+@Controller("mesUnreadGet")
+public class MesUnreadListGetController extends AjaxController{
 
-	/**
-	 * set delete_flag=1
-	 */
+	
 	private static final long serialVersionUID = 1L;
-    
+
 	@Autowired
 	MessageService messageService;
 	@Override
@@ -30,18 +29,15 @@ public class MesReadController extends AjaxController{
 
 	@Override
 	public void validate(Map<String, String> params, FormValidator validator) {
-		validator.put(Configure.ID, params.get(Configure.ID));
-		validator.isRequired(Configure.ID, ErrorCode.ID_IS_EMPTY);
-		validator.isInt(Configure.ID, ErrorCode.ID_NOT_INT);
+		validator.put(Configure.NAME, params.get(Configure.NAME));
+		validator.isRequired(Configure.NAME, ErrorCode.NAME_IS_EMPTY);
 	}
 
 	@Override
 	public String process(FormValidator validator) {
-		ResultVO rVo = messageService.readMessage(validator.getI(Configure.ID));
-		System.out.println("read");
+		List<MessageInfoResultVO> messages = messageService.getUnreadMessageByEmp_name(validator.getS(Configure.NAME));
 		Map<String, Object> map=new HashMap<>();
-		map.put(Configure.SUCCESS, rVo.getSuccess());
-		map.put(Configure.MESSAGE, rVo.getMessage());
+		map.put(Configure.MESSAGE, messages);
 		setJsonResult(map);
 		return Configure.SUCCESS;
 	}
