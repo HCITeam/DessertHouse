@@ -40,17 +40,17 @@ public class MessageManageController extends HtmlController{
 	@Override
 	public void validate(Map<String, String> params, FormValidator validator) {
 		// TODO Auto-generated method stub
-		validator.put(Configure.EMP_NAME, params.get(Configure.EMP_NAME));
-		validator.isRequired(Configure.EMP_NAME, ErrorCode.EMP_NAME_IS_EMPTY);
+		validator.put(Configure.NAME, params.get(Configure.NAME));
+		validator.isRequired(Configure.NAME, ErrorCode.NAME_IS_EMPTY);
 	}
 
 	@Override
 	public String process(FormValidator validator) {
 		// TODO Auto-generated method stub
 		ServletContext sc = request().getServletContext();
-		ArrayList<MessageInfoResultVO> unreadList=messageService.getUnreadMessageByEmp_name(validator.getS(Configure.EMP_NAME));
-		ArrayList<MessageInfoResultVO> readList=messageService.getReadMessageByEmp_name(validator.getS(Configure.EMP_NAME));
-		ArrayList<MessageInfoResultVO> deleteList=messageService.getDeleteMessageByEmp_name(validator.getS(Configure.EMP_NAME));
+		ArrayList<MessageInfoResultVO> unreadList=messageService.getUnreadMessageByEmp_name(validator.getS(Configure.NAME));
+		ArrayList<MessageInfoResultVO> readList=messageService.getReadMessageByEmp_name(validator.getS(Configure.NAME));
+		ArrayList<MessageInfoResultVO> deleteList=messageService.getDeleteMessageByEmp_name(validator.getS(Configure.NAME));
 		
 		sc.setAttribute(Configure.READ_MESSAGE, readList);
 		sc.setAttribute(Configure.UNREAD_MESSAGE, unreadList);

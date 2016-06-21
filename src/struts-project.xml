@@ -20,7 +20,8 @@
 		<action name="EmploeeLogin" class="emploeeLogin">
 			<result name="adminstrator" type="redirect">/jsp/storeManage.jsp</result>
 			<result name="director" type="redirect">/jsp/planManage.jsp</result>
-			<result name="head_server" type="redirect">/jsp/headServer.jsp</result>
+		<!--	<result name="head_server" type="redirect">/jsp/headServer.jsp</result>  -->
+			<result name="head_server" type="redirect">/jsp/messageManage.jsp</result>
 			<result name="server" type="redirect">/jsp/sale.jsp</result>
 			<result name="error" type="redirect">/jsp/employeeLogin.jsp</result>
 		</action>
