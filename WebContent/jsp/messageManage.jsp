@@ -53,6 +53,29 @@
 						<th width="100px">删除</th>
 						
 					</tr>
+					<%
+						for (int i = 0; i < unreadList.size(); i++) {
+					%>
+					<tr class="tableBottomTr">
+						<td><%=unreadList.get(i).getDraftdate()%></td>
+						<td><%=unreadList.get(i).getContent()%></td>
+					    <td><a class="unreadmessage-btn-read" id="<%=unreadList.get(i).getId() + "-read"%>"><img
+								src="../img/check transparent.png"></a></td>
+						<td><a class="unreadmessage-btn-delete" id="<%=unreadList.get(i).getId() + "-delete"%>"><img
+								src="../img/delete2.png"></a></td>
+					</tr>
+					<%
+						    }
+
+						if(unreadList.size()<=0)
+						{
+					%>
+					<tr class="tableBottomTr" id="addStoreLine">
+						<td colspan="6"> 暂无未审批计划</td>
+					</tr>
+					<% 
+						}
+					%>
 				</table>
 				<table class="book-table" id="pass-table" border="0" style="display: none">
 					<tr class="tableTr">
