@@ -9,14 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import dessert.configure.Configure;
-import dessert.configure.ErrorCode;
 import dessert.controller.HtmlController;
-import dessert.pvo.MessagePVO;
-import dessert.rvo.employee.EmploeeInfoResultVO;
 import dessert.rvo.message.MessageInfoResultVO;
-import dessert.service.EmployeeService;
 import dessert.service.MessageService;
-import dessert.service.StoreService;
 import dessert.util.FormValidator;
 
 @Controller("manageMessage")
@@ -30,8 +25,6 @@ public class MessageManageController extends HtmlController{
 
 	@Autowired
 	MessageService messageService;
-	@Autowired
-	StoreService storeService;
 	@Override
 	public String execute() throws Exception {
 		return controller(response(), request());
@@ -39,18 +32,17 @@ public class MessageManageController extends HtmlController{
 
 	@Override
 	public void validate(Map<String, String> params, FormValidator validator) {
-		// TODO Auto-generated method stub
-		validator.put(Configure.NAME, params.get(Configure.NAME));
-		validator.isRequired(Configure.NAME, ErrorCode.NAME_IS_EMPTY);
+		
 	}
 
 	@Override
 	public String process(FormValidator validator) {
 		// TODO Auto-generated method stub
+		String name = (String)session().getAttribute(Configure.NAME);
 		ServletContext sc = request().getServletContext();
-		ArrayList<MessageInfoResultVO> unreadList=messageService.getUnreadMessageByEmp_name(validator.getS(Configure.NAME));
-		ArrayList<MessageInfoResultVO> readList=messageService.getReadMessageByEmp_name(validator.getS(Configure.NAME));
-		ArrayList<MessageInfoResultVO> deleteList=messageService.getDeleteMessageByEmp_name(validator.getS(Configure.NAME));
+		ArrayList<MessageInfoResultVO> unreadList=messageService.getUnreadMessageByEmp_name(name);
+		ArrayList<MessageInfoResultVO> readList=messageService.getReadMessageByEmp_name(name);
+		ArrayList<MessageInfoResultVO> deleteList=messageService.getDeleteMessageByEmp_name(name);
 		
 		sc.setAttribute(Configure.READ_MESSAGE, readList);
 		sc.setAttribute(Configure.UNREAD_MESSAGE, unreadList);

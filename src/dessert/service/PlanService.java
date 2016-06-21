@@ -42,7 +42,7 @@ public interface PlanService {
 	public List<PlanInfoResultVO> getPassPlan(int page);
 	
 	//获得已删除计划
-	public List<PlanInfoResultVO> getDeletePlan(int page);
+	public List<PlanInfoResultVO> getDeletePlan();
 	
 	public ResultVO rejectPlan(PlanPVO pvo, String id);
 	
