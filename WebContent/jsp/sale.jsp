@@ -45,10 +45,10 @@
 				<table class="book-table" id="vip-table" border="0">
 					<tr class="tableTr">
 						<th width="280px">商品</th>
-						<th width="100px">单价</th>
-						<th width="100px">数量</th>
-						<th width="100px">总价</th>
-						<th width="100px">操作</th>
+						<th width="150px">单价</th>
+						<th width="150px">数量</th>
+						<th width="150px">总价</th>
+						<th width="150px">操作</th>
 					</tr>
 					<tr class="tableBottomTr">
 						<td><select id="new-pname-card" width="250px">
@@ -56,14 +56,35 @@
   							<option value ="<%=list.get(i).getPrice()%>"><%=list.get(i).getP_name()%></option>
   							<%} %>
 						</select></td>
-						<td></td>
+						<td>0</td>
 					    <td><input id="new-good-num" class="showBorder" type="text" width="100px" value=""></td>
-						<td></td>
-						<td></td>
+						<td>0</td>
+						<td><img class="store-btn-delete" src="../img/posi.png"></td>
+					</tr>
+					<tr class="tableBottomTr">
+						<td>小春的节操</td>
+						<td>0.01</td>
+					    <td>999</td>
+						<td>9.99</td>
+						<td><img class="store-btn-delete" src="../img/delete2.png"></td>
+					</tr>
+					<tr class="tableBottomTr">
+						<td>小赖的节操</td>
+						<td>0.01</td>
+					    <td>999</td>
+						<td>9.99</td>
+						<td><img class="store-btn-delete" src="../img/delete2.png"></td>
+					</tr>
+					<tr class="tableBottomTr">
+						<td>\</td>
+						<td>\</td>
+					    <td>\</td>
+						<td>19.98</td>
+						<td><div class="btn confirm-btn" id="doSale">结账</div></td>
 					</tr>
 				</table>
-				<div class="wrapper-left">
-					<table class="sale-table" border="1">
+				<div class="setNotShow">
+					<table class="sale-table setMid" border="1">
 					<tr>
 						<th>商品</th>
 						<th>价格</th>
@@ -76,7 +97,7 @@
 					</tr> -->
 				</table>
 				</div>
-				<div class="wrapper-right">
+				<div class="wrapper-right setNotShow">
 					<form class="info-form" id="card-form">
 					<ul>
 						<li><span>商品名:</span>
@@ -97,7 +118,7 @@
 					</ul>
 				</form>
 				
-				<form class="info-form" id="cash-form" style="display:none">
+				<form class="info-form" id="cash-form setNotShow" style="display:none">
 					<ul>
 						<li><span>商品名:</span>
 						<select id="pname-cash">
@@ -116,6 +137,58 @@
 				</form>
 				</div>
 			</div>
+		</div>
+	</div>
+	<div class="modal-wrapper" style="display: none;">
+		<div class="dialog cart-dialog" id="large-cart-dialog">
+			<div class="dialog-title">结账</div>
+			<a class="close-btn" href="javascript:void(0)"><b></b></a>
+			<div class="cart-table">
+				<table class="book-table table-left" id="vip-table" border="0">
+					<tr>
+						<td>会员卡号</td>
+						<td>无效</td>
+					</tr>
+					<tr>
+						<td>密码</td>
+						<td>\</td>
+					</tr>
+					<tr>
+						<td>持卡人</td>
+						<td>\</td>
+					</tr>
+					<tr>
+						<td>余额</td>
+						<td>\</td>
+					</tr>
+					<tr>
+						<td>积分</td>
+						<td>\</td>
+					</tr>
+				</table>
+				
+				<table class="book-table table-right" id="vip-table" border="0">
+					<tr>
+						<td>应付</td>
+						<td>19.98</td>
+					</tr>
+					<tr>
+						<td>现金</td>
+						<td>\</td>
+					</tr>
+					<tr>
+						<td>会员卡付款</td>
+						<td>\</td>
+					</tr>
+					<tr>
+						<td>找零</td>
+						<td>\</td>
+					</tr>
+				</table>
+			</div>
+			<a class="btn confirm-btn" href="javascript:void(0)">确定</a>
+			<div class="message"></div>
+			<div class="clear"></div>
 		</div>
 	</div>
 	<form action="/Desserthouse/Sale" method="post" id="form-reset">

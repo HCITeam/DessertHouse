@@ -91,8 +91,7 @@
 				<%
 					if ((firstList==null)||(firstList.size() <= 0)){
 				%>
-				<table class="book-table" id="table-first" border="0"
-					style="display: none">
+				<table class="book-table" id="table-first" border="0">
 					<tr class="tableTr">
 						<th width="280px">名称</th>
 						<th width="150px">价格</th>

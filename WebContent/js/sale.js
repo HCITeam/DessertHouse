@@ -103,6 +103,18 @@ $(document).on("change","#total-cash",function(){
 	}
 });
 
+
+$(".close-btn").on("click",function(){
+	   $(".modal-wrapper").hide();
+	   $("body").css("overflow","auto");
+	});
+
+$("#doSale").click(function()
+{
+	$(".modal-wrapper").show();
+	$("body").css("overflow","hide");
+});
+
 $("#commit-card").click(function(){
 //	alert("ddd");
 //	return;	

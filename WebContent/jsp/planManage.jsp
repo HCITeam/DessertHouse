@@ -26,7 +26,6 @@
 		</div>
 		<div class="nav-btn-group">
 			<a class="nav-btn nav-btn-active" href="javascript:void(0)">计划审批</a>
-		    <a class="nav-btn" id="member-record" href="javascript:void(0)">会员统计</a>
 		    <a class="nav-btn" id="sale-record" href="javascript:void(0)">销售统计</a>
 		</div>
 

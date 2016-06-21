@@ -195,6 +195,7 @@ th,td,td input,td select option
 {
 	 visibility:visible;
 }
+
 .confirm-btn
 {
 	text-align:center;
@@ -245,4 +246,23 @@ th,td,td input,td select option
 	width:80px;
 	height:40px;
 	font-size:18px;
+}
+.setMid
+{
+	margin-left:auto;
+	margin-right:auto;
+}
+#server
+{
+	width:100px;
+}
+#sendMessage
+{
+	height:40px;
+	margin-top:-8px;
+	width:90px;
+}
+#input-message
+{
+	width:600px;
 }

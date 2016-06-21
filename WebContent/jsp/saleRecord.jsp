@@ -13,11 +13,18 @@
 <link rel="stylesheet" type="text/css" href="../css/reset.css">
 <link rel="stylesheet" type="text/css" href="../css/main.css">
 <link rel="stylesheet" type="text/css" href="../css/myCss.css">
+<script src="../js/jquery-2.1.4.min.js"></script>
 <%
 	ServletContext sc = request.getServletContext();
 	Map<Integer, String> store = (Map<Integer, String>) sc.getAttribute("store_list");
 	List<SaleRecordRVO> list = (List<SaleRecordRVO>) sc.getAttribute("sale_record");
 	List<EmploeeInfoResultVO> servers = (List<EmploeeInfoResultVO>) sc.getAttribute("servers");
+	
+
+	sc.removeAttribute("store_list");
+	sc.removeAttribute("sale_record");
+	sc.removeAttribute("servers");
+	
 	int month=(int) sc.getAttribute("month");
 	int s_id=(int) sc.getAttribute("s_id");
 	
@@ -35,7 +42,6 @@
 		</div>
 		<div class="nav-btn-group">
 			<a class="nav-btn" href="/Desserthouse/ManagePlan">计划审批</a>
-		    <a class="nav-btn" id="member-record" href="javascript:void(0)">会员统计</a>
 		    <a class="nav-btn nav-btn-active" id="sale-record" href="javascript:void(0)">销售统计</a>
 		</div>
 
@@ -106,13 +112,23 @@
 						}
 					%>
 				</table>
-				<input type="text" id="input-message" />
-				<select id="server">
-				    <%for(EmploeeInfoResultVO server:servers){%>
-				    	<option value="<%=server.getName() %>"><%=server.getName() %></option>
-				    <%}%>    
-				</select>
-				<div class="btn btn-default" id="sendMessage">发送</div>
+				<div style="text-align:center">
+					<div id="sender">
+						发送消息
+						<input type="text" id="input-message" />
+						给
+						<select id="server">
+						    <%for(EmploeeInfoResultVO server:servers){%>
+						    	<option value="<%=server.getName() %>"><%=server.getName() %></option>
+						    <%}%>    
+						</select>
+						<div class="btn btn-default" id="sendMessage">发送</div>
+					</div>
+					<div id="sendOver" style="color:green;font-size:22px">发送完成</div>
+					<script>
+						$("#sendOver").hide();
+					</script>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -125,7 +141,6 @@
 		<input type="text" id="input-sid-s" name="s_id" style="display: none;">
 	</form>
 	<div class="clear"></div>
-	<script src="../js/jquery-2.1.4.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
 	<script src="../js/saleRecord.js"></script>
 </body>
