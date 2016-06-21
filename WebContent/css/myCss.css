@@ -266,3 +266,12 @@ th,td,td input,td select option
 {
 	width:600px;
 }
+.hideOverFlow
+{
+	overflow:hidden;
+}
+.tableTr-del
+{
+	background-color:grey;
+	color:white;
+}

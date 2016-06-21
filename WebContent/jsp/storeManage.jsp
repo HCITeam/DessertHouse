@@ -34,7 +34,8 @@
 	</div>
 	<div class="right-site">
 		<div class="tab-btn-group">
-			<a class="tab-btn tab-btn-active" href="javascript:void(0)">所有分店</a> 
+			<a class="tab-btn tab-btn-active" id="allStoreBtn" href="javascript:void(0)">所有分店</a> 
+			<a class="tab-btn" id="recycleBinBut" href="javascript:void(0)">删除管理</a> 
 		</div>
 		<div class="content">
 			<div class="wrapper">
@@ -69,6 +70,19 @@
 					%>
 					<tr class="tableBottomTr" id="addStoreLine">
 						<td colspan="6"> <div class="addBut" id="addStoreBut">+</div></td>
+					</tr>
+				</table>
+				<table style="display:none" class="book-table" id="store-table-del" border="0">
+					<tr class="tableTr tableTr-del">
+						<th width="100px">编号</th>
+						<th width="280px">店名</th>
+						<th width="280px">地址</th>
+						<th width="280px">联系电话</th>
+						<th width="100px">修改</th>
+						<th width="100px">删除</th>
+					</tr>
+					<tr class="tableBottomTr" id="addStoreLine">
+						<td colspan="6"> 没有已删除店面</td>
 					</tr>
 				</table>
 				<div class="message"></div>

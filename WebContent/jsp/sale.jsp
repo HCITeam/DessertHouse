@@ -143,11 +143,11 @@
 		<div class="dialog cart-dialog" id="large-cart-dialog">
 			<div class="dialog-title">结账</div>
 			<a class="close-btn" href="javascript:void(0)"><b></b></a>
-			<div class="cart-table">
-				<table class="book-table table-left" id="vip-table" border="0">
+			<div class="cart-table hideOverFlow" style="padding-left:20px;height:300px;margin-top:-50px;overflow:hidden;">
+				<table class="book-table table-left" id="vip-table" border="0" style="float:left">
 					<tr>
 						<td>会员卡号</td>
-						<td>无效</td>
+						<td width="280px">无效</td>
 					</tr>
 					<tr>
 						<td>密码</td>
@@ -167,7 +167,7 @@
 					</tr>
 				</table>
 				
-				<table class="book-table table-right" id="vip-table" border="0">
+				<table class="book-table table-right" id="vip-table" border="0" style="float:left;margin-left:20px">
 					<tr>
 						<td>应付</td>
 						<td>19.98</td>

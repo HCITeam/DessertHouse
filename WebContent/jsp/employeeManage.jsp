@@ -37,7 +37,8 @@
 	</div>
 	<div class="right-site">
 		<div class="tab-btn-group">
-			<a class="tab-btn tab-btn-active" href="javascript:void(0)">服务员管理</a> 
+			<a id="allEmployeeBut" class="tab-btn tab-btn-active" href="javascript:void(0)">服务员管理</a> 
+			<a id="recycleBinBut" class="tab-btn" href="javascript:void(0)">删除管理</a> 
 		</div>
 		<div class="content">
 			<div class="wrapper">
@@ -90,6 +91,20 @@
 					
 					<tr class="tableBottomTr" id="addStoreLine">
 						<td colspan="6"> <div class="addBut" id="addStoreBut">+</div></td>
+					</tr>
+				</table>
+				<table style="display:none" class="book-table" id="store-table-del" border="0">
+					<tr class="tableTr tableTr-del">
+						<th width="280px">用户名</th>
+						<th width="280px">所属分店</th>
+						<th width="280px">工作类型</th>
+						<th width="280px">密码</th>
+						<th width="100px">修改</th>
+						<th width="100px">删除</th>
+					</tr>
+					
+					<tr class="tableBottomTr" id="addStoreLine">
+						<td colspan="6">暂无已删除店员</td>
 					</tr>
 				</table>
 				<div class="message"></div>

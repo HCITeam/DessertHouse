@@ -3,7 +3,7 @@
  */
 $("#tool-btn-store").click(function(){
 	$(".modal-wrapper").show();
-	$("body").css("overflow","hide");
+	$("body").css("overflow","hidden");
 });
 
 $(".close-btn").on("click",function(){
@@ -22,9 +22,11 @@ $(document).on("click",".store-btn-edit",function(){
 	   $("#"+id+"-addr").css("box-shadow","0px 0px 2px 2px #ff8488");
 	   $("#"+id+"-tel").removeAttr("disabled");
 	   $("#"+id+"-tel").css("box-shadow","0px 0px 2px 2px #ff8488");
+	  //$("#"+id+"-delete").css("visibility","visible");
    }
    else
    {
+	   //$("#"+id+"-delete").css("visibility","hidden");
 	   $("#"+id+"-name").attr("disabled","true");
 	   $("#"+id+"-name").css("box-shadow","0px 0px 0px 0px #ff8488");
 	   $("#"+id+"-addr").attr("disabled","true");
@@ -49,6 +51,22 @@ $(document).on("click",".store-btn-edit",function(){
 	            });
    }
   
+});
+
+$("#recycleBinBut").click(function()
+{
+	$("#recycleBinBut").addClass("tab-btn-active");
+	$("#allStoreBtn").removeClass("tab-btn-active");
+	$("#store-table").hide();
+	$("#store-table-del").show();
+});
+
+$("#allStoreBtn").click(function()
+{
+	$("#allStoreBtn").addClass("tab-btn-active");
+	$("#recycleBinBut").removeClass("tab-btn-active");
+	$("#store-table-del").hide();
+	$("#store-table").show();
 });
 
 $(document).on("click",".store-btn-delete",function(){
