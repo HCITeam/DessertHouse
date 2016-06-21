@@ -91,7 +91,7 @@
 					<tr class="tableBottomTr">
 						<td><%=readList.get(i).getDraftdate()%></td>
 						<td><%=readList.get(i).getContent()%></td>
-						<td><a class="message-btn-delete" id="<%=unreadList.get(i).getId() + "-delete"%>"><img
+						<td><a class="message-btn-delete" id="<%=readList.get(i).getId() + "-delete"%>"><img
 								src="../img/delete2.png"></a></td>
 					</tr>
 					<%
@@ -101,6 +101,37 @@
 					%>
 					<tr class="tableBottomTr" id="addStoreLine">
 						<td colspan="6"> 暂无已读消息</td>
+					</tr>
+					<% 
+						}
+					%>
+				</table>
+				<table class="book-table" id="delete-table" border="0" style="display: none">
+					<tr class="tableTr">
+					    <th width="280px">日期</th>
+						<th width="280px">内容</th>
+						<th width="100px">彻底删除</th>
+						<th width="100px">还原</th>
+						
+					</tr>
+					<%
+						for (int i = 0; i < deleteList.size(); i++) {
+					%>
+					<tr class="tableBottomTr">
+						<td><%=deleteList.get(i).getDraftdate()%></td>
+						<td><%=deleteList.get(i).getContent()%></td>
+						<td><a class="message-btn-delete" id="<%=deleteList.get(i).getId() + "-delete"%>"><img
+								src="../img/delete2.png"></a></td>
+						<td><a class="message-btn-read" id="<%=deleteList.get(i).getId() + "-read"%>"><img
+								src="../img/check transparent.png"></a></td>
+					</tr>
+					<%
+						}
+						if(deleteList.size()<=0)
+						{
+					%>
+					<tr class="tableBottomTr" id="addStoreLine">
+						<td colspan="6"> 暂无已删除消息</td>
 					</tr>
 					<% 
 						}
