@@ -233,5 +233,17 @@
     					<param name="root">jsonResult</param>
     				</result>
     			</action>
+    			<!-- 获得未读消息-->
+    			<action name="MesUnreadGet" class="mesUnreadGet" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<!-- 获得已读消息-->
+    			<action name="MesReadGet" class="mesReadGet" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
     		</package>		
     </struts>
