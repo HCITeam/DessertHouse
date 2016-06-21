@@ -35,10 +35,10 @@ public class E_PlanManageControl  extends HtmlController {
 	@Override
 	public void validate(Map<String, String> params, FormValidator validator) {
 		// 获得参数
-		validator.put(Configure.NAME, params.get(Configure.NAME));
-		validator.put(Configure.PASSWORD, params.get(Configure.PASSWORD));
-		validator.isRequired(Configure.NAME, ErrorCode.NAME_IS_EMPTY);
-		validator.isRequired(Configure.PASSWORD, ErrorCode.PASSWORD_IS_EMPTY);
+//		validator.put(Configure.NAME, params.get(Configure.NAME));
+//		validator.put(Configure.PASSWORD, params.get(Configure.PASSWORD));
+//		validator.isRequired(Configure.NAME, ErrorCode.NAME_IS_EMPTY);
+//		validator.isRequired(Configure.PASSWORD, ErrorCode.PASSWORD_IS_EMPTY);
 	}
 	@Override
 	public String process(FormValidator validator) {

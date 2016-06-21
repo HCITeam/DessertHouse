@@ -188,5 +188,23 @@ $(document).on("click",".deletemessage-btn-delete",function(){
     });
 	
 });
-
+$(document).on("click",".deletemessage-btn-return",function(){
+	var button_id=$(this).attr("id");
+	var id=button_id.split("-")[0];
+	$.ajax({
+        type:"POST",
+        url:"/Desserthouse/api/UndeleteMessage",
+        data:{'id':id},
+        success:function(result,textStatus){
+            	var isSuccess=result.success;
+            	if(isSuccess){
+            		$("#"+button_id).children("img").attr("src","../img/check.png");
+            		$("#"+button_id).attr("disable","true");
+            	}else{
+            		alert(result.message);
+            	}
+        }
+    });
+	
+});
 

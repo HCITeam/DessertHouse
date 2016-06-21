@@ -93,8 +93,8 @@ public class EmploeeLoginController extends HtmlController {
 				directorPage();
 				return Configure.E_DIRECTOR;
 			case Configure.HEAD_SERVER:
-				//headPage();
-				messagePage( validator);
+				headPage();
+				//messagePage( validator);
 				return Configure.E_HEAD_SERVER;
 			case Configure.SERVER:
 				serverPage();

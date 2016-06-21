@@ -20,8 +20,8 @@
 		<action name="EmploeeLogin" class="emploeeLogin">
 			<result name="adminstrator" type="redirect">/jsp/storeManage.jsp</result>
 			<result name="director" type="redirect">/jsp/planManage.jsp</result>
-		<!--	<result name="head_server" type="redirect">/jsp/headServer.jsp</result>  -->
-			<result name="head_server" type="redirect">/jsp/messageManage.jsp</result>
+			<result name="head_server" type="redirect">/jsp/headServer.jsp</result>  
+			<!--<result name="head_server" type="redirect">/jsp/messageManage.jsp</result>-->
 			<result name="server" type="redirect">/jsp/sale.jsp</result>
 			<result name="error" type="redirect">/jsp/employeeLogin.jsp</result>
 		</action>
@@ -54,7 +54,7 @@
 			<result name="success" type="redirect">/jsp/messageManage.jsp</result>
 		</action>
 		<action name="E_ManagePlan" class="e_planManage">
-			<result name="success" type="redirect">/jsp/planManage.jsp</result>
+			<result name="success" type="redirect">/jsp/headServer.jsp</result>
 		</action>
 		<action name="AllInfo" class="allInfo">
 			<result name="success" type="redirect">/jsp/memberAllInfo.jsp</result>

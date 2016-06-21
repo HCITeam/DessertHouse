@@ -3,6 +3,8 @@ package dessert.service;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.opensymphony.xwork2.Result;
+
 import dessert.pvo.MessagePVO;
 import dessert.rvo.ResultVO;
 import dessert.rvo.message.MessageAddResultVO;
@@ -36,4 +38,6 @@ public interface MessageService {
 	public ResultVO emptyOneMessage(int id);
 	//清空所有已删除信息
 	public ResultVO  emptyAll();
+	//撤销删除某一条消息
+	public ResultVO  UndeleteOneMessage(int id);
 }

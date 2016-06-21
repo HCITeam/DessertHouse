@@ -215,6 +215,12 @@
     					<param name="root">jsonResult</param>
     				</result>
     			</action>
+    			<!-- 撤销删除一条信息-->
+    			<action name="UndeleteMessage" class="undeleteMessage" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
     			<!-- 清空一条信息-->
     			<action name="MesEmptyOne" class="mesEmptyOne" method="execute">
     				<result type="json">

@@ -238,5 +238,22 @@ public class MessageServiceImpl implements MessageService{
 		return vos;
 	}
 
+	@Override
+	public ResultVO UndeleteOneMessage(int id) {
+		// TODO Auto-generated method stub
+		ResultVO rVo=new ResultVO();
+		Message message=messageDao.getById(id);
+		if (message == null) {
+			rVo.setSuccess(Configure.FAIL);
+			rVo.setMessage("这天没有消息");
+		} else {
+			message.setDelete_flag(Configure.DELETE_FLAG_FALSE);
+			messageDao.update(message);
+			rVo.setSuccess(Configure.SUCCESS_INT);
+			rVo.setMessage("撤销删除消息成功");
+		}
+		return rVo;
+	}
+
 	
 }
