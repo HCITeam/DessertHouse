@@ -79,6 +79,24 @@ $(document).on("click",".store-btn-edit",function()
 	//$("body").css("overflow","hide");
 });
 
+
+
+$("#recycleBinBut").click(function()
+{
+	$("#recycleBinBut").addClass("tab-btn-active");
+	$("#allEmployeeBut").removeClass("tab-btn-active");
+	$("#store-table").hide();
+	$("#store-table-del").show();
+});
+
+$("#allEmployeeBut").click(function()
+{
+	$("#allEmployeeBut").addClass("tab-btn-active");
+	$("#recycleBinBut").removeClass("tab-btn-active");
+	$("#store-table").show();
+	$("#store-table-del").hide();
+});
+
 function addClick()
 {
 	
