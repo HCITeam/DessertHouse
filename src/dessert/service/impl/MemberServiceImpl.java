@@ -107,6 +107,7 @@ public class MemberServiceImpl implements MemberService {
 				rVo.setBalance(Util.DoubleToString(cardinfo.getBalance()));
 				rVo.setGrade(cardinfo.getGrade());
 				rVo.setState(cardinfo.getState());
+				rVo.setIntegral(cardinfo.getIntegral());
 				rVo.setSuccess(Configure.SUCCESS_INT);
 				if (cardinfo.getState()==Configure.INACTIVE) {
 					rVo.setMessage("您的卡尚未激活，请及时充值以激活");

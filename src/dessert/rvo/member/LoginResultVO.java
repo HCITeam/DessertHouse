@@ -8,8 +8,17 @@ public class LoginResultVO extends ResultVO{
 	private String name;
 	private int state;
 	private String balance;// 余额
+	private int integral;//积分
 	private int grade;// 等级
 	
+
+	public int getIntegral() {
+		return integral;
+	}
+
+	public void setIntegral(int integral) {
+		this.integral = integral;
+	}
 
 	public String getName() {
 		return name;

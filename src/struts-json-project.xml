@@ -269,5 +269,17 @@
     					<param name="root">jsonResult</param>
     				</result>
     			</action>
+    			<!-- 获得用户姓名地址和号码-->
+    			<action name="MemBreifInfoGet" class="memBreifInfoGet" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<!-- 根据id密码获得会员卡余额等-->
+    			<action name="EmpGetMemInfo" class="empGetMemInfo" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
     		</package>		
     </struts>
