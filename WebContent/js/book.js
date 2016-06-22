@@ -1,4 +1,4 @@
-/**
+	/**
  * 预定界面
  */
 $(document).ready(function(){
@@ -99,6 +99,9 @@ $(".store-btn-delete").on("click",function(){//添加预约对象
             });
 });
 
+var bookNum=0;
+
+
 $("#tool-btn-cart").on("click",function(){
 	$("#book-table-cart").empty();
 	$("#book-table-cart").append("<tr><th>日期</th><th>店面</th><th>名称</th><th>价格</th><th>剩余数量</th><th>预定数量</th></tr>");
@@ -109,7 +112,7 @@ $("#tool-btn-cart").on("click",function(){
                 success:function(result,textStatus){
 //                    alert(result.root);
                     var cart_list=result.cart_list;
-                    var p=0;
+                    bookNum=0;
                     $.each(cart_list,function(idx,item){
 //                    	alert(item.p_name);
 //                    	alert(item.store_name);
@@ -117,11 +120,12 @@ $("#tool-btn-cart").on("click",function(){
 //                    	$("#book-table-cart").append("<td class=\"book-pname-td\">"+item.p_name+"</td><td class=\"book-price-td\">"+item.price+"</td><td class=\"book-lnum-td\">"+item.left_num+"</td>");
 //                    	$("#book-table-cart").append("<td><a class=\"btn round-btn sub-btn\" style=\"line-height: 20px;\" href=\"javascript:void(0)\">-</a><input class=\"num-input\" type=\"text\" value=\""+item.p_num+"\"><a class=\"btn round-btn add-btn\" href=\"javascript:void(0)\">+</a></td></tr>");
                     	$("#book-table-cart").append("<tr><td class=\"book-sdate-td\">"+item.s_date+"</td><td class=\"book-sname-td\">"+item.store_name+"</td><td class=\"book-pname-td\">"+item.p_name+"</td><td class=\"book-price-td\">"+item.price+"</td><td class=\"book-lnum-td\">"+item.left_num+"</td><td><a class=\"btn round-btn sub-btn\" style=\"line-height: 20px;\" href=\"javascript:void(0)\">-</a><input class=\"num-input\" type=\"text\" value=\""+item.p_num+"\"><a class=\"btn round-btn add-btn\" href=\"javascript:void(0)\">+</a></td></tr>");
-                    	p++;
+                    	bookNum++;
                     });
-                    if(p==0)
+                    if(bookNum==0)
                     {
                     	$("#book-table-cart").append("<tr><td colspan='6'>购物车为空</td></tr>");
+                    	$("#goSend").hide();
                     }
                 }
             });
@@ -153,6 +157,17 @@ $(document).on("click",".sub-btn",function(){
                 }
             });
 });
+
+$("#setSelf").click(function()
+{
+	$("#locationTr").hide();
+});
+
+$("#setSend").click(function()
+{
+	$("#locationTr").show();
+});
+
 
 $(document).on("click",".add-btn",function(){
 //	alert("add");
@@ -212,18 +227,74 @@ $(".close-btn").on("click",function(){
 });
 
 $(".confirm-btn").on("click",function(){
-//	alert("click");
-   $.ajax({
+	
+	if(bookNum==0)
+    {
+    	return;
+    }
+	
+	$("#dialogDiv").hide();
+	$(".confirm-btn").hide();
+	$("#sendDiv").show();
+	
+	
+/*   $.ajax({
                 type:"POST",
-                url:"/Desserthouse/api/Reservate",
-                data:{ },
-                success:function(result,textStatus){
-                    	alert(result.message);
+            url:"/Desserthouse/api/Reservate",
+            data:{ },
+            success:function(result,textStatus){
+                	//alert(result.message);
 //                    $(".message").html("<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>"+result.root.message+"</div>");
-	    				 $(".modal-wrapper").hide();
-  						 $("body").css("overflow","auto");
-                }
-            });
+    				 $(".modal-wrapper").hide();
+					 $("body").css("overflow","auto");
+            }
+        });*/
+});
+
+
+$("#doSendBack").click(function()
+{
+	$("#dialogDiv").show();
+	$(".confirm-btn").show();
+	$("#sendDiv").hide();
+});
+
+$("#doSend").click(function()
+{
+	var addr=$("#saddress").val();
+	var name=$("#sname").val();
+	var phone=$("#sphone").val();
+	
+	if(name=="")
+	{
+		document.getElementById('sname').focus();
+    	$("#sname").attr("placeholder","店名不能为空");
+	}
+	else if(phone=="")
+	{
+		document.getElementById('sphone').focus();
+    	$("#sphone").attr("placeholder","店名不能为空");
+	}
+	else if(addr==""&&document.getElementById("setSend").checked)
+	{
+		document.getElementById('saddress').focus();
+    	$("#saddress").attr("placeholder","店名不能为空");
+	}
+	
+	$("#doer").html("<div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div>");
+	
+	$.ajax({
+        type:"POST",
+    url:"/Desserthouse/api/Reservate",
+    data:{ },
+    success:function(result,textStatus)
+    {
+    	$("#doer").html("<div class='loadShow'>订单成功！</div>");
+    	setTimeout(function(){$(".modal-wrapper").hide(1000);},2000);
+    	setTimeout(function(){location.reload();},3000);
+		$("body").css("overflow","auto");
+    }
+	});
 });
 
 $('.date-input').datepicker({

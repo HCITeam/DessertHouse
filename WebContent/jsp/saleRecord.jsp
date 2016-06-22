@@ -113,6 +113,7 @@
 					%>
 				</table>
 				<div style="text-align:center">
+					<div class="btn btn-default"id="sendMessageDo">发送消息</div>
 					<div id="sender">
 						发送消息
 						<input type="text" id="input-message" />
@@ -123,10 +124,12 @@
 						    <%}%>    
 						</select>
 						<div class="btn btn-default" id="sendMessage">发送</div>
+						<div class="btn btn-default" id="sendMessageBack">取消</div>
 					</div>
 					<div id="sendOver" style="color:green;font-size:22px">发送完成</div>
 					<script>
 						$("#sendOver").hide();
+						$("#sender").hide();
 					</script>
 				</div>
 			</div>

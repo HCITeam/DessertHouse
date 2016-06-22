@@ -18,6 +18,18 @@ $("#member-record").click(function(){
 	$("#form-statistics").submit();
 });
 
+$("#sendMessageDo").click(function()
+{
+	$("#sendMessageDo").slideUp(200);
+	$("#sender").slideDown(200);
+});
+
+$("#sendMessageBack").click(function()
+{
+	$("#sendMessageDo").slideDown(200);
+	$("#sender").slideUp(200);
+});
+
 $("#sendMessage").click(function(){
 	if($(this).attr("disabled")=="disabled") return;
 	var message = $("#input-message").val();

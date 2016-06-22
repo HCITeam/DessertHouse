@@ -228,21 +228,49 @@
 	<div class="clear"></div>
 	<div class="modal-wrapper" style="display: none;">
 		<div class="dialog cart-dialog" id="large-cart-dialog">
-			<div class="dialog-title">购物车</div>
-			<a class="close-btn" href="javascript:void(0)"><b></b></a>
-			<div class="cart-table">
-				<table class="book-table" id="book-table-cart" border="1">
-					<tr>
-						<th>日期</th>
-						<th>店面</th>
-						<th>名称</th>
-						<th>价格</th>
-						<th>剩余数量</th>
-						<th>预定数量</th>
-					</tr>
+			<div id="dialogDiv">
+				<div class="dialog-title">购物车</div>
+				<a class="close-btn" href="javascript:void(0)"><b></b></a>
+				<div class="cart-table">
+					<table class="book-table" id="book-table-cart" border="1">
+						<tr>
+							<th>日期</th>
+							<th>店面</th>
+							<th>名称</th>
+							<th>价格</th>
+							<th>剩余数量</th>
+							<th>预定数量</th>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<a class="btn confirm-btn" href="javascript:void(0)" id="goSend">确认预订</a>
+			<div style="display:none" id="sendDiv">
+				<div class="dialog-title">送货方式</div>
+				<div style="text-align:center;font-size:20px;margin-top:10px;">
+					自取<input type="radio" name="gender" value="1" id="setSelf" checked="checked">送货<input id="setSend" type="radio" name="gender" value="0">
+				</div>
+				<table style="margin-top:0px;" class="book-table" id="book-table-cart" border="1">
+						<tr id="locationTr" style="display:none">
+							<th>地址</th>
+							<td><input style="width:400px;" class="setBackWhite" type="text" id="saddress" placeholder="送货地址"></td>
+						</tr>
+						<tr>
+							<th>联系人</th>
+							<td><input style="width:400px;" class="setBackWhite" type="text" id="sname" placeholder="名称"></td>
+						</tr>
+						<tr>
+							<th>联系方式</th>
+							<td><input style="width:400px;" class="setBackWhite" type="text" id="sphone" placeholder="电话号码"></td>
+						</tr>
+						<tr>
+							<td colspan="2" id="doer">
+								<div class="showBorder xrBut" id="doSend">确定</div>
+								<div class="showBorder xrBut" id="doSendBack">返回</div>
+							</td>
+						</tr>
 				</table>
 			</div>
-			<a class="btn confirm-btn" href="javascript:void(0)">确认预订</a>
 			<div class="message"></div>
 			<div class="clear"></div>
 		</div>
