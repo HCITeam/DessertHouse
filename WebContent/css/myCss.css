@@ -256,7 +256,7 @@ th,td,td input,td select option
 {
 	width:100px;
 }
-#sendMessage
+#sendMessage,#sendMessageBack
 {
 	height:40px;
 	margin-top:-8px;
@@ -274,4 +274,24 @@ th,td,td input,td select option
 {
 	background-color:grey;
 	color:white;
+}
+#p_date
+{
+	width:200px;
+}
+
+.xrBut
+{
+	width:100px;
+	float:left;
+	margin-left:120px;
+	transition:all 0.5s;
+	background-color:#f6d9da;
+}
+.xrBut:hover
+{
+	background-color:#f29c9f;
+	color:white;
+	border-radius:10px;
+	cursor:pointer;
 }

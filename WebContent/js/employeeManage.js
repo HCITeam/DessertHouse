@@ -11,7 +11,7 @@ $(document).on("click",".store-btn-edit",function()
 	if($(this).attr("disabled")=="disabled") return;
 	if($(passwordId).attr("disabled")=="disabled")
 	{
-		$(idId).html("读取中");
+		$(idId).html("<div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div>");
 		//$(idId).html("<select disabled='disabled' id='"+name+"-editId'><option value='0'>读取中</option></select>");
 		if($(typeId).html()=="分店服务员")
 		{
@@ -124,7 +124,7 @@ function addClick()
 {
 	
 	$("#addStoreLine").html("<td><input type='text' class='showBorder' id='add-name' placeholder='请输入用户名'></td>\
-							<td id='add-readid'>读取中</td>\
+							<td id='add-readid'><div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div></td>\
 							<td><select id='add-type'><option value='2'>总店服务员</option><option value='3'>分店服务员</option></select></td>\
 							<td><input type='text' class='showBorder' id='add-password' placeholder='在此输入密码'></td>\
 							<td><a id='newStoreAdd'><img class='delImg'\
@@ -288,7 +288,7 @@ $(document).on("click",".employee-btn-delete",function(){
                 success:function(result,textStatus){
                     	alert(result.message);
                     	if (result.success==1) {
-                    		$("#"+button_id+"").parent().parent().remove();
+                    		$("#"+button_id+"").parent().parent().hide(500);
                     	}
                 }
             });

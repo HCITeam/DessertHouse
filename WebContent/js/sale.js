@@ -1,6 +1,7 @@
 var amount=0.0;
 var integral=0;
 var grade=0;
+var nid=0;
 
 $(document).on("click","#tab-card",function(){
 	if ($("#tab-cash").hasClass("tab-btn-active")) {
@@ -47,6 +48,41 @@ $(document).on("change","#pnum-card",function(){
 //                   alert(result.success);
                 }
             });
+});
+
+$("#addGood").click(function()
+{
+	var price = $("#newPrice").val();
+	var	p_name = $("#new-pname-card option:checked").text();
+	var p_num = $("#newNum").val();
+	var p_allPrice=price*p_num;
+	nid++;
+	$("#lastLine").before("<tr id='"+nid+"-tr' class='tableBottomTr'>\
+						<td id='"+nid+"-name'>"+p_name+"</td>\
+						<td>"+price+"</td>\
+					    <td>"+p_num+"</td>\
+						<td>"+p_allPrice+"</td>\
+						<td><img id='"+nid+"-del' class='store-btn-delete delGood' src='../img/delete2.png'></td>\
+						</tr>");
+	
+	amount=amount+Number(price)*Number(p_num);//计算总价
+	var temp=(amount/10.0)*grade;
+	integral=parseInt(temp);
+	$("#allnum").html(amount);
+	//$("#integral-card").html(integral);
+	$.ajax({
+                type:"POST",
+                url:"/Desserthouse/api/AddCommodity",
+                data:{'p_name':p_name,'p_num':p_num,'price':price},
+                success:function(result,textStatus){
+//                   alert(result.success);
+                }
+            });
+});
+
+$(document).on("click",".delGood",function(){
+	var id=$(this).attr("id").split("-")[0];
+	$("#"+id+"-tr").hide(500);
 });
 
 $(document).on("change","#pnum-cash",function(){
