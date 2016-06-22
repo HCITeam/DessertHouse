@@ -34,8 +34,7 @@
 
 	<div class="right-site">
 		<div class="tab-btn-group">
-			<a class="tab-btn tab-btn-active" id="tab-card" href="javascript:void(0)">会员卡</a>
-			<a class="tab-btn" id="tab-cash" href="javascript:void(0)">现金</a>
+			<a class="tab-btn tab-btn-active" id="tab-card" href="javascript:void(0)">产品销售</a>
 		</div>
 	
 		
@@ -56,30 +55,16 @@
   							<option value ="<%=list.get(i).getPrice()%>"><%=list.get(i).getP_name()%></option>
   							<%} %>
 						</select></td>
-						<td>0</td>
-					    <td><input id="new-good-num" class="showBorder" type="text" width="100px" value=""></td>
-						<td>0</td>
-						<td><img class="store-btn-delete" src="../img/posi.png"></td>
+						<td id="newPrice">0</td>
+					    <td id="newNum"><input id="new-good-num" class="showBorder" type="text" width="100px" value=""></td>
+						<td id="newAllPrice">0</td>
+						<td><img class="store-btn-delete" id="addGood" src="../img/posi.png"></td>
 					</tr>
-					<tr class="tableBottomTr">
-						<td>小春的节操</td>
-						<td>0.01</td>
-					    <td>999</td>
-						<td>9.99</td>
-						<td><img class="store-btn-delete" src="../img/delete2.png"></td>
-					</tr>
-					<tr class="tableBottomTr">
-						<td>小赖的节操</td>
-						<td>0.01</td>
-					    <td>999</td>
-						<td>9.99</td>
-						<td><img class="store-btn-delete" src="../img/delete2.png"></td>
-					</tr>
-					<tr class="tableBottomTr">
-						<td>\</td>
-						<td>\</td>
-					    <td>\</td>
-						<td>19.98</td>
+					<tr class="tableBottomTr" id="lastLine">
+						<td></td>
+						<td></td>
+					    <td></td>
+						<td id="allnum">19.98</td>
 						<td><div class="btn confirm-btn" id="doSale">结账</div></td>
 					</tr>
 				</table>
@@ -90,11 +75,6 @@
 						<th>价格</th>
 						<th>数量</th>
 					</tr>
-					<!-- <tr>
-						<td>马卡龙</td>
-						<td>10</td>
-						<td>4</td>
-					</tr> -->
 				</table>
 				</div>
 				<div class="wrapper-right setNotShow">
@@ -143,46 +123,46 @@
 		<div class="dialog cart-dialog" id="large-cart-dialog">
 			<div class="dialog-title">结账</div>
 			<a class="close-btn" href="javascript:void(0)"><b></b></a>
-			<div class="cart-table hideOverFlow" style="padding-left:20px;height:300px;margin-top:-50px;overflow:hidden;">
+			<div class="" style="padding-left:20px;height:340px;margin-top:-50px;overflow:hidden;">
 				<table class="book-table table-left" id="vip-table" border="0" style="float:left">
 					<tr>
 						<td>会员卡号</td>
-						<td width="280px">无效</td>
+						<td width="280px"><input type="text" class="long-input-td" id="mid" placeholder="卡号"></td>
 					</tr>
 					<tr>
 						<td>密码</td>
-						<td>\</td>
+						<td><input type="password" class="long-input-td" id="mpass" placeholder="密码"></td>
 					</tr>
 					<tr>
 						<td>持卡人</td>
-						<td>\</td>
+						<td>0</td>
 					</tr>
 					<tr>
 						<td>余额</td>
-						<td>\</td>
+						<td>0</td>
 					</tr>
 					<tr>
 						<td>积分</td>
-						<td>\</td>
+						<td>0</td>
 					</tr>
 				</table>
 				
-				<table class="book-table table-right" id="vip-table" border="0" style="float:left;margin-left:20px">
+				<table class="book-table table-right" id="mon-table" border="0" style="float:left;margin-left:20px">
 					<tr>
 						<td>应付</td>
 						<td>19.98</td>
 					</tr>
 					<tr>
 						<td>现金</td>
-						<td>\</td>
+						<td><input type="text" class="short-input-td" id="giveMon" placeholder="现金"></td>
 					</tr>
 					<tr>
 						<td>会员卡付款</td>
-						<td>\</td>
+						<td><input type="text" class="short-input-td" id="cardMon" placeholder="刷卡"></td>
 					</tr>
 					<tr>
 						<td>找零</td>
-						<td>\</td>
+						<td>0</td>
 					</tr>
 				</table>
 			</div>
