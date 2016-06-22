@@ -268,17 +268,20 @@ $("#doSend").click(function()
 	if(name=="")
 	{
 		document.getElementById('sname').focus();
-    	$("#sname").attr("placeholder","店名不能为空");
+    	$("#sname").attr("placeholder","请输入");
+    	return;
 	}
 	else if(phone=="")
 	{
 		document.getElementById('sphone').focus();
-    	$("#sphone").attr("placeholder","店名不能为空");
+    	$("#sphone").attr("placeholder","请输入");
+    	return;
 	}
 	else if(addr==""&&document.getElementById("setSend").checked)
 	{
 		document.getElementById('saddress').focus();
-    	$("#saddress").attr("placeholder","店名不能为空");
+    	$("#saddress").attr("placeholder","请输入");
+    	return;
 	}
 	
 	$("#doer").html("<div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div>");
