@@ -52,7 +52,6 @@
 						<th width="280px">内容</th>
 						<th width="100px">已读</th>
 						<th width="100px">删除</th>
-						
 					</tr>
 					<%
 						for (int i = 0; i < unreadList.size(); i++) {
@@ -90,7 +89,7 @@
 					<tr class="tableTr">
 					    <th width="280px">日期</th>
 						<th width="280px">内容</th>
-						<th width="180px">彻底删除</th>
+						<th width="100px">彻底删除</th>
 						<th width="100px">还原</th>
 						
 					</tr>

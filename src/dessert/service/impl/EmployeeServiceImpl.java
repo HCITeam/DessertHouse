@@ -205,6 +205,22 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return vos;
 	}
 
+	@Override
+	public ResultVO UndeleteEmployee(String name) {
+		Employee employee=employeeDao.getFromName(name);
+		ResultVO rVo=new ResultVO();
+		if (employee!=null) {
+			employee.setDelete_flag(Configure.DELETE_FLAG_FALSE);
+			employeeDao.update(employee);
+			rVo.setSuccess(Configure.SUCCESS_INT);
+			rVo.setMessage("成功撤销");
+		}else {
+			rVo.setSuccess(Configure.FAIL);
+			rVo.setMessage("找不到该雇员");
+		}
+		return rVo;
+	}
+
 	
 
 }
