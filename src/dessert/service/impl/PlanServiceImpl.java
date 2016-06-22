@@ -122,11 +122,6 @@ public class PlanServiceImpl implements PlanService {
 			resultVO.setMessage("找不到该计划");
 			return resultVO;
 		}
-		if (plan.getState() == Configure.PASS) {
-			resultVO.setSuccess(Configure.FAIL);
-			resultVO.setMessage("该计划已通过审批，不可删除");
-			return resultVO;
-		}
 		plan.setDelete_flag(Configure.DELETE_FLAG_TRUE);
 		planDao.update(plan);
 		resultVO.setSuccess(Configure.SUCCESS_INT);
@@ -236,11 +231,6 @@ public class PlanServiceImpl implements PlanService {
 			resultVO.setMessage("找不到该计划");
 			return resultVO;
 		}
-		if (plan.getState() == Configure.PASS) {
-			resultVO.setSuccess(Configure.FAIL);
-			resultVO.setMessage("该计划已通过审批，不可删除");
-			return resultVO;
-		}
 		planDao.delete(plan);
 		resultVO.setSuccess(Configure.SUCCESS_INT);
 		resultVO.setMessage("清空成功");
@@ -303,6 +293,23 @@ public class PlanServiceImpl implements PlanService {
 		
 		
 
+	}
+
+	@Override
+	public ResultVO UndeletePlan(String id) {
+		ResultVO resultVO = new ResultVO();
+		Plan plan = planDao.getById(id);
+		if (plan == null) {
+			resultVO.setSuccess(Configure.FAIL);
+			resultVO.setMessage("找不到该计划");
+			return resultVO;
+		}
+		plan.setDelete_flag(Configure.DELETE_FLAG_FALSE);
+		planDao.update(plan);
+		resultVO.setSuccess(Configure.SUCCESS_INT);
+		resultVO.setMessage("成功撤销");
+
+		return resultVO;
 	}
 
 }

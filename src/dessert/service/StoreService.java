@@ -13,7 +13,8 @@ public interface StoreService {
 	public StoreRVO addStore(StorePVO pvo);
 
 	public ResultVO deleteStore(String id);
-
+	//撤销已删除
+	public ResultVO UndeleteStore(String id);
 	public ResultVO emptyStore(String id);
 
 	// 清空所有已删除

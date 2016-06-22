@@ -16,11 +16,11 @@ public interface PlanService {
 	// 修改计划
 	// 已通过计划不可修改
 	public ResultVO updatePlan(PlanPVO pvo, String id);
-
 	// 删除计划
 	// 已通过计划不可删除
 	public ResultVO deletePlan(String id);
-	
+	//撤销删除
+	public ResultVO UndeletePlan(String id);
 	public ResultVO emptyPlan(String id);
 	
 	//清空所有已删除

@@ -1,7 +1,6 @@
-package dessert.controller.ajax.message;
+package dessert.controller.ajax.employee;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,18 +9,20 @@ import org.springframework.stereotype.Controller;
 import dessert.configure.Configure;
 import dessert.configure.ErrorCode;
 import dessert.controller.AjaxController;
-import dessert.rvo.message.MessageInfoResultVO;
-import dessert.service.MessageService;
+import dessert.rvo.ResultVO;
+import dessert.service.EmployeeService;
 import dessert.util.FormValidator;
 
-@Controller("mesUnreadGet")
-public class MesUnreadListGetController extends AjaxController{
+@Controller("employeeUnDel")
+public class EmployeeUnDelController extends AjaxController{
 
-	
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
-
 	@Autowired
-	MessageService messageService;
+	EmployeeService employeeService;
+
 	@Override
 	public String execute() throws Exception {
 		return controller(response(), request());
@@ -29,18 +30,19 @@ public class MesUnreadListGetController extends AjaxController{
 
 	@Override
 	public void validate(Map<String, String> params, FormValidator validator) {
-//		validator.put(Configure.NAME, params.get(Configure.NAME));
-//		validator.isRequired(Configure.NAME, ErrorCode.NAME_IS_EMPTY);
+		validator.put(Configure.NAME, params.get(Configure.NAME));
+		validator.isRequired(Configure.NAME, ErrorCode.NAME_IS_EMPTY);
 	}
 
 	@Override
 	public String process(FormValidator validator) {
-		String name = (String)session().getAttribute(Configure.NAME);
-		List<MessageInfoResultVO> messages = messageService.getUnreadMessageByEmp_name(name);
+		ResultVO rVo=employeeService.UndeleteEmployee(validator.getS(Configure.NAME));
 		Map<String, Object> map=new HashMap<>();
-		map.put(Configure.MESSAGE, messages);
+		map.put(Configure.SUCCESS, rVo.getSuccess());
+		map.put(Configure.MESSAGE, rVo.getMessage());
 		setJsonResult(map);
 		return Configure.SUCCESS;
 	}
+
 
 }

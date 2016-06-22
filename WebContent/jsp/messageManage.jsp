@@ -18,6 +18,7 @@
     List<MessageInfoResultVO> unreadList = (List<MessageInfoResultVO>) sc.getAttribute("unread_message");
     List<MessageInfoResultVO> readList = (List<MessageInfoResultVO>) sc.getAttribute("read_message");
     List<MessageInfoResultVO> deleteList = (List<MessageInfoResultVO>) sc.getAttribute("delete_message");
+    String name=(String)sc.getAttribute("name");
 %>
 </head>
 <body>
