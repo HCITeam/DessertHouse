@@ -29,13 +29,14 @@ public class MesReadListGetController extends AjaxController{
 
 	@Override
 	public void validate(Map<String, String> params, FormValidator validator) {
-		validator.put(Configure.NAME, params.get(Configure.NAME));
-		validator.isRequired(Configure.NAME, ErrorCode.NAME_IS_EMPTY);
+//		validator.put(Configure.NAME, params.get(Configure.NAME));
+//		validator.isRequired(Configure.NAME, ErrorCode.NAME_IS_EMPTY);
 	}
 
 	@Override
 	public String process(FormValidator validator) {
-		List<MessageInfoResultVO> messages = messageService.getReadMessageByEmp_name(validator.getS(Configure.NAME));
+		String name = (String)session().getAttribute(Configure.NAME);
+		List<MessageInfoResultVO> messages = messageService.getReadMessageByEmp_name(name);
 		Map<String, Object> map=new HashMap<>();
 		map.put(Configure.MESSAGE, messages);
 		setJsonResult(map);

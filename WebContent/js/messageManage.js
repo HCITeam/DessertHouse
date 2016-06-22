@@ -11,11 +11,11 @@ $("#unread").on("click",function(){
 	$("#unread").removeClass();
 	$("#unread").addClass("tab-btn tab-btn-active");
 	$("#plan-table").empty();
-	$("#plan-table").append("<tr class='tableTr'><th width='280px'>日期</th><th width='280px'>内容</th><th width='280px'>已读</th><th width='100px'>删除</th></tr>");
+	$("#plan-table").append("<tr class='tableTr'><th width='280px'>日期</th><th width='280px'>内容</th><th width='100px'>已读</th><th width='100px'>删除</th></tr>");
 	$.ajax({
                 type:"POST",
                 url:"/Desserthouse/api/MesUnreadGet",
-                data:{ 'name':"xcc"},
+                data:{ },
                 success:function(result,textStatus){
                     var cart_list=result.message;
                     var p=0;
@@ -52,7 +52,7 @@ $("#read").on("click",function(){
 	$.ajax({
                 type:"POST",
                 url:"/Desserthouse/api/MesReadGet",
-                data:{ 'name':"xcc"},
+                data:{ },
                 success:function(result,textStatus){
                     var cart_list=result.message;
                     var p=0;
@@ -84,11 +84,11 @@ $("#delete").on("click",function(){
 	$("#delete").removeClass();
 	$("#delete").addClass("tab-btn tab-btn-active");
 	$("#delete-table").empty();
-	$("#delete-table").append("<tr class='tableTr'><th width='280px'>日期</th><th width='280px'>内容</th><th width='280px'>彻底删除</th><th width='100px'>还原</th></tr>");
+	$("#delete-table").append("<tr class='tableTr'><th width='280px'>日期</th><th width='280px'>内容</th><th width='180px'>彻底删除</th><th width='100px'>还原</th></tr>");
 	$.ajax({
                 type:"POST",
                 url:"/Desserthouse/api/MesDeleteGet",
-                data:{ 'name':"xcc"},
+                data:{ },
                 success:function(result,textStatus){
                     var cart_list=result.message;
                     var p=0;
