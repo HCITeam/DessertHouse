@@ -149,6 +149,12 @@
     					<param name="root">jsonResult</param>
     				</result>
     			</action>
+    			<!-- 撤销删除店员 -->
+    			<action name="EmployeeUnDel" class="employeeUnDel" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
     			<!-- 清空多个店员 -->
     			<action name="EmpEmptyAll" class="empEmptyAll" method="execute">
     				<result type="json">
@@ -167,6 +173,12 @@
     					<param name="root">jsonResult</param>
     				</result>
     			</action>
+    			<!-- 撤销删除一个店面 -->
+    			<action name="StoreUnDel" class="storeUnDel" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
     			<!-- 清空多个店面 -->
     			<action name="StoreEmptyAll" class="storeEmptyAll" method="execute">
     				<result type="json">
@@ -181,6 +193,12 @@
     			</action>
     			<!-- 清空一个计划 -->
     			<action name="PlanEmptyOne" class="planEmptyOne" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
+    			<!-- 撤销删除一个计划 -->
+    			<action name="PlanUnDel" class="planUnDel" method="execute">
     				<result type="json">
     					<param name="root">jsonResult</param>
     				</result>

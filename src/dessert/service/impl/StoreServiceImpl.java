@@ -177,4 +177,20 @@ public class StoreServiceImpl implements StoreService{
 		return result;
 	}
 
+	@Override
+	public ResultVO UndeleteStore(String id) {
+		ResultVO resultVO=new ResultVO();
+		Store store=storeDao.getById(id);
+		if (store==null) {
+			resultVO.setSuccess(Configure.FAIL);
+			resultVO.setMessage("找不到该店面");
+		}else {
+			store.setDelete_flag(Configure.DELETE_FLAG_FALSE);//撤销
+			storeDao.update(store);
+			resultVO.setSuccess(Configure.SUCCESS_INT);
+			resultVO.setMessage("成功撤销");
+		}
+		return resultVO;
+	}
+
 }
