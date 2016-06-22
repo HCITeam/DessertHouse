@@ -33,13 +33,13 @@ public interface PlanService {
 	public ResultVO passPlanList(ArrayList<String> ids);
 
 	// 获得计划
-	public List<PlanInfoResultVO> getAllPlan(int page);
+	public List<PlanInfoResultVO> getAllPlan();
 
 	// 获得未通过计划
-	public List<PlanInfoResultVO> getInpassPlan(int page);
+	public List<PlanInfoResultVO> getInpassPlan();
 
 	// 获得已通过计划
-	public List<PlanInfoResultVO> getPassPlan(int page);
+	public List<PlanInfoResultVO> getPassPlan();
 	
 	//获得已删除计划
 	public List<PlanInfoResultVO> getDeletePlan();

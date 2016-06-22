@@ -215,6 +215,12 @@
     					<param name="root">jsonResult</param>
     				</result>
     			</action>
+    			<!-- 获得已通过的计划-->
+    			<action name="PlanPassGet" class="planPassGet" method="execute">
+    				<result type="json">
+    					<param name="root">jsonResult</param>
+    				</result>
+    			</action>
     			<!-- 发送信息-->
     			<action name="SendMessage" class="sendMessage" method="execute">
     				<result type="json">

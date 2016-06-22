@@ -124,7 +124,7 @@ public class EmploeeLoginController extends HtmlController {
 	 */
 	private void headPage(){
 		ServletContext sc = request().getServletContext();
-		List<PlanInfoResultVO> list=planService.getInpassPlan(1);
+		List<PlanInfoResultVO> list=planService.getInpassPlan();
 		Map<Integer, String> store=storeService.getStores();
 		sc.setAttribute(Configure.STORE_LIST, store);
 		sc.setAttribute(Configure.IMPASS_PLAN, list);
@@ -145,9 +145,9 @@ public class EmploeeLoginController extends HtmlController {
 	
 	private void directorPage(){
 		ServletContext sc = request().getServletContext();
-		List<PlanInfoResultVO> impass=planService.getInpassPlan(1);
-		List<PlanInfoResultVO> pass=planService.getPassPlan(1);
-		List<PlanInfoResultVO> all=planService.getAllPlan(1);
+		List<PlanInfoResultVO> impass=planService.getInpassPlan();
+		List<PlanInfoResultVO> pass=planService.getPassPlan();
+		List<PlanInfoResultVO> all=planService.getAllPlan();
 		Map<Integer, String> store=storeService.getStores();
 		sc.setAttribute(Configure.STORE_LIST, store);
 		sc.setAttribute(Configure.IMPASS_PLAN, impass);

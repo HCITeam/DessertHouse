@@ -38,9 +38,9 @@ public class PlanManageController extends HtmlController{
 	@Override
 	public String process(FormValidator validator) {
 		ServletContext sc = request().getServletContext();
-		List<PlanInfoResultVO> impass=planService.getInpassPlan(1);
-		List<PlanInfoResultVO> pass=planService.getPassPlan(1);
-		List<PlanInfoResultVO> all=planService.getAllPlan(1);
+		List<PlanInfoResultVO> impass=planService.getInpassPlan();
+		List<PlanInfoResultVO> pass=planService.getPassPlan();
+		List<PlanInfoResultVO> all=planService.getAllPlan();
 		Map<Integer, String> store=storeService.getStores();
 		sc.setAttribute(Configure.STORE_LIST, store);
 		sc.setAttribute(Configure.IMPASS_PLAN, impass);

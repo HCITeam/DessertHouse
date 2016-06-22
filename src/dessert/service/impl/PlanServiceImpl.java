@@ -171,10 +171,8 @@ public class PlanServiceImpl implements PlanService {
 	}
 
 	@Override
-	public List<PlanInfoResultVO> getAllPlan(int page) {
-		if (page <= 0) {
-			page = 1;
-		}
+	public List<PlanInfoResultVO> getAllPlan() {
+		
 		List<Plan> list = planDao.getListByColumn(Plan.class, Configure.DELETE_FLAG, Configure.DELETE_FLAG_FALSE);
 		List<PlanInfoResultVO> resultVOs = new ArrayList<>();
 		if (list == null) {
@@ -187,11 +185,9 @@ public class PlanServiceImpl implements PlanService {
 	}
 
 	@Override
-	public List<PlanInfoResultVO> getInpassPlan(int page) {
-		if (page <= 0) {
-			page = 1;
-		}
-		List<Plan> list = planDao.getListByColumn(Plan.class, "state", Configure.IMPASS, page, 10);
+	public List<PlanInfoResultVO> getInpassPlan() {
+		
+		List<Plan> list = planDao.getListByColumn(Plan.class, "state", Configure.IMPASS);
 		List<PlanInfoResultVO> resultVOs = new ArrayList<>();
 		if (list == null) {
 			return resultVOs;
@@ -205,11 +201,9 @@ public class PlanServiceImpl implements PlanService {
 	}
 
 	@Override
-	public List<PlanInfoResultVO> getPassPlan(int page) {
-		if (page <= 0) {
-			page = 1;
-		}
-		List<Plan> list = planDao.getListByColumn(Plan.class, "state", Configure.PASS, page, 10);
+	public List<PlanInfoResultVO> getPassPlan() {
+		
+		List<Plan> list = planDao.getListByColumn(Plan.class, "state", Configure.PASS);
 		List<PlanInfoResultVO> resultVOs = new ArrayList<>();
 		if (list == null) {
 			return resultVOs;
