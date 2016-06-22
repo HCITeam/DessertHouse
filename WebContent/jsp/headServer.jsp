@@ -35,7 +35,9 @@
 	</div>
 	<div class="right-site">
 		<div class="tab-btn-group">
-			<a class="tab-btn tab-btn-active" href="javascript:void(0)">未通过计划</a> 
+			<a class="tab-btn tab-btn-active" id="impass" href="javascript:void(0)">未通过计划</a> 
+			<a class="tab-btn" id="pass" href="javascript:void(0)">已通过计划</a> 
+			<a class="tab-btn" id="delete" href="javascript:void(0)">已删除计划</a> 
 		</div>
 		<div class="content">
 			<div class="wrapper">
@@ -76,6 +78,30 @@
 						<td colspan="7"> <div class="addBut" id="addStoreBut">+</div></td>
 					</tr>
 				</table>
+				<table class="book-table" id="pass-table" border="0" style="display: none">
+					<tr class="tableTr">
+					    <th width="350px">日期</th>
+						<th width="250px">店面</th>
+						<th width="280px">商品名</th>
+						<th width="180px">数量</th>
+						<th width="180px">价格</th>
+						<th width="100px">删除</th>
+						
+					</tr>
+				</table>
+				<table class="book-table" id="delete-table" border="0" style="display: none">
+					<tr class="tableTr">
+					    <th width="350px">日期</th>
+						<th width="250px">店面</th>
+						<th width="280px">商品名</th>
+						<th width="180px">数量</th>
+						<th width="180px">价格</th>
+						<th width="100px">彻底删除</th>
+						<th width="100px">还原</th>
+						
+					</tr>
+				</table>
+				
 				<div class="message"></div>
 			</div>
 		</div>
