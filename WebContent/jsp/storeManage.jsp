@@ -78,12 +78,12 @@
 						<th width="280px">店名</th>
 						<th width="280px">地址</th>
 						<th width="280px">联系电话</th>
-						<th width="100px">修改</th>
-						<th width="100px">删除</th>
+						<th width="100px">彻底删除</th>
+						<th width="100px">撤销删除</th>
 					</tr>
-					<tr class="tableBottomTr" id="addStoreLine">
-						<td colspan="6"> 没有已删除店面</td>
-					</tr>
+					
+				
+					
 				</table>
 				<div class="message"></div>
 			</div>

@@ -98,14 +98,11 @@
 						<th width="280px">用户名</th>
 						<th width="280px">所属分店</th>
 						<th width="280px">工作类型</th>
-						<th width="280px">密码</th>
-						<th width="100px">修改</th>
-						<th width="100px">删除</th>
+						<th width="100px">彻底删除</th>
+						<th width="100px">撤销删除</th>
 					</tr>
 					
-					<tr class="tableBottomTr" id="addStoreLine">
-						<td colspan="6">暂无已删除店员</td>
-					</tr>
+					
 				</table>
 				<div class="message"></div>
 			</div>

@@ -40,8 +40,11 @@ public class StoreManageController extends HtmlController{
 		// TODO Auto-generated method stub
 		ServletContext sc = request().getServletContext();
 		List<StoreRVO> list=storeService.getAllStoreNotDelete();	
+		List<StoreRVO> deleteList=storeService.getAllStoreDelete();
 		System.err.println("you find me!!!!!!");
+		System.out.println(deleteList.size());
 		sc.setAttribute(Configure.STORE_LIST, list);
+		sc.setAttribute(Configure.STORE_LIST_DELETE, deleteList);
 		return Configure.SUCCESS;
 	}
 
