@@ -56,6 +56,7 @@ public class Configure {
 	public static final String  POSI_RECORD			=	"posi_record";
 	public static final String  NEG_RECORD			=	"neg_record";
 	public static final String  STORE_LIST			=	"store_list";
+	public static final String  STORE_LIST_DELETE   =	"store_list_delete";
 	public static final String  P_DATE				=	"p_date";
 	public static final String  P_ID				=	"p_id";
 	public static final String  CONSUME_LIST		=	"consume_list";

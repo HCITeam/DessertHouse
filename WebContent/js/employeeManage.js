@@ -83,8 +83,31 @@ $(document).on("click",".store-btn-edit",function()
 
 $("#recycleBinBut").click(function()
 {
-	$("#recycleBinBut").addClass("tab-btn-active");
+	
 	$("#allEmployeeBut").removeClass("tab-btn-active");
+	$("#recycleBinBut").removeClass();
+	$("#recycleBinBut").addClass("tab-btn tab-btn-active");
+	$("#store-table-del").empty();
+	$("#store-table-del").append("<tr class='tableTr tableTr-del'><th width='280px'>用户名</th><th width='280px'>所属分店</th><th width='280px'>工作类型</th><th width='100px'>彻底删除</th><th width='100px'>撤销删除</th></tr>");
+	$.ajax({
+        type:"POST",
+        url:"/Desserthouse/api/EmpListDeleteGet",
+        data:{ },
+        success:function(result,textStatus){
+            var cart_list=result.servers;
+            var p=0;
+            $.each(cart_list,function(idx,item){
+            	$("#store-table-del").append("<tr><td >"+item.name+"</td><td >"+item.s_name+"</td><td >"+item.type+"</td><td><a class=\"deletestore-btn-delete\" id=\""+item.name + "-delete\"><img src=\"../img/delete2.png\"></a></td><td><a class=\"deletestore-btn-return\" id=\""+item.name + "-return\"><img src=\"../img/return.png\"></a></td></tr>");
+            	p++;
+            });
+            if(p==0)
+            {
+            	$("#store-table-del").append("<tr><td colspan='6'>暂无已删除服务员</td></tr>");
+            }
+        }
+
+});
+	
 	$("#store-table").hide();
 	$("#store-table-del").show();
 });
@@ -311,3 +334,43 @@ $(".confirm-btn").on("click",function(){
 });/**
  * 
  */
+
+$(document).on("click",".deletestore-btn-delete",function(){
+	var button_id=$(this).attr("id");
+	var id=button_id.split("-")[0];
+	$.ajax({
+        type:"POST",
+        url:"/Desserthouse/api/EmpEmptyOne",
+        data:{'name':id},
+        success:function(result,textStatus){
+            	var isSuccess=result.success;
+            	if(isSuccess){
+            		$("#"+button_id).children("img").attr("src","../img/check.png");
+            		$("#"+button_id).attr("disable","true");
+            	}else{
+            		alert(result.message);
+            	}
+        }
+    });
+	
+});
+$(document).on("click",".deletestore-btn-return",function(){
+	var button_id=$(this).attr("id");
+	var id=button_id.split("-")[0];
+	$.ajax({
+        type:"POST",
+        url:"/Desserthouse/api/EmployeeUnDel",
+        data:{'name':id},
+        success:function(result,textStatus){
+            	var isSuccess=result.success;
+            	if(isSuccess){
+            		$("#"+button_id).children("img").attr("src","../img/check.png");
+            		$("#"+button_id).attr("disable","true");
+            	}else{
+            		alert(result.message);
+            	}
+        }
+    });
+	
+});
+

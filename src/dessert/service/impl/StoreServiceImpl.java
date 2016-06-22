@@ -134,6 +134,7 @@ public class StoreServiceImpl implements StoreService{
 		rvo.setFromStore(storeDao.getById(id));
 		return rvo;
 	}
+	
 
 	@Override
 	public List<SaleRecordRVO> getSaleRecord(int month, int s_id) {
@@ -165,9 +166,10 @@ public class StoreServiceImpl implements StoreService{
 		return resultVO;
 	}
 
+	
 	@Override
 	public List<StoreRVO> getAllStoreDelete() {
-		List<Store> list=storeDao.getListByColumn(Store.class, "delete_flag", Configure.DELETE_FLAG_TRUE);//已删除
+		List<Store> list=storeDao.getListByColumn(Store.class, "delete_flag", Configure.DELETE_FLAG_TRUE);//删除
 		List<StoreRVO> result=new ArrayList<StoreRVO>();
 		for (int i = 0; i < list.size(); i++) {
 			StoreRVO rvo=new StoreRVO();
@@ -176,7 +178,6 @@ public class StoreServiceImpl implements StoreService{
 		}
 		return result;
 	}
-
 	@Override
 	public ResultVO UndeleteStore(String id) {
 		ResultVO resultVO=new ResultVO();

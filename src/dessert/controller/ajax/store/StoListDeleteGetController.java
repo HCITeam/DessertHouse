@@ -34,6 +34,7 @@ public class StoListDeleteGetController extends AjaxController{
 			Map<String, Object> map=new HashMap<>();
 			map.put(Configure.STORE_LIST, rvos);
 			setJsonResult(map);
+			System.out.println(map.size());
 			return Configure.SUCCESS;
 		}
 }
