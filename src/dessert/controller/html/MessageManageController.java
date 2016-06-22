@@ -47,6 +47,7 @@ public class MessageManageController extends HtmlController{
 		sc.setAttribute(Configure.READ_MESSAGE, readList);
 		sc.setAttribute(Configure.UNREAD_MESSAGE, unreadList);
 		sc.setAttribute(Configure.DELETE_MESSAGE, deleteList);
+		sc.setAttribute(Configure.NAME, name);
 		return Configure.SUCCESS;
 	}
 
