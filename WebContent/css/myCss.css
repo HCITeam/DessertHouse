@@ -1,3 +1,7 @@
+body
+{
+	overflow:hidden;
+}
 .btn
 {
 	transition:all 0.5s;
@@ -293,5 +297,21 @@ th,td,td input,td select option
 	background-color:#f29c9f;
 	color:white;
 	border-radius:10px;
+	cursor:pointer;
+}
+
+.autoTranslate,.autoMove
+{
+	transition:all 0.5s;
+}
+
+.autoTranslate:hover
+{
+	transform:rotate(180deg);
+	cursor:pointer;
+}
+.autoMove:hover
+{
+	transform:rotate(360deg);
 	cursor:pointer;
 }

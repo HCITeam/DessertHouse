@@ -59,9 +59,9 @@
 					<tr class="tableBottomTr">
 						<td><%=unreadList.get(i).getDraftdate()%></td>
 						<td><%=unreadList.get(i).getContent()%></td>
-					    <td><a class="unreadmessage-btn-read" id="<%=unreadList.get(i).getId() + "-read"%>"><img
+					    <td><a class="unreadmessage-btn-read autoMove" id="<%=unreadList.get(i).getId() + "-read"%>"><img
 								src="../img/check transparent.png"></a></td>
-						<td><a class="unreadmessage-btn-delete" id="<%=unreadList.get(i).getId() + "-delete"%>"><img
+						<td><a class="unreadmessage-btn-delete autoMove" id="<%=unreadList.get(i).getId() + "-delete"%>"><img
 								src="../img/delete2.png"></a></td>
 					</tr>
 					<%
@@ -84,14 +84,20 @@
 						<th width="100px">删除</th>
 						
 					</tr>
+					<tr>
+						<td colspan="3"><div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div></td>
+					</tr>
 				</table>
 				<table class="book-table" id="delete-table" border="0" style="display: none">
 					<tr class="tableTr">
 					    <th width="280px">日期</th>
 						<th width="280px">内容</th>
-						<th width="100px">彻底删除</th>
+						<th width="180px">彻底删除</th>
 						<th width="100px">还原</th>
 						
+					</tr>
+					<tr>
+						<td colspan="4"><div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div></td>
 					</tr>
 				</table>
 			</div>

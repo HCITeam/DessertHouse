@@ -98,10 +98,12 @@
 						<th width="280px">用户名</th>
 						<th width="280px">所属分店</th>
 						<th width="280px">工作类型</th>
-						<th width="100px">彻底删除</th>
-						<th width="100px">撤销删除</th>
+						<th width="180px">彻底删除</th>
+						<th width="180px">恢复</th>
 					</tr>
-					
+					<tr>
+						<td colspan="6"><div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div></td>
+					</tr>
 					
 				</table>
 				<div class="message"></div>

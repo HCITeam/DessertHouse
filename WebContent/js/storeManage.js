@@ -60,22 +60,23 @@ $("#recycleBinBut").click(function(){
 	$("#allStoreBtn").removeClass("tab-btn-active");
 	$("#recycleBinBut").removeClass();
 	$("#recycleBinBut").addClass("tab-btn tab-btn-active");
-	$("#store-table-del").empty();
-	$("#store-table-del").append("<tr class='tableTr tableTr-del'><th width='100px'>编号</th><th width='280px'>店名</th><th width='280px'>地址</th><th width='280px'>联系电话</th><th width='100px'>彻底删除</th><th width='100px'>撤销删除</th></tr>");
 	$.ajax({
         type:"POST",
         url:"/Desserthouse/api/StoreListDeleteGet",
         data:{ },
         success:function(result,textStatus){
+        	$("#store-table-del").empty();
+        	$("#store-table-del").append("<tr class='tableTr tableTr-del'><th width='100px'>编号</th><th width='280px'>店名</th><th width='280px'>地址</th><th width='280px'>联系电话</th><th width='180px'>彻底删除</th><th width='180px'>恢复</th></tr>");
+        	
             var cart_list=result.store_list;
             var p=0;
             $.each(cart_list,function(idx,item){
-            	$("#store-table-del").append("<tr><td >"+item.id+"</td><td >"+item.name+"</td><td >"+item.address+"</td><td >"+item.telphone+"</td><td><a class=\"deletestore-btn-delete\" id=\""+item.id + "-delete\"><img src=\"../img/delete2.png\"></a></td><td><a class=\"deletestore-btn-return\" id=\""+item.id + "-return\"><img src=\"../img/return.png\"></a></td></tr>");
+            	$("#store-table-del").append("<tr  class='tableBottomTr'><td >"+item.id+"</td><td >"+item.name+"</td><td >"+item.address+"</td><td >"+item.telphone+"</td><td><a class=\"deletestore-btn-delete\" id=\""+item.id + "-delete\"><img class='autoTranslate' src=\"../img/delete2.png\"></a></td><td><a class=\"deletestore-btn-return\" id=\""+item.id + "-return\"><img class='autoMove' src=\"../img/return.png\"></a></td></tr>");
             	p++;
             });
             if(p==0)
             {
-            	$("#store-table-del").append("<tr><td colspan='6'>暂无已删除店面</td></tr>");
+            	$("#store-table-del").append("<tr class='tableBottomTr'><td colspan='6'>暂无已删除店面</td></tr>");
             }
         }
 
@@ -96,16 +97,15 @@ $("#allStoreBtn").click(function()
 $(document).on("click",".store-btn-delete",function(){
    var button_id=$(this).attr("id");
    var id=button_id.split("-")[0];//取得id
-   $("#"+button_id+"").parent().parent().hide(500);
+   var hider=$(this).parent().parent();
+   $(this).parent().html("<div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div>");
   // alert(id);
 	$.ajax({
                 type:"POST",
                 url:"/Desserthouse/api/DeleteStore",
                 data:{'s_id':id},
                 success:function(result,textStatus){
-                    	if (result.success==1) {
-                    		
-                    	}
+                	hider.hide(500);
                 }
             });
 });
@@ -201,19 +201,17 @@ function addStore()
 
 $(document).on("click",".deletestore-btn-delete",function(){
 	var button_id=$(this).attr("id");
+
+	var hider=$(this).parent().parent();
+	$(this).parent().html("<div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div>");
 	var id=button_id.split("-")[0];
 	$.ajax({
         type:"POST",
         url:"/Desserthouse/api/StoreEmptyOne",
         data:{'s_id':id},
-        success:function(result,textStatus){
-            	var isSuccess=result.success;
-            	if(isSuccess){
-            		$("#"+button_id).children("img").attr("src","../img/check.png");
-            		$("#"+button_id).attr("disable","true");
-            	}else{
-            		alert(result.message);
-            	}
+        success:function(result,textStatus)
+        {
+        	hider.hide(500);
         }
     });
 	
@@ -221,18 +219,14 @@ $(document).on("click",".deletestore-btn-delete",function(){
 $(document).on("click",".deletestore-btn-return",function(){
 	var button_id=$(this).attr("id");
 	var id=button_id.split("-")[0];
+	var hider=$(this).parent().parent();
+	$(this).parent().html("<div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div>");
 	$.ajax({
         type:"POST",
         url:"/Desserthouse/api/StoreUnDel",
         data:{'s_id':id},
         success:function(result,textStatus){
-            	var isSuccess=result.success;
-            	if(isSuccess){
-            		$("#"+button_id).children("img").attr("src","../img/check.png");
-            		$("#"+button_id).attr("disable","true");
-            	}else{
-            		alert(result.message);
-            	}
+        	hider.hide(500);
         }
     });
 	

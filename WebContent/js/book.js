@@ -127,6 +127,10 @@ $("#tool-btn-cart").on("click",function(){
                     	$("#book-table-cart").append("<tr><td colspan='6'>购物车为空</td></tr>");
                     	$("#goSend").hide();
                     }
+                    else
+                    {
+                    	$("#goSend").show();
+                    }
                 }
             });
 	$(".modal-wrapper").show();

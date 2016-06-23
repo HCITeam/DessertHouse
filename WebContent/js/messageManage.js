@@ -20,12 +20,12 @@ $("#unread").on("click",function(){
                     var cart_list=result.message;
                     var p=0;
                     $.each(cart_list,function(idx,item){
-                    	$("#plan-table").append("<tr><td >"+item.draftdate+"</td><td >"+item.content+"</td><td><a class=\"unreadmessage-btn-read\" id=\""+item.id + "-read\"><img src=\"../img/check transparent.png\"></a></td><td><a class=\"unreadmessage-btn-delete\" id=\""+item.id + "-delete\"><img src=\"../img/delete2.png\"></a></td></tr>");
+                    	$("#plan-table").append("<tr class='tableBottomTr'><td >"+item.draftdate+"</td><td >"+item.content+"</td><td><a class=\"unreadmessage-btn-read\" id=\""+item.id + "-read\"><img class='autoMove' src=\"../img/check transparent.png\"></a></td><td><a class=\"unreadmessage-btn-delete\" id=\""+item.id + "-delete\"><img class='autoTranslate' src=\"../img/delete2.png\"></a></td></tr>");
                     	p++;
                     });
                     if(p==0)
                     {
-                    	$("#plan-table").append("<tr><td colspan='6'>暂无未读消息</td></tr>");
+                    	$("#plan-table").append("<tr class='tableBottomTr'><td colspan='6'>暂无未读消息</td></tr>");
                     }
                 }
 	
@@ -47,22 +47,23 @@ $("#read").on("click",function(){
 	}
 	$("#read").removeClass();
 	$("#read").addClass("tab-btn tab-btn-active");
-	$("#pass-table").empty();
-	$("#pass-table").append("<tr class='tableTr'><th width='280px'>日期</th><th width='280px'>内容</th><th width='100px'>删除</th></tr>");
 	$.ajax({
                 type:"POST",
                 url:"/Desserthouse/api/MesReadGet",
                 data:{ },
                 success:function(result,textStatus){
+                	$("#pass-table").empty();
+                	$("#pass-table").append("<tr class='tableTr'><th width='280px'>日期</th><th width='280px'>内容</th><th width='100px'>删除</th></tr>");
+                	
                     var cart_list=result.message;
                     var p=0;
                     $.each(cart_list,function(idx,item){
-                    	$("#pass-table").append("<tr><td >"+item.draftdate+"</td><td >"+item.content+"</td><td><a class=\"readmessage-btn-delete\" id=\""+item.id + "-delete\"><img src=\"../img/delete2.png\"></a></td></tr>");
+                    	$("#pass-table").append("<tr class='tableBottomTr'><td >"+item.draftdate+"</td><td >"+item.content+"</td><td><a class=\"readmessage-btn-delete\" id=\""+item.id + "-delete\"><img class='autoTranslate' src=\"../img/delete2.png\"></a></td></tr>");
                     	p++;
                     });
                     if(p==0)
                     {
-                    	$("#pass-table").append("<tr><td colspan='6'>暂无已读消息</td></tr>");
+                    	$("#pass-table").append("<tr class='tableBottomTr'><td colspan='6'>暂无已读消息</td></tr>");
                     }
                 }
 	
@@ -83,22 +84,23 @@ $("#delete").on("click",function(){
 	}
 	$("#delete").removeClass();
 	$("#delete").addClass("tab-btn tab-btn-active");
-	$("#delete-table").empty();
-	$("#delete-table").append("<tr class='tableTr'><th width='280px'>日期</th><th width='280px'>内容</th><th width='180px'>彻底删除</th><th width='100px'>还原</th></tr>");
 	$.ajax({
                 type:"POST",
                 url:"/Desserthouse/api/MesDeleteGet",
                 data:{ },
                 success:function(result,textStatus){
+                	$("#delete-table").empty();
+                	$("#delete-table").append("<tr class='tableTr'><th width='280px'>日期</th><th width='280px'>内容</th><th width='180px'>彻底删除</th><th width='100px'>还原</th></tr>");
+                	
                     var cart_list=result.message;
                     var p=0;
                     $.each(cart_list,function(idx,item){
-                    	$("#delete-table").append("<tr><td >"+item.draftdate+"</td><td >"+item.content+"</td><td><a class=\"deletemessage-btn-delete\" id=\""+item.id + "-read\"><img src=\"../img/delete2.png\"></a></td><td><a class=\"deletemessage-btn-return\" id=\""+item.id + "-delete\"><img src=\"../img/return.png\"></a></td></tr>");
+                    	$("#delete-table").append("<tr class='tableBottomTr'><td >"+item.draftdate+"</td><td >"+item.content+"</td><td><a class=\"deletemessage-btn-delete\" id=\""+item.id + "-read\"><img class='autoTranslate' src=\"../img/delete2.png\"></a></td><td><a class=\"deletemessage-btn-return\" id=\""+item.id + "-delete\"><img class='autoMove' src=\"../img/return.png\"></a></td></tr>");
                     	p++;
                     });
                     if(p==0)
                     {
-                    	$("#delete-table").append("<tr><td colspan='6'>暂无已删除消息</td></tr>");
+                    	$("#delete-table").append("<tr class='tableBottomTr'><td colspan='6'>暂无已删除消息</td></tr>");
                     }
                 }
 	
@@ -114,6 +116,7 @@ $("#delete").on("click",function(){
 $(document).on("click",".unreadmessage-btn-read",function(){
 	var button_id=$(this).attr("id");
 	var id=button_id.split("-")[0];
+	$(this).parent().parent().hide(500);
 	$.ajax({
         type:"POST",
         url:"/Desserthouse/api/ReadMessage",
@@ -124,7 +127,7 @@ $(document).on("click",".unreadmessage-btn-read",function(){
             		$("#"+button_id).children("img").attr("src","../img/check.png");
             		$("#"+button_id).attr("disable","true");
             	}else{
-            		alert(result.message);
+            		//alert(result.message);
             	}
         }
     });
@@ -133,6 +136,7 @@ $(document).on("click",".unreadmessage-btn-read",function(){
 $(document).on("click",".unreadmessage-btn-delete",function(){
 	var button_id=$(this).attr("id");
 	var id=button_id.split("-")[0];
+	$(this).parent().parent().hide(500);
 	$.ajax({
         type:"POST",
         url:"/Desserthouse/api/MessageDel",
@@ -143,7 +147,7 @@ $(document).on("click",".unreadmessage-btn-delete",function(){
             		$("#"+button_id).children("img").attr("src","../img/check.png");
             		$("#"+button_id).attr("disable","true");
             	}else{
-            		alert(result.message);
+            		//alert(result.message);
             	}
         }
     });
@@ -152,6 +156,7 @@ $(document).on("click",".unreadmessage-btn-delete",function(){
 $(document).on("click",".readmessage-btn-delete",function(){
 	var button_id=$(this).attr("id");
 	var id=button_id.split("-")[0];
+	$(this).parent().parent().hide(500);
 	$.ajax({
         type:"POST",
         url:"/Desserthouse/api/MessageDel",
@@ -162,7 +167,7 @@ $(document).on("click",".readmessage-btn-delete",function(){
             		$("#"+button_id).children("img").attr("src","../img/check.png");
             		$("#"+button_id).attr("disable","true");
             	}else{
-            		alert(result.message);
+            		//alert(result.message);
             	}
         }
     });
@@ -172,6 +177,7 @@ $(document).on("click",".readmessage-btn-delete",function(){
 $(document).on("click",".deletemessage-btn-delete",function(){
 	var button_id=$(this).attr("id");
 	var id=button_id.split("-")[0];
+	$(this).parent().parent().hide(500);
 	$.ajax({
         type:"POST",
         url:"/Desserthouse/api/MesEmptyOne",
@@ -182,7 +188,7 @@ $(document).on("click",".deletemessage-btn-delete",function(){
             		$("#"+button_id).children("img").attr("src","../img/check.png");
             		$("#"+button_id).attr("disable","true");
             	}else{
-            		alert(result.message);
+            		//alert(result.message);
             	}
         }
     });
@@ -191,6 +197,7 @@ $(document).on("click",".deletemessage-btn-delete",function(){
 $(document).on("click",".deletemessage-btn-return",function(){
 	var button_id=$(this).attr("id");
 	var id=button_id.split("-")[0];
+	$(this).parent().parent().hide(500);
 	$.ajax({
         type:"POST",
         url:"/Desserthouse/api/UndeleteMessage",
@@ -201,7 +208,7 @@ $(document).on("click",".deletemessage-btn-return",function(){
             		$("#"+button_id).children("img").attr("src","../img/check.png");
             		$("#"+button_id).attr("disable","true");
             	}else{
-            		alert(result.message);
+            		//alert(result.message);
             	}
         }
     });

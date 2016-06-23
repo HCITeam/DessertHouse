@@ -13,23 +13,24 @@ $("#pass").on("click",function(){
 	
 	$("#pass").removeClass();
 	$("#pass").addClass("tab-btn tab-btn-active");
-	$("#pass-table").empty();
-	$("#pass-table").append("<tr class='tableTr'><th width='350px'>日期</th><th width='250px'>店面</th><th width='280px'>商品名</th><th width='180px'>数量</th>\
-						<th width='180px'>价格</th><th width='100px'>删除</th></tr>");
 	$.ajax({
                 type:"POST",
                 url:"/Desserthouse/api/PlanPassGet",
                 data:{ },
                 success:function(result,textStatus){
+                	$("#pass-table").empty();
+                	$("#pass-table").append("<tr class='tableTr'><th width='350px'>日期</th><th width='250px'>店面</th><th width='280px'>商品名</th><th width='180px'>数量</th>\
+                						<th width='180px'>价格</th><th width='100px'>删除</th></tr>");
+                	
                     var cart_list=result.plan_list;
                     var p=0;
                     $.each(cart_list,function(idx,item){
-                    	$("#pass-table").append("<tr><td >"+item.plandate+"</td><td >"+item.s_name+"</td><td>"+item.p_name+"</td><td>"+item.p_num+"</td><td>"+item.price+"</td><td><a class=\"passplan-btn-delete\" id=\""+item.id + "-delete\"><img src=\"../img/delete2.png\"></a></td></tr>");
+                    	$("#pass-table").append("<tr class='tableBottomTr'><td >"+item.plandate+"</td><td >"+item.s_name+"</td><td>"+item.p_name+"</td><td>"+item.p_num+"</td><td>"+item.price+"</td><td><a class=\"passplan-btn-delete\" id=\""+item.id + "-delete\"><img class='autoTranslate' src=\"../img/delete2.png\"></a></td></tr>");
                     	p++;
                     });
                     if(p==0)
                     {
-                    	$("#pass-table").append("<tr><td colspan='6'>暂无未读消息</td></tr>");
+                    	$("#pass-table").append("<tr class='tableBottomTr'><td colspan='6'>暂无未读消息</td></tr>");
                     }
                 }
 	
@@ -52,23 +53,24 @@ $("#delete").on("click",function(){
 	
 	$("#delete").removeClass();
 	$("#delete").addClass("tab-btn tab-btn-active");
-	$("#delete-table").empty();
-	$("#delete-table").append("<tr class='tableTr'><th width='350px'>日期</th><th width='250px'>店面</th><th width='280px'>商品名</th><th width='180px'>数量</th>\
-						<th width='180px'>价格</th><th width='100px'>彻底删除</th><th width='100px'>撤销删除</th></tr>");
 	$.ajax({
                 type:"POST",
                 url:"/Desserthouse/api/PlanListDeleteGet",
                 data:{ },
                 success:function(result,textStatus){
+                	$("#delete-table").empty();
+                	$("#delete-table").append("<tr class='tableTr'><th width='350px'>日期</th><th width='250px'>店面</th><th width='280px'>商品名</th><th width='180px'>数量</th>\
+                						<th width='180px'>价格</th><th width='100px'>彻底删除</th><th width='180px'>撤销删除</th></tr>");
+                	
                     var cart_list=result.plan_list;
                     var p=0;
                     $.each(cart_list,function(idx,item){
-                    	$("#delete-table").append("<tr><td >"+item.plandate+"</td><td >"+item.s_name+"</td><td>"+item.p_name+"</td><td>"+item.p_num+"</td><td>"+item.price+"</td><td><a class=\"deleteplan-btn-delete\" id=\""+item.id + "-delete\"><img src=\"../img/delete2.png\"></a></td><td><a class=\"deleteplan-btn-return\" id=\""+item.id + "-return\"><img src=\"../img/return.png\"></a></td></tr>");
+                    	$("#delete-table").append("<tr class='tableBottomTr'><td >"+item.plandate+"</td><td >"+item.s_name+"</td><td>"+item.p_name+"</td><td>"+item.p_num+"</td><td>"+item.price+"</td><td><a class=\"deleteplan-btn-delete\" id=\""+item.id + "-delete\"><img class='autoTranslate' src=\"../img/delete2.png\"></a></td><td><a class=\"deleteplan-btn-return\" id=\""+item.id + "-return\"><img class='autoMove' src=\"../img/return.png\"></a></td></tr>");
                     	p++;
                     });
                     if(p==0)
                     {
-                    	$("#delete-table").append("<tr><td colspan='6'>暂无未读消息</td></tr>");
+                    	$("#delete-table").append("<tr class='tableBottomTr'><td colspan='6'>暂无未读消息</td></tr>");
                     }
                 }
 	
@@ -80,7 +82,7 @@ $("#delete").on("click",function(){
 });
 
 $("#impass").on("click",function(){
-			$("#plan").addClass("tab-btn-active");
+			$("#impass").addClass("tab-btn-active");
 			$("#pass").removeClass("tab-btn-active");
 			$("#delete").removeClass("tab-btn-active");
 			$("#plan-table").show();
@@ -272,12 +274,14 @@ $(document).on("click",".store-btn-delete",function(){
    var button_id=$(this).attr("id");
    var id=button_id.split("-")[0];//取得计划id
    $("#"+id+"-delTd").html("<div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div>");
+   var hider=$(this).parent().parent();
+   $(this).parent().html("<div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div>");
 	$.ajax({
                 type:"POST",
                 url:"/Desserthouse/api/DeletePlan",
                 data:{'p_id':id},
                 success:function(result,textStatus){
-                	$("#"+id+"-delTd").parent().hide(500);
+                	hider.hide(500);
                 }
             });
 });
@@ -322,18 +326,14 @@ $(".confirm-btn").on("click",function(){
 $(document).on("click",".passplan-btn-delete",function(){
 	var button_id=$(this).attr("id");
 	var id=button_id.split("-")[0];
+	 var hider=$(this).parent().parent();
+	  $(this).parent().html("<div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div>");
 	$.ajax({
         type:"POST",
         url:"/Desserthouse/api/DeletePlan",
         data:{'p_id':id},
         success:function(result,textStatus){
-            	var isSuccess=result.success;
-            	if(isSuccess){
-            		$("#"+button_id).children("img").attr("src","../img/check.png");
-            		$("#"+button_id).attr("disable","true");
-            	}else{
-            		alert(result.message);
-            	}
+        	hider.hide(500);
         }
     });
 	
@@ -342,18 +342,14 @@ $(document).on("click",".passplan-btn-delete",function(){
 $(document).on("click",".deleteplan-btn-delete",function(){
 	var button_id=$(this).attr("id");
 	var id=button_id.split("-")[0];
+	 var hider=$(this).parent().parent();
+	  $(this).parent().html("<div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div>");
 	$.ajax({
         type:"POST",
         url:"/Desserthouse/api/PlanEmptyOne",
         data:{'p_id':id},
         success:function(result,textStatus){
-            	var isSuccess=result.success;
-            	if(isSuccess){
-            		$("#"+button_id).children("img").attr("src","../img/check.png");
-            		$("#"+button_id).attr("disable","true");
-            	}else{
-            		alert(result.message);
-            	}
+        	hider.hide(500);
         }
     });
 	
@@ -361,18 +357,14 @@ $(document).on("click",".deleteplan-btn-delete",function(){
 $(document).on("click",".deleteplan-btn-return",function(){
 	var button_id=$(this).attr("id");
 	var id=button_id.split("-")[0];
+	 var hider=$(this).parent().parent();
+	  $(this).parent().html("<div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div>");
 	$.ajax({
         type:"POST",
         url:"/Desserthouse/api/PlanUnDel",
         data:{'p_id':id},
         success:function(result,textStatus){
-            	var isSuccess=result.success;
-            	if(isSuccess){
-            		$("#"+button_id).children("img").attr("src","../img/check.png");
-            		$("#"+button_id).attr("disable","true");
-            	}else{
-            		alert(result.message);
-            	}
+        	hider.hide(500);
         }
     });
 	

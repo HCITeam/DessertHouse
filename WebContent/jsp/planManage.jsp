@@ -60,7 +60,7 @@
 						<td><%=impassList.get(i).getP_name()%></td>
 						<td><%=impassList.get(i).getP_num() %></td>
 						<td><%=impassList.get(i).getPrice() %></td>
-					    <td><a class="plan-btn-pass" id="<%=impassList.get(i).getId() + "-pass"%>"><img
+					    <td><a class="plan-btn-pass" id="<%=impassList.get(i).getId() + "-pass"%>"><img class='autoMove'
 								src="../img/check transparent.png"></a></td>
 					</tr>
 					<%

@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="../css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="../css/reset.css">
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../css/myCss.css">
 	<%
 		ServletContext sc = request.getServletContext();
 	List<MemberRecordRVO> allList=(List<MemberRecordRVO>)sc.getAttribute("all_record");
@@ -57,6 +58,7 @@
 				<%
 					} else {
 				%>
+				<div style="overflow:auto;max-height:800px;">
 				<table class="book-table" id="table-first" border="1">
 					<tr>
 						<th>操作</th>
@@ -80,6 +82,7 @@
 				     }
 			}%>
 				</table>
+				</div>
 				
 				<%
 					if (posiList.size() <= 0) {
@@ -93,6 +96,7 @@
 				<%
 					} else {
 				%>
+				<div style="overflow:auto;max-height:800px;">
 				<table class="book-table" id="table-second" border="1" style="display: none">
 					<tr>
 						<th>操作</th>
@@ -113,7 +117,7 @@
 				     }
 			}%>
 				</table>
-				
+				</div>
 				<%
 					if (negList.size() <= 0) {
 				%>
@@ -126,6 +130,7 @@
 				<%
 					} else {
 				%>
+				<div style="overflow:auto;max-height:800px;">
 				<table class="book-table" id="table-third" border="1" style="display: none">
 					<tr>
 						<th>操作</th>
@@ -146,6 +151,7 @@
 				     }
 			}%>
 				</table>
+				</div>
 			</div>
 		</div>
 	</div>

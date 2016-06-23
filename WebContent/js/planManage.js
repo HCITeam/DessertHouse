@@ -36,18 +36,14 @@ if(lastSee=="pass")
 $(document).on("click",".plan-btn-pass",function(){
 	var button_id=$(this).attr("id");
 	var p_id=button_id.split("-")[0];
+	var hider=$(this).parent().parent();
+	$(this).parent().html("<div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div>");
 	$.ajax({
         type:"POST",
         url:"/Desserthouse/api/PassPlan",
         data:{'p_id':p_id},
         success:function(result,textStatus){
-            	var isSuccess=result.success;
-            	if(isSuccess){
-            		$("#"+button_id).children("img").attr("src","../img/check.png");
-            		$("#"+button_id).attr("disable","true");
-            	}else{
-            		alert(result.message);
-            	}
+        	hider.hide(500);
         }
     });
 });

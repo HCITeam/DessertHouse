@@ -88,6 +88,9 @@
 						<th width="100px">删除</th>
 						
 					</tr>
+					<tr>
+						<td colspan="6"><div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div></td>
+					</tr>
 				</table>
 				<table class="book-table" id="delete-table" border="0" style="display: none">
 					<tr class="tableTr">
@@ -96,9 +99,12 @@
 						<th width="280px">商品名</th>
 						<th width="180px">数量</th>
 						<th width="180px">价格</th>
-						<th width="100px">彻底删除</th>
+						<th width="180px">彻底删除</th>
 						<th width="100px">还原</th>
 						
+					</tr>
+					<tr>
+						<td colspan="7"><div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div></td>
 					</tr>
 				</table>
 				
