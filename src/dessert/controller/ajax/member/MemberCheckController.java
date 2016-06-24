@@ -38,6 +38,7 @@ public class MemberCheckController extends AjaxController {
 
 	@Override
 	public String process(FormValidator validator) {
+		System.out.println(validator.getS(Configure.PASSWORD));
 		Map<String, Object> map=new HashMap<String, Object>();
 		LoginResultVO rVo=memberService.Login(validator.getS(Configure.ID),validator.getS(Configure.PASSWORD));
 		if (rVo.getSuccess()==Configure.SUCCESS_INT) {
@@ -45,6 +46,8 @@ public class MemberCheckController extends AjaxController {
 			map.put(Configure.STATE, rVo.getState());
 			map.put(Configure.BALANCE, rVo.getBalance());
 			map.put(Configure.GRADE, rVo.getGrade());
+			map.put(Configure.INTEGRAL, rVo.getIntegral());//积分
+			map.put(Configure.NAME, rVo.getName());
 		}
 		map.put(Configure.SUCCESS, rVo.getSuccess());
 		map.put(Configure.MESSAGE, rVo.getMessage());

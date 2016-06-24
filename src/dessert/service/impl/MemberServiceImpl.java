@@ -86,12 +86,14 @@ public class MemberServiceImpl implements MemberService {
 	 */
 	@Override
 	public LoginResultVO Login(String identity, String password) {
+		System.out.println(password);
 		LoginResultVO rVo = new LoginResultVO();
 		Member member = null;
 		boolean isId = Util.isNumber(identity);
 		System.out.println(identity + ":" + isId);
 		if (isId) {
 			member = memberDao.getByID(Integer.parseInt(identity));
+			System.out.println(member.getName());
 		} else {
 			member = memberDao.getByName(identity);
 		}

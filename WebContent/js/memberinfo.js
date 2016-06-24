@@ -31,7 +31,7 @@ $(".modify-btn").click(function(){
 	var temp=birthday.split("/")
 	birthday=temp[0]+"-"+temp[1]+"-"+temp[2];
 	var area=$("#address-select").val();
-	//alert(compellation+" "+gender);
+	alert(compellation+" "+gender);
 	$.ajax({
                 type:"POST",
                 url:"/Desserthouse/api/ChangeInfo",

@@ -38,8 +38,8 @@ function testCard()
 	$("#mScore").html("<div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div>");
 	$.ajax({
         type:"POST",
-        url:"/Desserthouse/api/EmpGetMemInfo",
-        data:{'id':$("#mmpass").val(),'password':$("#mmid").val()},
+        url:"/Desserthouse/api/CheckMember",
+        data:{'id':$("#mmid").val(),'password':$("#mmpass").val()},
         success:function(result,textStatus){
            if(result.success==0)
            {
@@ -55,14 +55,6 @@ function testCard()
        			$("#mmpass").arrt("disabled","disabled");
        			$("#mmid").arrt("disabled","disabled");
        			$("#mMon").removeAttr("cardMon");
-       			$.ajax({
-                    type:"POST",
-                    url:"/Desserthouse/api/CheckMember",
-                    data:{'id':$("#mmpass").val(),'password':$("#mmid").val()},
-                    success:function(result,textStatus)
-                    {
-                    }
-                });
            }
         }
         ,error:function()
