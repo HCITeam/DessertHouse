@@ -52,9 +52,9 @@ function testCard()
         	    $("#mName").html(result.name);
        			$("#mMon").html(result.balance);
        			$("#mScore").html(result.integral);
-       			$("#mmpass").arrt("disabled","disabled");
-       			$("#mmid").arrt("disabled","disabled");
-       			$("#mMon").removeAttr("cardMon");
+       			$("#mmpass").attr("disabled","disabled");
+       			$("#mmid").attr("disabled","disabled");
+       			$("#cardMon").removeAttr("disabled");
            }
         }
         ,error:function()

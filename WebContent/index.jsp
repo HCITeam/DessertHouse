@@ -55,13 +55,13 @@
 		<div class="wrapper">
 			<p id="welcome">Welcome</p>
 			<form action="/Desserthouse/Login" method="post" id="user-login">
-				<input maxlength="10" type="text" class="form-control" id="name" name="name"
-					placeholder="用户名/会员卡号" aria-describedby="sizing-addon1"> <input maxlength="10"
+				<input maxlength="20" type="text" class="form-control" id="name" name="name"
+					placeholder="用户名/会员卡号" aria-describedby="sizing-addon1"> <input maxlength="20"
 					type="password" class="form-control" id="password" name="password"
 					placeholder="密码" aria-describedby="sizing-addon1">
 
 				<div class="register-wrapper">
-					<input maxlength="10" type="password" class="form-control" id="password-second"
+					<input maxlength="20" type="password" class="form-control" id="password-second"
 						placeholder="再次输入密码" aria-describedby="sizing-addon1">
 					<a href="#" id="a-login">登陆</a>
 					<div class="btn btn-default" id="signup">注&nbsp&nbsp&nbsp册</div>
