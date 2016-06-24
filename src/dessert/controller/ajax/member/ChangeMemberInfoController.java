@@ -33,14 +33,14 @@ public class ChangeMemberInfoController extends AjaxController{
 		validator.put(Configure.GENDER, params.get(Configure.GENDER));
 		validator.put(Configure.ADDRESS, params.get(Configure.ADDRESS));
 		validator.put(Configure.PHONE, params.get(Configure.PHONE));
-		validator.put(Configure.AREA, params.get(Configure.AREA));
+//		validator.put(Configure.AREA, params.get(Configure.AREA));
 		validator.isRequired(Configure.ID, ErrorCode.ID_IS_EMPTY);
 		validator.isRequired(Configure.COMPELLATION, ErrorCode.COMPELLATION_IS_EMPTY);
 		validator.isRequired(Configure.BIRTHDAY, ErrorCode.BIRTHDAY_IS_EMPTY);
 		validator.isRequired(Configure.GENDER, ErrorCode.GENDER_IS_EMPTY);
 		validator.isRequired(Configure.ADDRESS, ErrorCode.ADDRESS_IS_EMPTY);
 		validator.isRequired(Configure.PHONE, ErrorCode.PHONE_IS_EMPTY);
-		validator.isRequired(Configure.AREA, ErrorCode.AREA_IS_EMPTY);
+//		validator.isRequired(Configure.AREA, ErrorCode.AREA_IS_EMPTY);
 	}
 
 	@Override

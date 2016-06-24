@@ -30,12 +30,12 @@ $(".modify-btn").click(function(){
 	$(".modify-btn").html("<div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div>");
 	var temp=birthday.split("/")
 	birthday=temp[0]+"-"+temp[1]+"-"+temp[2];
-	var area=$("#address-select").val();
-	alert(compellation+" "+gender);
+//	var area=$("#address-select").val();
+//	alert(compellation+" "+gender); 
 	$.ajax({
                 type:"POST",
                 url:"/Desserthouse/api/ChangeInfo",
-                data:{'compellation':compellation,'gender':gender,'birthday':birthday,'address':address,'phone':phone,'area':area},
+                data:{'compellation':compellation,'gender':gender,'birthday':birthday,'address':address,'phone':phone},
                 success:function(result,textStatus){
                 	$(".message").html("<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>"+result.message+"</div>");
                 	$(".modify-btn").html("修改");

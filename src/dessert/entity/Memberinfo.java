@@ -26,7 +26,7 @@ public class Memberinfo {
 		setGender(po.getGender());
 		setAddress(po.getAddress());
 		setPhone(po.getPhone());
-		setArea(po.getArea());
+		setArea(1);
 	}
 	public int getId() {
 		return id;

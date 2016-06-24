@@ -22,7 +22,7 @@ public class InfoPVO {
 		setGender(validator.getI(Configure.GENDER));
 		setAddress(validator.getS(Configure.ADDRESS));
 		setPhone(validator.getS(Configure.PHONE));
-		setArea(validator.getI(Configure.AREA));
+//		setArea(validator.getI(Configure.AREA));
 	}
 
 	public String getId() {
