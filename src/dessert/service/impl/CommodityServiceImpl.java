@@ -231,8 +231,8 @@ public class CommodityServiceImpl implements CommodityService{
 
 	@Override
 	public ResultVO payByCash(List<ReceiptItemPVO> pvos, int s_id) {
-//		Date date=Util.getCurrentDate();
-		Date date=Util.getDateFromString("2016-02-28");
+		Date date=Util.getCurrentDate();
+//		Date date=Util.getDateFromString("2016-02-28");
 		ResultVO rVo=new ResultVO();
 		for (int i = 0; i < pvos.size(); i++) {
 			ReceiptItemPVO pvo=pvos.get(i);

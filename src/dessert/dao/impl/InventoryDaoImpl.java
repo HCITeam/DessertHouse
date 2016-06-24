@@ -37,7 +37,8 @@ public class InventoryDaoImpl extends BaseDaoImpl<Inventory> implements Inventor
 		Criteria criteria = session.createCriteria(Inventory.class);
 		criteria.add(Restrictions.eq("s_id", ID));
 		criteria.add(Restrictions.eq("p_name", p_name));
-		// criteria.add(Restrictions.eq("s_date", date));
+//		System.out.println(theday);
+//		System.out.println(Util.theDateWhinday(theday));
 		criteria.add(Restrictions.between("s_date", theday, Util.theDateWhinday(theday)));
 		criteria.addOrder(Order.asc("p_num"));
 		return (Inventory)criteria.list().get(0);
