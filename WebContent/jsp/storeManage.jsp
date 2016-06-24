@@ -57,9 +57,9 @@
 					%>
 					<tr class="tableBottomTr">
 						<td class="short-input-td"><%=sotreList.get(i).getId()%></td>
-						<td><input disabled="true" type="text"  id="<%=sotreList.get(i).getId() + "-name"%>" value="<%=sotreList.get(i).getName() %>"></td>
-						<td><input disabled="true" type="text"  id="<%=sotreList.get(i).getId() + "-addr"%>" value="<%=sotreList.get(i).getAddress() %>"></td>
-						<td><input disabled="true" type="text"  id="<%=sotreList.get(i).getId() + "-tel"%>" value="<%=sotreList.get(i).getTelphone() %>"></td>
+						<td><input maxlength='15' disabled="true" type="text"  id="<%=sotreList.get(i).getId() + "-name"%>" value="<%=sotreList.get(i).getName() %>"></td>
+						<td><input maxlength='15' disabled="true" type="text"  id="<%=sotreList.get(i).getId() + "-addr"%>" value="<%=sotreList.get(i).getAddress() %>"></td>
+						<td><input maxlength='15' disabled="true" type="text"  id="<%=sotreList.get(i).getId() + "-tel"%>" value="<%=sotreList.get(i).getTelphone() %>"></td>
 					    <td><a class="store-btn-edit" id="<%=sotreList.get(i).getId() + "-edit"%>"><img  class="delImg"
 								src="../img/edit.png"></a></td>
 						<td><a class="store-btn-delete" id="<%=sotreList.get(i).getId()  + "-delete"%>"><img class="delImg"
@@ -98,9 +98,9 @@
 			<a class="close-btn" href="javascript:void(0)"><b></b></a>
 			<form class="info-form">
 			    <ul>
-						<li><input type="text" id="name" placeholder="店名"></li>
-						<li><input type="text" id="addr" placeholder="地址"></li>
-						<li><input type="text" id="tel" placeholder="联系方式"></li>
+						<li><input maxlength='15' type="text" id="name" placeholder="店名"></li>
+						<li><input maxlength='15' type="text" id="addr" placeholder="地址"></li>
+						<li><input maxlength='15' type="text" id="tel" placeholder="联系方式"></li>
 						<li><a class="btn confirm-btn" href="javascript:void(0)">添加</a></li>
 			    </ul>
 			</form>

@@ -55,18 +55,18 @@
 				<form class="info-form recharge-content">
 				<ul>
 					<%if(success==0){   
-						%><li><span>称呼:</span><input class="setBackWhite" type="text" id="compellation" placeholder="用于派送预定商品"></li>
+						%><li><span>称呼:</span><input  maxlength='15' class="setBackWhite" type="text" id="compellation" placeholder="用于派送预定商品"></li>
 						<li><span>性别:</span> 男<input type="radio" name="gender" value="1">女<input type="radio" name="gender" value="0" checked="checked"></li>
 						<li><span>生日:</span><input class="setBackWhite" type="date" id="birthday" placeholder="生日"></li>
-						<li><span>送货地址:</span><input class="setBackWhite" type="text" id="address" placeholder="送货地址"></li>
-						<li><span>联系电话:</span><input class="setBackWhite" type="text" id="phone" placeholder="联系方式"></li>
+						<li><span>送货地址:</span><input  maxlength='15' class="setBackWhite" type="text" id="address" placeholder="送货地址"></li>
+						<li><span>联系电话:</span><input maxlength='15' class="setBackWhite" type="text" id="phone" placeholder="联系方式"></li>
 					<%}else{ 
 						String compellation = (String) sc.getAttribute("compellation");
 						String birthday = (String) sc.getAttribute("birthday");
 						int gender = (int) sc.getAttribute("gender");
 						String address = (String) sc.getAttribute("address");
 						String phone = (String) sc.getAttribute("phone");
-						%><li><span>称呼:</span><input class="setBackWhite" type="text" id="compellation" placeholder="<%=compellation%>"></li>
+						%><li><span>称呼:</span><input maxlength='15' class="setBackWhite" type="text" id="compellation" placeholder="<%=compellation%>"></li>
 						<%if(gender==1){
 						%><li><span>性别:</span> 男<input class="setBackWhite" type="radio" name="gender" value="1" checked="checked">女<input type="radio" name="gender" value="0"></li>
 						<%}else { %>
@@ -87,8 +87,8 @@
 							<option value="9">溧水区</option>
 							<option value="10">高淳区</option>
 						</select>
-						<input class="setBackWhite" type="text" id="address" placeholder="<%=address%>"></li>
-						<li><span>联系电话:</span><input type="text" id="phone" placeholder="<%=phone%>"></li>
+						<input maxlength='15' class="setBackWhite" type="text" id="address" placeholder="<%=address%>"></li>
+						<li><span>联系电话:</span><input maxlength='15' type="text" id="phone" placeholder="<%=phone%>"></li>
 					<%} %>
 						<li><input class="btn modify-btn" value="修改"></li>
 					</ul>

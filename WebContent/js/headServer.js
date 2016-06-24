@@ -210,8 +210,8 @@ function addHead()
                     		"<td>"+p_date+"</td>"+
                     		"<td>"+result.store_name+"</td>"+
                     		"<td>"+p_name+"</td>"+
-                    		"<td><input type=\"text\" class=\"short-input-td\" id=\""+result.p_id+"-num\" value=\""+p_num+"\"></td>"+
-                    		"<td><input type=\"text\" class=\"short-input-td\" id=\""+result.p_id+"-price\" value=\""+price+"\"></td>"+
+                    		"<td><input maxlength='5' type=\"text\" class=\"short-input-td\" id=\""+result.p_id+"-num\" value=\""+p_num+"\"></td>"+
+                    		"<td><input maxlength='5' type=\"text\" class=\"short-input-td\" id=\""+result.p_id+"-price\" value=\""+price+"\"></td>"+
                     		"<td><a class=\"plan-btn-edit\" id=\""+result.p_id+"-edit\"><img src=\"../img/edit.png\"></a></td>"+
                     		"<td><a class=\"plan-btn-delete\" id=\""+result.p_id+"-delete\"><img src=\"../img/delete2.png\"></a></td>"+
                     		"</tr>"+
@@ -312,8 +312,8 @@ $(".confirm-btn").on("click",function(){
                     		"<td>"+p_date+"</td>"+
                     		"<td>"+result.store_name+"</td>"+
                     		"<td>"+p_name+"</td>"+
-                    		"<td><input type=\"text\" class=\"short-input-td\" id=\""+result.p_id+"-num\" value=\""+p_num+"\"></td>"+
-                    		"<td><input type=\"text\" class=\"short-input-td\" id=\""+result.p_id+"-price\" value=\""+price+"\"></td>"+
+                    		"<td><input maxlength='5' type=\"text\" class=\"short-input-td\" id=\""+result.p_id+"-num\" value=\""+p_num+"\"></td>"+
+                    		"<td><input maxlength='5' type=\"text\" class=\"short-input-td\" id=\""+result.p_id+"-price\" value=\""+price+"\"></td>"+
                     		"<td><a class=\"plan-btn-edit\" id=\""+result.p_id+"-edit\"><img src=\"../img/edit.png\"></a></td>"+
                     		"<td><a class=\"plan-btn-delete\" id=\""+result.p_id+"-delete\"><img src=\"../img/delete.png\"></a></td>"+
                     		"</tr>");

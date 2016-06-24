@@ -217,7 +217,7 @@
 			</div>
 		</div>
 			<form action="/Desserthouse/StoreInventory" method="post" id="store-inventory">
-				<input type="text" id="store-name" name="store_name"
+				<input  maxlength='10' type="text" id="store-name" name="store_name"
 					style="display: none;"> 
 				<input type="text"
 					id="date" name="s_date" style="display: none;">
@@ -253,15 +253,15 @@
 				<table style="margin-top:0px;" class="book-table" id="book-table-cart" border="1">
 						<tr id="locationTr" style="display:none">
 							<th>地址</th>
-							<td><input style="width:400px;" class="setBackWhite" type="text" id="saddress" placeholder="送货地址"></td>
+							<td><input  maxlength='20' style="width:400px;" class="setBackWhite" type="text" id="saddress" placeholder="送货地址"></td>
 						</tr>
 						<tr>
 							<th>联系人</th>
-							<td><input style="width:400px;" class="setBackWhite" type="text" id="sname" placeholder="名称"></td>
+							<td><input maxlength='10' style="width:400px;" class="setBackWhite" type="text" id="sname" placeholder="名称"></td>
 						</tr>
 						<tr>
 							<th>联系方式</th>
-							<td><input style="width:400px;" class="setBackWhite" type="text" id="sphone" placeholder="电话号码"></td>
+							<td><input  maxlength='15' style="width:400px;" class="setBackWhite" type="text" id="sphone" placeholder="电话号码"></td>
 						</tr>
 						<tr>
 							<td colspan="2" id="doer">

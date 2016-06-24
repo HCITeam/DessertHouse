@@ -14,6 +14,8 @@
 <link rel="stylesheet" type="text/css" href="../css/main.css">
 <link rel="stylesheet" type="text/css" href="../css/myCss.css">
 <script src="../js/jquery-2.1.4.min.js"></script>
+
+<script src="../js/Chart.js"></script>
 <%
 	ServletContext sc = request.getServletContext();
 	Map<Integer, String> store = (Map<Integer, String>) sc.getAttribute("store_list");
@@ -113,10 +115,11 @@
 					%>
 				</table>
 				<div style="text-align:center">
-					<div class="btn btn-default"id="sendMessageDo">发送消息</div>
+					<td colspan="4"> <div class="btn btn-default"id="showMap">查看图表</div></td>
+					<div class="btn btn-default" style='margin-left:200px' id="sendMessageDo">发送消息</div>
 					<div id="sender">
 						发送消息
-						<input type="text" id="input-message" />
+						<input maxlength='55' type="text" id="input-message" />
 						给
 						<select id="server">
 						    <%for(EmploeeInfoResultVO server:servers){%>
@@ -144,6 +147,46 @@
 		<input type="text" id="input-sid-s" name="s_id" style="display: none;">
 	</form>
 	<div class="clear"></div>
+	<div class="modal-wrapper" style="display: none;">
+		<div class="dialog cart-dialog" id="large-cart-dialog">
+			
+			<div class="dialog-title"></div>
+			<a class="close-btn" href="javascript:void(0)"><b></b></a>
+			<div class="" style="padding-left:20px;height:380px;margin-top:-50px;overflow:hidden;">
+				<div id="left" style="font-size:40px;float:left;color:grey;padding-top:200px;">◀</div>
+				<div style="float:left" class="sleepShow">
+					<canvas id="myChart" width="650" height="320" style="margin-top:50px;"></canvas>  
+				</div>
+				<div id="right" style="font-size:40px;float:left;color:#6495ED;padding-top:200px;">▶</div>
+			</div>
+			
+			<div id="showLable" style="text-align:center;"><nobr style="color:#D97041">■</nobr>:第一分店<nobr style="color:#9D9B7F">■</nobr>:第二分店<nobr style="color:green">■</nobr>:第三分店<nobr style="color:#21323D">■</nobr>:第四分店</div>
+		</div>
+	</div>
+	<script>
+	$("#showLable").hide(200);
+	var data = {
+			labels : ["派","蛋糕","饼","面包","蛋挞","卷","饮料"],
+			datasets : [
+				{
+					fillColor : "rgba(220,220,220,0.5)",
+					strokeColor : "rgba(220,220,220,1)",
+					pointColor : "rgba(220,220,220,1)",
+					pointStrokeColor : "#fff",
+					data : [65,59,90,81,56,55,40]
+				},
+				{
+					fillColor : "rgba(151,187,205,0.5)",
+					strokeColor : "rgba(151,187,205,1)",
+					pointColor : "rgba(151,187,205,1)",
+					pointStrokeColor : "#fff",
+					data : [28,48,40,19,96,27,100]
+				}
+			]
+		}
+		var ctx = document.getElementById("myChart").getContext("2d");
+		new Chart(ctx).Radar(data);
+	</script>	
 	<script src="../js/bootstrap.js"></script>
 	<script src="../js/saleRecord.js"></script>
 </body>

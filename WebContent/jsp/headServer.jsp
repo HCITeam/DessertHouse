@@ -63,8 +63,8 @@
 						<td><%=impassList.get(i).getDate()%></td>
 						<td><%=store.get(impassList.get(i).getS_id())%></td>
 						<td><%=impassList.get(i).getP_name()%></td>
-						<td><input disabled="disabled" type="text" class="short-input-td" id="<%=impassList.get(i).getId() + "-num"%>" value="<%=impassList.get(i).getP_num() %>"></td>
-						<td><input disabled="disabled" type="text" class="short-input-td" id="<%=impassList.get(i).getId() + "-price"%>" value="<%=impassList.get(i).getPrice() %>"></td>
+						<td><input maxlength='5' disabled="disabled" type="text" class="short-input-td" id="<%=impassList.get(i).getId() + "-num"%>" value="<%=impassList.get(i).getP_num() %>"></td>
+						<td><input maxlength='5' disabled="disabled" type="text" class="short-input-td" id="<%=impassList.get(i).getId() + "-price"%>" value="<%=impassList.get(i).getPrice() %>"></td>
 					    <td><a class="store-btn-edit" id="<%=impassList.get(i).getId() + "-edit"%>"><img
 								src="../img/edit.png"></a></td>
 						<td id="<%=impassList.get(i).getId() + "-delTd"%>"><a class="store-btn-delete" id="<%=impassList.get(i).getId()  + "-delete"%>"><img

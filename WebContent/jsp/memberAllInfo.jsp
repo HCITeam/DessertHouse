@@ -47,7 +47,7 @@
 				<% if(info==null){%>
 				<form class="info-form">
 				   <ul>
-				   	  <li><span>会员卡号:</span><input type="text" id="m_id" placeholder="请输入7位会员卡号"></li>
+				   	  <li><span>会员卡号:</span><input  maxlength='7' type="text" id="m_id" placeholder="请输入7位会员卡号"></li>
 					  <li><input class="btn modify-btn" id="modify-memberid" value="查询"></li>		   
 				      <li><div class=message></div></li>
 				   </ul>

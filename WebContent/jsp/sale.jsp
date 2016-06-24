@@ -56,7 +56,7 @@
   							<%} %>
 						</select></td>
 						<td id="newPrice">0</td>
-					    <td id="newNum"><input id="new-good-num" class="showBorder" type="text" width="100px" value=""></td>
+					    <td id="newNum"><input maxlength='5' id="new-good-num" class="showBorder" type="text" width="100px" value="1"></td>
 						<td id="newAllPrice">0</td>
 						<td><img class="store-btn-delete" id="addGood" src="../img/posi.png"></td>
 					</tr>
@@ -64,7 +64,7 @@
 						<td></td>
 						<td></td>
 					    <td></td>
-						<td id="allnum">19.98</td>
+						<td id="allnum">0</td>
 						<td><div class="btn confirm-btn" id="doSale">结账</div></td>
 					</tr>
 				</table>
@@ -87,9 +87,9 @@
   							<%} %>
 						</select>
 						</li>
-						<li><span>数量:</span><input type="text" class="long-input-td" id="pnum-card" placeholder="商品数"></li>
-							<li><span>会员卡:</span><input type="text" class="long-input-td" id="mid" placeholder="卡号"></li>
-							<li><span>密码:</span><input type="password" class="long-input-td" id="mpass" placeholder="密码"></li>
+						<li><span>数量:</span><input maxlength='5' type="text" class="long-input-td" id="pnum-card" placeholder="商品数"></li>
+							<li><span>会员卡:</span><input maxlength='15' type="text" class="long-input-td" id="mid" placeholder="卡号"></li>
+							<li><span>密码:</span><input maxlength='15' type="password" class="long-input-td" id="mpass" placeholder="密码"></li>
 							<li><span>余额:</span><span id="balance-card"></span></li>
 							<li><span>总价:</span><span id="total-card"></span></li>
 							<li><span>积分:</span><span id="integral-card"></span></li>
@@ -107,9 +107,9 @@
   							<%} %>
 						</select>
 						</li>
-						<li><span>数量:</span><input id="pnum-cash" type="text" value="1"></li>
+						<li><span>数量:</span><input  maxlength='5'id="pnum-cash" type="text" value="1"></li>
 						<li><span>总价:</span><span id="amount-cash">0</span></li>
-						<li><span>总额:</span><input id="total-cash" type="text" placeholder="收取金额"></li>
+						<li><span>总额:</span><input maxlength='5' id="total-cash" type="text" placeholder="收取金额"></li>
 						<li><span>找零:</span><span id="charge-cash"></span></li>
 						<li><span><input class="btn confirm-btn reset-btn" type="button" value="重置"></span>
 						<span><input class="btn confirm-btn" id="commit-cash" type="button" value="结账"></span></li>
@@ -123,50 +123,50 @@
 		<div class="dialog cart-dialog" id="large-cart-dialog">
 			<div class="dialog-title">结账</div>
 			<a class="close-btn" href="javascript:void(0)"><b></b></a>
-			<div class="" style="padding-left:20px;height:340px;margin-top:-50px;overflow:hidden;">
+			<div id="myPayDiv" style="padding-left:20px;height:340px;margin-top:-50px;overflow:hidden;">
 				<table class="book-table table-left" id="vip-table" border="0" style="float:left">
 					<tr>
 						<td>会员卡号</td>
-						<td width="280px"><input type="text" class="long-input-td" id="mid" placeholder="卡号"></td>
+						<td width="280px"><input maxlength='15' type="text" class="long-input-td" id="mmid" placeholder="卡号"></td>
 					</tr>
 					<tr>
 						<td>密码</td>
-						<td><input type="password" class="long-input-td" id="mpass" placeholder="密码"></td>
+						<td><input maxlength='15' type="password" class="long-input-td" id="mmpass" placeholder="密码"></td>
 					</tr>
 					<tr>
 						<td>持卡人</td>
-						<td>0</td>
+						<td id="mName">无效</td>
 					</tr>
 					<tr>
 						<td>余额</td>
-						<td>0</td>
+						<td id="mMon">0</td>
 					</tr>
 					<tr>
 						<td>积分</td>
-						<td>0</td>
+						<td id="mScore">0</td>
 					</tr>
 				</table>
 				
 				<table class="book-table table-right" id="mon-table" border="0" style="float:left;margin-left:20px">
 					<tr>
 						<td>应付</td>
-						<td>19.98</td>
+						<td id="needPayAllNum">19.98</td>
 					</tr>
 					<tr>
 						<td>现金</td>
-						<td><input type="text" class="short-input-td" id="giveMon" placeholder="现金"></td>
+						<td><input maxlength='5' type="text" class="short-input-td" id="giveMon" value="0" placeholder="现金"></td>
 					</tr>
 					<tr>
 						<td>会员卡付款</td>
-						<td><input type="text" class="short-input-td" id="cardMon" placeholder="刷卡"></td>
+						<td><input maxlength='5' type="text" class="short-input-td" disabled="disabled" id="cardMon" value="0" placeholder="刷卡"></td>
 					</tr>
 					<tr>
 						<td>找零</td>
-						<td>0</td>
+						<td id="reMon">0</td>
 					</tr>
 				</table>
 			</div>
-			<a class="btn confirm-btn" href="javascript:void(0)">确定</a>
+			<a class="btn confirm-btn" href="javascript:void(0)" id="mDoPayLast">确定</a>
 			<div class="message"></div>
 			<div class="clear"></div>
 		</div>

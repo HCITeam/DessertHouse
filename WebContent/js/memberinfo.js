@@ -27,6 +27,7 @@ $(".modify-btn").click(function(){
 		$(".message").html("<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>请输入联系电话</div>");
 		return;
 	}
+	$(".modify-btn").html("<div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div>");
 	var temp=birthday.split("/")
 	birthday=temp[0]+"-"+temp[1]+"-"+temp[2];
 	var area=$("#address-select").val();
@@ -36,7 +37,13 @@ $(".modify-btn").click(function(){
                 url:"/Desserthouse/api/ChangeInfo",
                 data:{'compellation':compellation,'gender':gender,'birthday':birthday,'address':address,'phone':phone,'area':area},
                 success:function(result,textStatus){
-                   alert(result.message);
+                	$(".message").html("<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>"+result.message+"</div>");
+                	$(".modify-btn").html("修改");
+                }
+                ,error:function(data)
+                {
+                	$("body").html(data.responseText);
+                	$(".modify-btn").html("修改");
                 }
             });
 });

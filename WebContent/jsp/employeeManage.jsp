@@ -62,7 +62,7 @@
 						<td id="<%=headList.get(i).getName() + "-name"%>"><%=headList.get(i).getName()%></td>
 						<td id="<%=headList.get(i).getName() + "-id"%>">总店</td>
 						<td id="<%=headList.get(i).getName() + "-type"%>"><%=headList.get(i).getTypeString()%></td>
-						<td><input disabled="true" type="text"  id="<%=headList.get(i).getName() + "-password"%>" placeholder='在此输入新密码'></td>
+						<td><input maxlength='10' disabled="true" type="text"  id="<%=headList.get(i).getName() + "-password"%>" placeholder='在此输入新密码'></td>
 						<td><a class="store-btn-edit" id="<%=headList.get(i).getName() + "-edit"%>"><img
 								src="../img/edit.png"></a></td>
 						<td><a class="store-btn-delete" id="<%=headList.get(i).getName()  + "-delete"%>"><img
@@ -79,7 +79,7 @@
 						<td id="<%=serverList.get(i).getName() + "-name"%>"><%=serverList.get(i).getName()%></td>
 						<td id="<%=serverList.get(i).getName() + "-id"%>"><%=sotreList.get(serverList.get(i).getS_id()) %></td>
 						<td id="<%=serverList.get(i).getName() + "-type"%>"><%=serverList.get(i).getTypeString()%></td>
-						<td><input disabled="true" type="text"  id="<%=serverList.get(i).getName() + "-password"%>" placeholder='在此输入新密码'></td>
+						<td><input maxlength='10' disabled="true" type="text"  id="<%=serverList.get(i).getName() + "-password"%>" placeholder='在此输入新密码'></td>
 						<td><a class="store-btn-edit" id="<%=serverList.get(i).getName() + "-edit"%>"><img
 								src="../img/edit.png"></a></td>
 						<td><a class="store-btn-delete" id="<%=serverList.get(i).getName()  + "-delete"%>"><img
@@ -144,7 +144,7 @@
 			<a class="close-btn" href="javascript:void(0)"><b></b></a>
 			<form class="info-form">
 			    <ul>
-						<li><input type="text" class="long-input-td" id="add-name" placeholder="用户名"></li>
+						<li><input maxlength='10' type="text" class="long-input-td" id="add-name" placeholder="用户名"></li>
 						<li><select id="add-s-id">
 						<option value="0">无</option>
 						<%for(Map.Entry<Integer,String> entry:sotreList.entrySet()){ %>
@@ -156,8 +156,8 @@
 						     <option value="2">总店服务员</option>
 						     <option value="3">分店服务员</option>
 						</select>
-						<li><input type="password" class="long-input-td" id="add-password" placeholder="请输入密码"></li>
-						<li><input type="password" class="long-input-td" id="add-password-twice" placeholder="请再次输入密码"></li>
+						<li><input maxlength='10' type="password" class="long-input-td" id="add-password" placeholder="请输入密码"></li>
+						<li><input maxlength='10' type="password" class="long-input-td" id="add-password-twice" placeholder="请再次输入密码"></li>
 			    </ul>
 			</form>
 			<a class="btn confirm-btn" id="confirm-add" href="javascript:void(0)">添加</a>

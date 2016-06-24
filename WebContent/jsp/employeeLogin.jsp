@@ -28,8 +28,8 @@
 		<div class="wrapper">
 			<p id="welcome">Welcome</p>
 			<form action="/Desserthouse/EmploeeLogin" method="post" id="workerPost">
-				<input type="text" class="form-control" id="name" name="name"
-					placeholder="工作人员名" aria-describedby="sizing-addon1"> <input
+				<input maxlength='10' type="text" class="form-control" id="name" name="name"
+					placeholder="工作人员名" aria-describedby="sizing-addon1"> <input maxlength='10'
 					type="password" class="form-control" id="password" name="password"
 					placeholder="密码" aria-describedby="sizing-addon1">
 

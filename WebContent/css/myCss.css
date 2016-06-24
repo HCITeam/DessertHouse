@@ -300,7 +300,7 @@ th,td,td input,td select option
 	cursor:pointer;
 }
 
-.autoTranslate,.autoMove
+.autoTranslate,.autoMove,#left,#right
 {
 	transition:all 0.5s;
 }
@@ -313,5 +313,16 @@ th,td,td input,td select option
 .autoMove:hover
 {
 	transform:rotate(360deg);
+	cursor:pointer;
+}
+#left:hover
+{
+	margin-left:-10px;
+	margin-right:10px;
+	cursor:pointer;
+}
+#right:hover
+{
+	margin-left:10px;
 	cursor:pointer;
 }

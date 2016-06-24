@@ -117,9 +117,9 @@ $(document).on("click",".store-btn-delete",function(){
 function addClick()
 {
 	$("#addStoreLine").html("<td class='short-input-td'>新增</td>\
-			<td><input type='text' class='showBorder' id='newStoreName' placeholder='请输入店名'></td>\
-			<td><input type='text' class='showBorder' id='newStoreLocation' placeholder='请输入地址'></td>\
-			<td><input type='text' class='showBorder' id='newStoreTel' placeholder='请输入联系电话'></td>\
+			<td><input maxlength='10' type='text' class='showBorder' id='newStoreName' placeholder='请输入店名'></td>\
+			<td><input maxlength='20' type='text' class='showBorder' id='newStoreLocation' placeholder='请输入地址'></td>\
+			<td><input maxlength='15' type='text' class='showBorder' id='newStoreTel' placeholder='请输入联系电话'></td>\
 		    <td><a id='newStoreAdd'><img class='delImg'\
 					src='../img/check.png'></a></td>\
 			<td><a id='newStoreDel'><img class='delImg'\

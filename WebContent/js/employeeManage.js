@@ -123,10 +123,10 @@ $("#allEmployeeBut").click(function()
 function addClick()
 {
 	
-	$("#addStoreLine").html("<td><input type='text' class='showBorder' id='add-name' placeholder='请输入用户名'></td>\
+	$("#addStoreLine").html("<td><input maxlength='10' type='text' class='showBorder' id='add-name' placeholder='请输入用户名'></td>\
 							<td id='add-readid'><div class='loadShow'><img class='loadImg' src='../img/load.png' alt='O'></div></td>\
 							<td><select id='add-type'><option value='2'>总店服务员</option><option value='3'>分店服务员</option></select></td>\
-							<td><input type='text' class='showBorder' id='add-password' placeholder='在此输入密码'></td>\
+							<td><input maxlength='10' type='text' class='showBorder' id='add-password' placeholder='在此输入密码'></td>\
 							<td><a id='newStoreAdd'><img class='delImg'\
 							src='../img/check.png'></a></td>\
 							<td><a id='newStoreDel'><img class='delImg'\
@@ -227,7 +227,7 @@ function addEmployee()
                     		"<td id='"+name+"'-name'>"+name+"</td>"+
                     		"<td id='"+name+"'-id'>"+result.store_name+"</td>"+
                     		"<td id='"+name+"'-type'>"+result.work_type+"</td>"+
-                    		"<td><input disabled='true' type='text'  id='"+name+"'-password' placeholder='在此输入新密码'></td>"+
+                    		"<td><input maxlength='10' disabled='true' type='text'  id='"+name+"'-password' placeholder='在此输入新密码'></td>"+
                     		"<td><a class=\"store-btn-edit\" id=\""+name+"-edit\"><img src=\"../img/edit.png\"></a></td>"+
                     		"<td><a class=\"store-btn-delete\" id=\""+name+"-delete\"><img src=\"../img/delete2.png\"></a></td>"+
                     		"</tr>"+
