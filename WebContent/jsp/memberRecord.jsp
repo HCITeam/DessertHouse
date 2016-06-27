@@ -16,6 +16,7 @@
 	List<MemberRecordRVO> allList=(List<MemberRecordRVO>)sc.getAttribute("all_record");
 	List<MemberRecordRVO> posiList=(List<MemberRecordRVO>)sc.getAttribute("posi_record");
 	List<MemberRecordRVO> negList=(List<MemberRecordRVO>)sc.getAttribute("neg_record");
+	sc.removeAttribute("message");
 	%>
 </head>
 <body>
@@ -142,7 +143,7 @@
 						for (int i = 0; i < negList.size(); i++) {
 					%>
 					<tr>
-					    <td><img src="../img/posi.png"></td>
+					    <td><img src="../img/neg.png"></td>
 						<td><%=negList.get(i).getR_date() %></td>
 						<td><%=negList.get(i).getAmount() %></td>
 						<td><%=negList.get(i).getExplanation() %></td>

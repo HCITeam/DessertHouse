@@ -306,8 +306,8 @@ $("#doSend").click(function()
 
 $('.date-input').datepicker({
 	format: "yyyy-mm-dd",
-	startDate: "2016-03-09",
-	endDate: "2016-03-13"
+	startDate: "2016-06-27",
+	endDate: "2016-07-03"
 });
 
 $(document).on("change",".date-input",function(){

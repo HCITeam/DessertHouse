@@ -28,19 +28,14 @@
     int success = (int) sc.getAttribute("success");
 	String message=(String)sc.getAttribute("message");
 	String compellation="";
-	String birthday="";
-	int gender=0;
 	String address="";
 	String phone="";
-	int area=0;
 	if(success==1){
-		area=(int)sc.getAttribute("area");
 		compellation = (String) sc.getAttribute("compellation");
-		birthday = (String) sc.getAttribute("birthday");
-		gender = (int) sc.getAttribute("gender");
 		address = (String) sc.getAttribute("address");
 		phone = (String) sc.getAttribute("phone");
 	}
+	sc.removeAttribute("message");
 %>
 <script>
 	var visited = "<%=visited_store%>";

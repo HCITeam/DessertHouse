@@ -19,6 +19,7 @@
     List<MessageInfoResultVO> readList = (List<MessageInfoResultVO>) sc.getAttribute("read_message");
     List<MessageInfoResultVO> deleteList = (List<MessageInfoResultVO>) sc.getAttribute("delete_message");
     String name=(String)sc.getAttribute("name");
+    sc.removeAttribute("message");
 %>
 </head>
 <body>
@@ -71,7 +72,7 @@
 						{
 					%>
 					<tr class="tableBottomTr" id="addStoreLine">
-						<td colspan="6"> 暂无未审批计划</td>
+						<td colspan="6"> 暂无未读消息</td>
 					</tr>
 					<% 
 						}

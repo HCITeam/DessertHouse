@@ -14,6 +14,7 @@ import dessert.configure.Configure;
 import dessert.configure.ErrorCode;
 import dessert.controller.HtmlController;
 import dessert.rvo.commodity.InventoryRVO;
+import dessert.rvo.member.InfoResultVO;
 import dessert.rvo.member.LoginResultVO;
 import dessert.service.CommodityService;
 import dessert.service.MemberService;
@@ -61,8 +62,8 @@ public class LoginController extends HtmlController{
 			session.setAttribute(Configure.STATE, rvo.getState());
 			//获得商家信息
 			//TODO
-//			Date date=Util.getCurrentDate();
-			Date date=Util.getDateFromString("2016-05-05");
+			Date date=Util.getCurrentDate();
+//			Date date=Util.getDateFromString("2016-05-05");
 			String[] storeName=storeService.getAllStoreName();
 			List<InventoryRVO> firstList=commodityService.getByNameandDate(storeName[0], date);
 			List<InventoryRVO> secondList=commodityService.getByNameandDate(storeName[0], Util.theDateAfterday(date, 1));
@@ -81,6 +82,13 @@ public class LoginController extends HtmlController{
 			sc.setAttribute(Configure.DATE_ONE, date1);
 			sc.setAttribute(Configure.DATE_TWO, date2);
 			sc.setAttribute(Configure.DATE_THREE, date3);
+			
+			InfoResultVO info = memberService.getMemberInfo(rvo.getMember_id());
+			if (rvo.getSuccess() == Configure.SUCCESS_INT) {
+				sc.setAttribute(Configure.COMPELLATION, info.getCompellation());
+				sc.setAttribute(Configure.ADDRESS, info.getAddress());
+				sc.setAttribute(Configure.PHONE, info.getPhone());
+			} 	
 			
 			return Configure.SUCCESS;
 		}
