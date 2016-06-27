@@ -35,8 +35,8 @@
 			<div style="height: 1px"></div>
 				<form class="info-form recharge-content">
 					<ul>
-					 	<li><span>卡号:</span><input maxlength='15' class="myInput" type="text" id="mid" placeholder="会员卡号"></li>
-						<li><span>金额:</span><input maxlength='5' class="myInput" type="text" id="amount" placeholder="充值金额"></li>
+					 	<li><span>卡号:</span><input onkeypress='setOnlyNumber()' maxlength='15' class="myInput" type="text" id="mid" placeholder="会员卡号"></li>
+						<li><span>金额:</span><input onkeypress='setOnlyNumber()' maxlength='5' class="myInput" type="text" id="amount" placeholder="充值金额"></li>
 						<li><div class="btn modify-btn">充   值</div></li>
 					</ul>
 					<div class="message"></div>
@@ -48,5 +48,6 @@
 	<script src="../js/jquery-2.1.4.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
     <script src="../js/recharge.js"></script>
+    <script src="../js/myJS.js"></script>
 </body>
 </html>

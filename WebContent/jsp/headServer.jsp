@@ -113,6 +113,7 @@
 		</div>
 	</div>
 	<div class="clear"></div>
+    <script src="../js/myJS.js"></script>
 	<script src="../js/jquery-2.1.4.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
 	<script src="../js/headServer.js"></script>

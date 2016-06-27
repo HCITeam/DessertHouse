@@ -3,6 +3,7 @@ var integral=0;
 var grade=0;
 var nid=0;
 var allPrice=0.0;
+var clean=0;
 $(document).on("click","#tab-card",function(){
 	if ($("#tab-cash").hasClass("tab-btn-active")) {
 		$("#tab-cash").removeClass("tab-btn-active");
@@ -201,6 +202,10 @@ $(document).on("change","#total-cash",function(){
 $(".close-btn").on("click",function(){
 	   $(".modal-wrapper").hide();
 	   $("body").css("overflow","auto");
+	   if(clean==1)
+	   {
+		   location.reload();
+	   }
 	});
 
 $("#doSale").click(function()
@@ -260,7 +265,12 @@ $("#mDoPayLast").click(function(){
             data:{},
             success:function(result,textStatus)
             {    
-               	$("#myPayDiv").html("结账成功！");
+            	$("#myPayDiv").html("结账成功！");
+	        	$("#myPayDiv").css("font-size","30px");
+	        	$("#myPayDiv").css("text-align","center");
+	        	$("#myPayDiv").css("margin-top","100px");
+	        	clean=1;
+	        	$("#mDoPayLast").hide();
             }
             ,error:function(data)
             {
@@ -278,6 +288,12 @@ $("#mDoPayLast").click(function(){
 	        success:function(result,textStatus)
 	        {    
 	        	$("#myPayDiv").html("结账成功！");
+	        	$("#myPayDiv").css("font-size","30px");
+	        	$("#myPayDiv").css("text-align","center");
+	        	$("#myPayDiv").css("margin-top","100px");
+	        	clean=1;
+	        	$("#mDoPayLast").hide();
+	        	
 	        } ,error:function(data)
             {
             	$("body").html(data.responseText);

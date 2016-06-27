@@ -23,6 +23,24 @@
 	String date1 = (String)sc.getAttribute("date_one");
 	String date2 = (String)sc.getAttribute("date_two");
 	String date3 = (String)sc.getAttribute("date_three");
+	
+	
+    int success = (int) sc.getAttribute("success");
+	String message=(String)sc.getAttribute("message");
+	String compellation="";
+	String birthday="";
+	int gender=0;
+	String address="";
+	String phone="";
+	int area=0;
+	if(success==1){
+		area=(int)sc.getAttribute("area");
+		compellation = (String) sc.getAttribute("compellation");
+		birthday = (String) sc.getAttribute("birthday");
+		gender = (int) sc.getAttribute("gender");
+		address = (String) sc.getAttribute("address");
+		phone = (String) sc.getAttribute("phone");
+	}
 %>
 <script>
 	var visited = "<%=visited_store%>";
@@ -253,15 +271,15 @@
 				<table style="margin-top:0px;" class="book-table" id="book-table-cart" border="1">
 						<tr id="locationTr" style="display:none">
 							<th>地址</th>
-							<td><input  maxlength='20' style="width:400px;" class="setBackWhite" type="text" id="saddress" placeholder="送货地址"></td>
+							<td><input  maxlength='20' style="width:400px;" class="setBackWhite" type="text" id="saddress" placeholder="送货地址" value="<%=address%>"></td>
 						</tr>
 						<tr>
 							<th>联系人</th>
-							<td><input maxlength='10' style="width:400px;" class="setBackWhite" type="text" id="sname" placeholder="名称"></td>
+							<td><input maxlength='10' style="width:400px;" class="setBackWhite" type="text" id="sname" placeholder="名称" value="<%=compellation%>"></td>
 						</tr>
 						<tr>
 							<th>联系方式</th>
-							<td><input  maxlength='15' style="width:400px;" class="setBackWhite" type="text" id="sphone" placeholder="电话号码"></td>
+							<td><input onkeypress="setOnlyNumber()"  maxlength='15' style="width:400px;" class="setBackWhite" type="text" id="sphone" placeholder="电话号码" value="<%=phone%>"></td>
 						</tr>
 						<tr>
 							<td colspan="2" id="doer">
@@ -279,5 +297,6 @@
 	<script src="../js/bootstrap.js"></script>
 	<script src="../js/bootstrap-datepicker.js"></script>
 	<script src="../js/book.js"></script>
+	<script src="../js/myJS.js"></script>
 </body>
 </html>

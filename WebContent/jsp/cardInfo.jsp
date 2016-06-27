@@ -55,9 +55,9 @@
 						<li><span>状态:</span><span> 暂无数据</span></li>
 						<li><span>余额:</span><span id="span-balance"> 暂无数据</span></li>
 						<li><span>累计:</span><span> 暂无数据</span></li>
-						<li><span>银行卡:</span><input maxlength='15' type="text" id="bankcard" placeholder="请输入银行卡号"></li>
-						<li><input maxlength='15' class="btn modify-btn" id="modify-bankcard" value="绑定银行卡"></li>
-						<li><input maxlength='5' class="btn modify-btn" id="modify-recharge" value="充值"></li>
+						<li><span>银行卡:</span><input onkeypress="setOnlyNumber()" maxlength='15' type="text" id="bankcard" placeholder="请输入银行卡号"></li>
+						<li><input onkeypress="setOnlyNumber()" maxlength='15' class="btn modify-btn" id="modify-bankcard" value="绑定银行卡"></li>
+						<li><input onkeypress="setOnlyNumber()" maxlength='5' class="btn modify-btn" id="modify-recharge" value="充值"></li>
 					<%}else{
 						String id = (String) sc.getAttribute("id");
 						String name = (String) sc.getAttribute("name");
@@ -75,10 +75,10 @@
 						<li><span>余额:</span><span class='span-right' id="span-balance"> <%=balance %></span></li>
 						<li><span>累计:</span><span class='span-right'> <%=total %></span></li>
 						<%if(bankcard.equals(" ")){ 
-						%><li><span>银行卡:</span><input maxlength='15' type="text" id="bankcard" placeholder="请输入银行卡号"></li>
+						%><li><span>银行卡:</span><input  onkeypress="setOnlyNumber()" maxlength='15' type="text" id="bankcard" placeholder="请输入银行卡号"></li>
 						<li><span><input maxlength='15' class="btn confirm-btn" id="modify-bankcard" value="绑定"></span>
 						<%
-						}else{ %><li><span>银行卡:</span><input maxlength='15' type="text" class="long-input-td" id="bankcard" value="<%=bankcard %>"></li>
+						}else{ %><li><span>银行卡:</span><input onkeypress="setOnlyNumber()" maxlength='15' type="text" class="long-input-td" id="bankcard" value="<%=bankcard %>"></li>
 						<li><span><div class="btn confirm-btn cardBottom-btn" id="modify-bankcard">修改</div></span>
 			             <%}%>
 						<span><div class="btn confirm-btn cardBottom-btn" id="modify-recharge">充值</div></span></li>
@@ -96,7 +96,7 @@
 			<a class="close-btn" href="javascript:void(0)"><b></b></a>
 			<div style="height: 80px"></div>
 			<div class="amount-input">
-				<input maxlength='5' type="text" class="short-input-td" id="amount" placeholder="至少200方可激活">
+				<input  onkeypress="setOnlyNumber()" maxlength='5' type="text" class="short-input-td" id="amount" placeholder="至少200方可激活">
 				
 				<a class="btn confirm-btn" id="confirm-recharge" href="javascript:void(0)">确认</a>
 			</div>
@@ -107,5 +107,6 @@
 	<script src="../js/jquery-2.1.4.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
     <script src="../js/cardinfo.js"></script>
+    <script src="../js/myJS.js"></script>
 </body>
 </html>

@@ -118,8 +118,8 @@ function addClick()
 							<option value='切片面包'>切片面包</option>\
 							<option value='蛋挞'>蛋挞</option>\
 						</select></td>\
-			<td><input type='text' class='short-input-td showBorder' id='p_num' placeholder='商品数量'></td>\
-			<td><input type='text' class='short-input-td showBorder' id='price' placeholder='单价'></td>\
+			<td><input onkeypress='setOnlyNumber()' type='text' class='short-input-td showBorder' id='p_num' placeholder='商品数量'></td>\
+			<td><input onkeypress='setMoreNumber()' type='text' class='short-input-td showBorder' id='price' placeholder='单价'></td>\
 		    <td><a id='newStoreAdd'><img class='delImg'\
 					src='../img/check.png'></a></td>\
 			<td><a id='newStoreDel'><img class='delImg'\

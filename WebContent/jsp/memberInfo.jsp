@@ -59,7 +59,7 @@
 						<li><span>性别:</span> 男<input type="radio" name="gender" value="1">女<input type="radio" name="gender" value="0" checked="checked"></li>
 						<li><span>生日:</span><input class="setBackWhite" type="date" id="birthday" placeholder="生日"></li>
 						<li><span>送货地址:</span><input  maxlength='15' class="setBackWhite" type="text" id="address" placeholder="送货地址"></li>
-						<li><span>联系电话:</span><input maxlength='15' class="setBackWhite" type="text" id="phone" placeholder="联系方式"></li>
+						<li><span>联系电话:</span><input onkeypress="setOnlyNumber()" maxlength='15' class="setBackWhite" type="text" id="phone" placeholder="联系方式"></li>
 					<%}else{ 
 						String compellation = (String) sc.getAttribute("compellation");
 						String birthday = (String) sc.getAttribute("birthday");
@@ -74,7 +74,7 @@
 						<%} %>
 						<li><span>生日:</span><input class="setBackWhite" type="date" id="birthday" placeholder="<%=birthday%>"></li>
 						<li><span>送货地址:</span>
-						<select class="select-info setBackWhite" id="address-select">
+						<select class="select-info setBackWhite" id="address-select" style="display:none;">
 							<option value="0">玄武区</option>
 							<option value="1">鼓楼区</option>
 							<option value="2">建邺区</option>
@@ -87,8 +87,8 @@
 							<option value="9">溧水区</option>
 							<option value="10">高淳区</option>
 						</select>
-						<input maxlength='15' class="setBackWhite" type="text" id="address" placeholder="<%=address%>"></li>
-						<li><span>联系电话:</span><input maxlength='15' type="text" id="phone" placeholder="<%=phone%>"></li>
+						<input style="margin-left:-12px;" maxlength='15' class="setBackWhite" type="text" id="address" placeholder="<%=address%>"></li>
+						<li><span>联系电话:</span><input onkeypress="setOnlyNumber()" maxlength='15' type="text" id="phone" placeholder="<%=phone%>"></li>
 					<%} %>
 						<li><input class="btn modify-btn" value="修改"></li>
 					</ul>
@@ -101,6 +101,7 @@
 	<script src="../js/jquery-2.1.4.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
     <script src="../js/memberinfo.js"></script>
+    <script src="../js/myJS.js"></script>
     <script type="text/javascript">
       $("#address-select").val(<%=area%>);
     </script>

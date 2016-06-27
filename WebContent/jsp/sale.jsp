@@ -56,7 +56,7 @@
   							<%} %>
 						</select></td>
 						<td id="newPrice">0</td>
-					    <td id="newNum"><input maxlength='5' id="new-good-num" class="showBorder" type="text" width="100px" value="1"></td>
+					    <td id="newNum"><input onkeypress='setOnlyNumber()' maxlength='5' id="new-good-num" class="showBorder" type="text" width="100px" value="1"></td>
 						<td id="newAllPrice">0</td>
 						<td><img class="store-btn-delete" id="addGood" src="../img/posi.png"></td>
 					</tr>
@@ -154,11 +154,11 @@
 					</tr>
 					<tr>
 						<td>现金</td>
-						<td><input maxlength='5' type="text" class="short-input-td" id="giveMon" value="0" placeholder="现金"></td>
+						<td><input onkeypress='setMoreNumber()' maxlength='5' type="text" class="short-input-td" id="giveMon" value="0" placeholder="现金"></td>
 					</tr>
 					<tr>
 						<td>会员卡付款</td>
-						<td><input maxlength='5' type="text" class="short-input-td" disabled="disabled" id="cardMon" value="0" placeholder="刷卡"></td>
+						<td><input onkeypress='setMoreNumber()' maxlength='5' type="text" class="short-input-td" disabled="disabled" id="cardMon" value="0" placeholder="刷卡"></td>
 					</tr>
 					<tr>
 						<td>找零</td>
@@ -178,5 +178,6 @@
 	<script src="../js/jquery-2.1.4.min.js"></script>
 	<script src="../js/bootstrap.js"></script>
     <script src="../js/sale.js"></script>
+    <script src="../js/myJS.js"></script>
 </body>
 </html>
