@@ -140,13 +140,18 @@ $("#tool-btn-cart").on("click",function(){
 $(document).on("click",".sub-btn",function(){
 //	alert("sub");
 	 var num=$(this).siblings("input").val();
+	 var left_num=$(this).parent().siblings(".book-lnum-td").html();
 	 num=parseInt(num)-1;
+	 if(num<0)return;
+	 if(parseInt(num)>parseInt(left_num)){
+		 return;
+	 }
 	 $(this).siblings("input").val(num);
 	 var send_date=$(this).parent().siblings(".book-sdate-td").html();
 	 var storeName=$(this).parent().siblings(".book-sname-td").html();
 	 var p_name=$(this).parent().siblings(".book-pname-td").html();
 	 var p_num=num;
-	 var left_num=$(this).parent().siblings(".book-lnum-td").html();
+	 
 	 var price=$(this).parent().siblings(".book-price-td").html();
 	 if(parseInt(p_num)>parseInt(left_num)){
 		 alert("库存数量不足，请修改您的数量");
@@ -177,12 +182,18 @@ $(document).on("click",".add-btn",function(){
 //	alert("add");
 	 var num=$(this).siblings("input").val();
 	 num=parseInt(num)+1;
+
+	 var left_num=$(this).parent().siblings(".book-lnum-td").html();
+	 
+	 if(parseInt(num)>parseInt(left_num)){
+		 return;
+	 }
+
 	 $(this).siblings("input").val(num);
 	 var send_date=$(this).parent().siblings(".book-sdate-td").html();
 	 var storeName=$(this).parent().siblings(".book-sname-td").html();
 	 var p_name=$(this).parent().siblings(".book-pname-td").html();
 	 var p_num=num;
-	 var left_num=$(this).parent().siblings(".book-lnum-td").html();
 	 var price=$(this).parent().siblings(".book-price-td").html();
 	 if(parseInt(p_num)>parseInt(left_num)){
 		 alert("库存数量不足，请修改您的数量");
@@ -306,7 +317,7 @@ $("#doSend").click(function()
 
 $('.date-input').datepicker({
 	format: "yyyy-mm-dd",
-	startDate: "2016-06-27",
+	startDate: "2016-06-27",	
 	endDate: "2016-07-03"
 });
 
