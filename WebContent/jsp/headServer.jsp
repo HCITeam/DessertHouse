@@ -28,7 +28,7 @@
 			<a class="nav-btn" id="message-manage" href="/Desserthouse/ManageMessage">消息管理</a>
 		</div>
 
-		<a class="manage-btn" href="/Desserthouse/Logout"> <span>登出</span> <img
+		<a class="manage-btn" href="/Desserthouse/EmployeeLogout"> <span>登出</span> <img
 			src="../img/signout.png">
 			<div class="clear"></div>
 		</a>

@@ -16,6 +16,9 @@
 	    CardInfoResultVO info=(CardInfoResultVO)sc.getAttribute("cardinfo");
 	    List<MemberRecordRVO> consumeList=(List<MemberRecordRVO>)sc.getAttribute("consume_list");
 		List<MemberRecordRVO> rechargeList=(List<MemberRecordRVO>)sc.getAttribute("recharge_list");
+		sc.removeAttribute("cardinfo");
+		sc.removeAttribute("consume_list");
+		sc.removeAttribute("recharge_list");
 	%>
 </head>
 <body>
@@ -29,7 +32,7 @@
 			<a class="nav-btn" href="javascript:void(0)">会员资料</a>
 			<a class="nav-btn" href="/Desserthouse/jsp/recharge.jsp">充值</a>
 		</div>
-		<a class="manage-btn" href="/Desserthouse/Logout"> <span>登出</span> <img
+		<a class="manage-btn" href="/Desserthouse/EmployeeLogout"> <span>登出</span> <img
 			src="../img/signout.png">
 			<div class="clear"></div>
 		</a>

@@ -26,7 +26,7 @@
 			<a class="nav-btn nav-btn-active" href="javascript:void(0)">销售</a>
 			<a class="nav-btn" href="/Desserthouse/jsp/recharge.jsp">充值</a>
 		</div>
-		<a class="manage-btn" href="/Desserthouse/Logout"> <span>登出</span> <img
+		<a class="manage-btn" href="/Desserthouse/EmployeeLogout"> <span>登出</span> <img
 			src="../img/signout.png">
 			<div class="clear"></div>
 		</a>
